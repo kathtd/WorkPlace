@@ -1,0 +1,21 @@
+{
+  "name": "WorkPlace",
+  "short_name": "WorkPlace",
+  "start_url": "/WorkPlace/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2f3fb4",
+  "icons": [
+    {
+      "src": "Imagenes/WorkPlace_logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "Imagenes/WorkPlace_logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

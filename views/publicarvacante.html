@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="shortcut icon" href="../Imagenes/WorkPlace_logo.webp" type="image/x-icon" sizes="11x11">
     <script src="https://kit.fontawesome.com/35fd8e12c7.js" crossorigin="anonymous"></script>
+    <link rel="manifest" href="../manifest.json">
 </head>
 <body>
     <header>
@@ -50,4 +51,12 @@
     <main class="container">
 
     </main>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/WorkPlace/sw.js')
+            .then(() => console.log('SW registrado'))
+            .catch(err => console.log('Error SW:', err));
+        }
+    </script>
 </body>
+</html>
