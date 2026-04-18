@@ -1,4 +1,5 @@
 {
+  "id": "/WorkPlace/",
   "name": "WorkPlace",
   "short_name": "WorkPlace",
   "start_url": "/WorkPlace/",
@@ -8,14 +9,21 @@
   "icons": [
     {
       "src": "Imagenes/WorkPlace_logo.png",
-      "sizes": "192x192",
+      "sizes": "1536x1024",
       "type": "image/png"
+    }
+  ] ,"screenshots": [
+    {
+      "src": "screenshots/desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
     },
     {
-      "src": "Imagenes/WorkPlace_logo.png",
-      "sizes": "512x512",
+      "src": "screenshots/mobile.png",
+      "sizes": "390x844",
       "type": "image/png",
-      "purpose": "any maskable"
+      "form_factor": "narrow"
     }
   ]
 }
