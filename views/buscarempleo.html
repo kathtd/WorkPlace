@@ -50,6 +50,319 @@
         </nav>
     </header>
     <main class="container">
+        <section class="job-search">
+            <div class="job-search__container">
+                <h2 class="job-search__title">Explora <span style="color: #3b82f6;"> miles de oportunidades</span> laborales</h2>
+                <form class="job-search__form">
+                    <article class="job-search__field">
+                        <i class="fa-solid fa magnifying-glass job-search__icon"></i>
+                        <input
+                            type="text"
+                            class="job-search__input"
+                            placeholder="Cargo, empresa o palabra clave">
+                    </article>
+                    <article class="job-search__field">
+                        <i class="fa-solid fa-location-dot job-search__icon"></i>
+                        <input
+                            type="text"
+                            class="job-search__input"
+                            placeholder="Ciudad o región">
+                    </article>
+                    <button type="submit" class="job-search__button">
+                        Buscar
+                    </button>
+                </form>
+            </div>
+        </section>
+        <section class="jobs">
+            <div class="jobs__header">
+                <p>Mostrando vacantes encontradas</p>
+                <div class="job__order">
+                    <span>Ordenar por:</span>
+                    <select>
+                        <option>Más recientes</option>
+                        <option>Mayor salario</option>
+                        <option>Menor salario</option>
+                    </select>
+                </div>
+            </div>
+            <div class="jobs__content">
+                <!--FILTROS-->
+                <aside class="jobs__sidebar">
+                    <div class="jobs__filters">
+                    <h2><span>Filtros</span></h2>
+                    <div class="filter-group">
+                        <h3>MODALIDAD DE TRABAJO</h3>
+                        <label>
+                            <input type="checkbox">
+                            <span>Remoto</span>
+                        </label>
+                        <label>
+                            <input type="checkbox">
+                            <span>Presencial</span>
+                        </label>
+                        <label>
+                            <input type="checkbox">
+                            <span>Híbrido</span>
+                        </label>
+                    </div>
+                    <div class="filter-group">
+                        <h3>RANGO SALARIAL MENSUAL(COP)</h3>
+                        <label>
+                            <input type="radio" name="salary">
+                            <span>Hasta $2M (SMLV+)</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="salary">
+                            <span>$2M - $5M</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="salary">
+                            <span>$5M - $10M</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="salary">
+                            <span> Más de $10.000.000 </span>
+                        </label>
+                    </div>
+                    </div>
+                    <div class="job-alert">
+                        <h3>
+                            <span class="job-alert__icon"></span>
+                            Alerta de empleo
+                        </h3>
+                        <p> Recibe ofertas similares a tú busqueda en tu email.</p>
+                        <button type="button" class="job-alert__button">
+                            Activar Alerta
+                        </button>
+                    </div>
+                </aside>
+                <!--lista de vacantes-->
+                <div class="jobs__list">
+                    <!--vacante 1-->
+                    <article class="job-card">
+                        <div class="job-card__logo"> C </div>
+                        <div class="job-card__info">
+                            <h2>Enfermera Jefe de Urgencias</h2>
+                            <h4>Clínica San Rafael</h4>
+                            <div class="job-card__details">
+                                <span>Bogotá D.C.</span>
+                                <strong>$4.500.000 - 6.000.000</strong>
+                            </div>
+                        </div>
+                        <div class="job-card__right">
+                            <div class="job-card__top">
+                                <span class="job-car__tag">PRESENCIAL</span>
+                                <span class="job-card__time">HACE 2H</span>
+                            </div>
+                            <div class="job-card__buttons">
+                                <button class="save-button"></button>
+                                <button class="apply-button">Postularme</button>
+                            </div>
+                        </div>
+                    </article>
+                    <!--vacante 2-->
+                    <article class="job-card">
+                        <div class="job-card__logo">A</div>
+                        <div class="job-card__info">
+                            <h2>Gerente de Mercadeo</h2>
+                            <h4>Alpina</h4>
+                            <div class="job-card__details">
+                                <span>Pereira, Risaralda</span>
+                                <strong>$8.000.000 - 12.000.000</strong>
+                            </div>
+                        </div>
+                        <div class="job-card__right">
+                            <div class="job-card__top">
+                                <span class="job-card__tag">Híbrido</span>
+                                <span class="job-card__time">HACE 5H</span>
+                            </div>
+                            <div class="job-card__buttons">
+                                <button clsss="save-button"></button>
+                                <button class="apply-button">Postularme</button>
+                            </div>
+                        </div>
+                    </article>
+                    <!--Vacante 3-->
+                    <article class="job-card">
+                        <div class="job-card__logo">B</div>
+                        <div class="job-card__info">
+                            <h2>Analista Contable Junior</h2>
+                            <h4>Bancolombia</h4>
+                            <div class="job-card__details">
+                                <span>Medellin, Antioquia</span>
+                                <strong>$2.800.000 - $3.500.000</strong>
+                            </div>
+                        </div>
+                        <div class="job-card__right">
+                            <div class="job-card__top">
+                                <span class="job-card__tag">PRESENCIAL</span>
+                                <span class="job-card__time">AYER</span>
+                            </div>
+                            <div class="job-card__buttons">
+                                <button class="save-button"></button>
+                                <button class="apply-button">Postularme</button>
+                            </div>
+                        </div>
+                    </article>
+                    <!--Vacante 4-->
+                    <article class="job-card">
+                        <div class="job-card__logo">W</div>
+                        <div class="job-card__info">
+                            <h2>Desarrolador Frontend Junior</h2>
+                            <h4>Confamiliar</h4>
+                            <div class="job-card__details">
+                                <span>Pereira, Risaralda</span>
+                                <strong>$3.500.000 - $4.500.000</strong>
+                            </div>
+                        </div>
+                        <div class="job-card__right">
+                            <div class="job-card__top">
+                                <span class="job-card__tag">REMOTO</span>
+                                <span class="job-card__time">HACE 2 DÍAS</span>
+                            </div>
+                            <div class="job-card__buttons">
+                                <button class="save-button"></button>
+                                <button class="apply-button">Postularme</button>
+                            </div>
+                        </div>
+                    </article>
+                    <!--Vacante 5-->
+                    <article class="job-card">
+                        <div class="job-card__logo">C</div>
+                        <div class="job-card__info">
+                            <h2>Profesor de Ingles - Bachillerato</h2>
+                            <h4>Colegio Pino verde</h4>
+                            <div class="job-card__details">
+                                <span>Pereira, Risaralda</span>
+                                <strong>$3.000.000 - $4.000.000</strong>
+                            </div>
+                        </div>
+                        <div class="job-card__right">
+                            <div class="job-card__top">
+                                <span class="job-card__tag">PRESENCIAL</span>
+                                <span class="job-card__time">HACE 6 DÍAS</span>
+                            </div>
+                            <div class="job-card__buttons">
+                                <button class="save-button"></button>
+                                <button class="apply-button">Postularme</button>
+                            </div>
+                        </div>
+                    </article>
+                    <!--Vacante 6-->
+                    <article class="job-card">
+                        <div class="job-card__logo">L</div>
+                        <div class="job-card__info">
+                            <h2>Auxiliar Administrativo</h2>
+                            <h4>La Rosa</h4>
+                            <div class="job-card__details">
+                                <span>Manizales, Caldas</span>
+                                <strong>$1.800.000 - $2.200.000</strong>
+                            </div>
+                        </div>
+                        <div class="job-card__right">
+                            <div class="job-card__top">
+                                <span class="job-card__tag">PRESENCIAL</span>
+                                <span class="job-card__time">HACE 2 DÍAS</span>
+                            </div>
+                            <div class="job-card__buttons">
+                                <button class="save-button"></button>
+                                <button class="apply-button">Postularme</button>
+                            </div>
+                        </div>
+                    </article>
+                    <!--Vacante 7-->
+                    <article class="job-card">
+                        <div class="job-card__featured">DESTACADO</div>
+                        <div class="job-card__logo">A</div>
+                        <div class="job-card__info">
+                            <h2>Ingeniero de Datos </h2>
+                            <h4>Audifarma S.A.</h4>
+                            <div class="job-card__details">
+                                <span>Cali, Valle del Cauca</span>
+                                <strong>$5.000.000 - $7.500.000</strong>
+                            </div>
+                        </div>
+                        <div class="job-card__right">
+                            <div class="job-card__top">
+                                <span class="job-card__tag">REMOTO</span>
+                                <span class="job-card__time">HACE 1 DÍA</span>
+                            </div>
+                            <div class="job-card__buttons">
+                                <button class="save-button"></button>
+                                <button class="apply-button">Postularme</button>
+                            </div>
+                        </div>
+                    </article>
+                    <!--Vacante 8-->
+                    <article class="job-card">
+                        <div class="job-card__logo">F</div>
+                        <div class="job-card__info">
+                            <h2>Auxiliar Farmacia</h2>
+                            <h4>Farmatodo</h4>
+                            <div class="job-card__details">
+                                <span>San Juan de Pasto, Nariño</span>
+                                <strong>$1.600.000 - $2.200.000</strong>
+                            </div>
+                        </div>
+                        <div class="job-card__right">
+                            <div class="job-card__top">
+                                <span class="job-card__tag">PRESENCIAL</span>
+                                <span class="job-card__time">HACE 5 HORAS</span>
+                            </div>
+                            <div class="job-card__buttons">
+                                <button class="save-button"></button>
+                                <button class="apply-button">Postularme</button>
+                            </div>
+                        </div>
+                    </article>
+                    <!--Vacante 9-->
+                    <article class="job-card">
+                        <div class="job-card__logo">W</div>
+                        <div class="job-card__info">
+                            <h2>Operador de Maquinaria Pesada</h2>
+                            <h4>Manpower Group Colombia</h4>
+                            <div class="job-card__details">
+                                <span>Bucaramanga, Santander</span>
+                                <strong>$2.800.000 - $4.200.000</strong>
+                            </div>
+                        </div>
+                        <div class="job-card__right">
+                            <div class="job-card__top">
+                                <span class="job-card__tag">PRESENCIAL</span>
+                                <span class="job-card__time">HACE 12 HORAS</span>
+                            </div>
+                            <div class="job-card__buttons">
+                                <button class="save-button"></button>
+                                <button class="apply-button">Postularme</button>
+                            </div>
+                        </div>
+                    </article>
+                    <!--Vacante 10-->
+                    <article class="job-card">
+                        <div class="job-card__logo">A</div>
+                        <div class="job-card__info">
+                            <h2>Asesor de Servicio al Cliente BilingÜe</h2>
+                            <h4>Avianca</h4>
+                            <div class="job-card__details">
+                                <span>Pereira, Risaralda</span>
+                                <strong>$2.000.000 - $3.000.000</strong>
+                            </div>
+                        </div>
+                        <div class="job-card__right">
+                            <div class="job-card__top">
+                                <span class="job-card__tag">PRESENCIAL</span>
+                                <span class="job-card__time">HACE 8 HORAS</span>
+                            </div>
+                            <div class="job-card__buttons">
+                                <button class="save-button"></button>
+                                <button class="apply-button">Postularme</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
 
     </main>
     <footer class="footer">
