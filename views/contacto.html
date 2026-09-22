@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WorkPlace</title>
+    <title>WorkPlace - Contacto</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="shortcut icon" href="../Imagenes/WorkPlace_logo.webp" type="image/x-icon" sizes="11x11">
     <script src="https://kit.fontawesome.com/35fd8e12c7.js" crossorigin="anonymous"></script>
@@ -29,29 +29,116 @@
                     <a class="empresas" href="../views/paraempresas.html">Empresas</a>
                 </li>
                 <li class="nav__list-item">
-                    <a class=" activo Contacto" href="../views/contacto.html">Contacto</a>
+                    <a class="activo Contacto" href="../views/contacto.html">Contacto</a>
                 </li>
             </ul>
             <ul class="nav__list">
                 <li class="nav__list-item">
-                    <a class="informacion" href="../views/informaciontecnica.html" ><i class="fa-solid fa-circle-info" ></i></a>
+                    <a class="informacion" href="../views/informaciontecnica.html"><i class="fa-solid fa-circle-info"></i></a>
                 </li>
                 <li class="nav__list-item">
-                    <a class="ayuda" href="../views/centrodeayuda.html"><i class="fa-solid fa-circle-question" ></i></a>
+                    <a class="ayuda" href="../views/centrodeayuda.html"><i class="fa-solid fa-circle-question"></i></a>
                 </li>
                 <li class="nav__list-item">
-                    <a class="Contacto" href="../views/contacto.html"><i class="fa-brands fa-think-peaks" ></i></a>
+                    <a class="Contacto" href="../views/contacto.html"><i class="fa-brands fa-think-peaks"></i></a>
                 </li>
                 <li class="nav__list-item">
-                    <a class="perfil" href="../views/perfil.html"><i class="fa-regular fa-circle-user" ></i></a>
+                    <a class="perfil" href="../views/perfil.html"><i class="fa-regular fa-circle-user"></i></a>
                 </li>
             </ul>
         </nav>
-        </nav>
     </header>
-    <main class="container">
 
+    <main class="contact-page">
+        <section class="contact-hero">
+            <h1>¿Necesitas Ayuda?</h1>
+            <p>Nuestro equipo de soporte está disponible para ayudarte con cualquier duda sobre la plataforma, problemas técnicos o asesoría para empresas.</p>
+        </section>
+
+        <section class="contact-content">
+            <div class="contact-sidebar">
+                <div class="contact-card">
+                    <span class="contact-card__icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </span>
+                    <div class="contact-card__text">
+                        <h3>Línea de Apoyo</h3>
+                        <p class="contact-card__subtitle">Lun - Vie, 8am a 6pm</p>
+                        <p class="contact-card__highlight">+57 (601) 456-7890</p>
+                        <p class="contact-card__subtitle">Línea gratuita: 01 8000 912 345</p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <span class="contact-card__icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </span>
+                    <div class="contact-card__text">
+                        <h3>Correo Electrónico</h3>
+                        <p class="contact-card__subtitle">Respuesta en menos de 24h</p>
+                        <p class="contact-card__highlight">soporte@workplace.com.co</p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <span class="contact-card__icon">
+                        <i class="fa-regular fa-clock"></i>
+                    </span>
+                    <div class="contact-card__text">
+                        <h3>Horario de Atención</h3>
+                        <div class="contact-card__schedule">
+                            <span>Lunes a Viernes:</span>
+                            <span>8:00 - 18:00</span>
+                        </div>
+                        <div class="contact-card__schedule">
+                            <span>Sábados:</span>
+                            <span>9:00 - 13:00</span>
+                        </div>
+                        <div class="contact-card__schedule contact-card__schedule--closed">
+                            <span>Festivos:</span>
+                            <span>Cerrado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-card">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez">
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo Electrónico</label>
+                        <input type="email" id="correo" name="correo" placeholder="juan@ejemplo.com">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="asunto">Asunto</label>
+                    <select id="asunto" name="asunto">
+                        <option value="perfil">Duda sobre mi perfil</option>
+                        <option value="tecnico">Problema técnico</option>
+                        <option value="empresas">Asesoría para empresas</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="6" placeholder="Cuéntanos en qué podemos ayudarte..."></textarea>
+                </div>
+
+                <button type="button" class="submit-button">Enviar Mensaje de Soporte</button>
+
+                <p class="privacy-note">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    Tus datos están protegidos bajo nuestra política de privacidad colombiana.
+                </p>
+            </div>
+        </section>
     </main>
+
     <footer class="footer">
         <section class="footer__items">
             <h3 class="footer__title">WorkPlace</h3>
@@ -77,11 +164,11 @@
             <a class="footer__description footer__description--highlighted" href="#">Politica de Privacidad</a>
             <a class="footer__description footer__description--highlighted" href="#">Politica de cookies</a>
             <a class="footer__description footer__description--highlighted" href="#">Aviso Legal</a>
-            <a class="footer__description footer__description--highlighted" href="#">Código de Conducta</a> 
+            <a class="footer__description footer__description--highlighted" href="#">Código de Conducta</a>
         </section>
         <section class="footer__items">
             <h3 class="footer__title">Contacto de Soporte</h3>
-            <i class= "footer__icon fa-regular fa-envelope"></i><span class="footer__sub-title">Soporte General:</span>
+            <i class="footer__icon fa-regular fa-envelope"></i><span class="footer__sub-title">Soporte General:</span>
             <p class="footer__description">soporte@workplace.com.co</p>
             <i class="footer__icon fa-solid fa-phone"></i><span class="footer__sub-title">Linea Nacional:</span>
             <p class="footer__description">018000912345</p>
@@ -91,6 +178,7 @@
             <p class="footer__description">Calle 45 #27-58, piso 6, Bogotá</p>
         </section>
     </footer>
+
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/WorkPlace/sw.js')

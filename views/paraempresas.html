@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WorkPlace</title>
+    <title>WorkPlace - Para Empresas</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="shortcut icon" href="../Imagenes/WorkPlace_logo.webp" type="image/x-icon" sizes="11x11">
     <script src="https://kit.fontawesome.com/35fd8e12c7.js" crossorigin="anonymous"></script>
@@ -34,24 +34,109 @@
             </ul>
             <ul class="nav__list">
                 <li class="nav__list-item">
-                    <a class="informacion" href="../views/informaciontecnica.html" ><i class="fa-solid fa-circle-info" ></i></a>
+                    <a class="informacion" href="../views/informaciontecnica.html"><i class="fa-solid fa-circle-info"></i></a>
                 </li>
                 <li class="nav__list-item">
-                    <a class="ayuda" href="../views/centrodeayuda.html"><i class="fa-solid fa-circle-question" ></i></a>
+                    <a class="ayuda" href="../views/centrodeayuda.html"><i class="fa-solid fa-circle-question"></i></a>
                 </li>
                 <li class="nav__list-item">
-                    <a class="Contacto" href="../views/contacto.html"><i class="fa-brands fa-think-peaks" ></i></a>
+                    <a class="Contacto" href="../views/contacto.html"><i class="fa-brands fa-think-peaks"></i></a>
                 </li>
                 <li class="nav__list-item">
-                    <a class="perfil" href="../views/perfil.html"><i class="fa-regular fa-circle-user" ></i></a>
+                    <a class="perfil" href="../views/perfil.html"><i class="fa-regular fa-circle-user"></i></a>
                 </li>
             </ul>
         </nav>
-        </nav>
     </header>
-    <main class="container">
 
+    <main>
+        <section class="employers-hero">
+          <div class="employers-hero__inner">
+            <div class="employers-content">
+                <span class="employers-badge">Para Empleadores</span>
+
+                <h1 class="employers-title">
+                    Encuentra el <span class="employers-title--accent">talento excepcional</span> que tu empresa necesita
+                </h1>
+
+                <p class="employers-description">
+                    WorkPlace es el aliado estratégico de las empresas colombianas. Ayudamos a startups y grandes corporaciones a construir equipos ganadores.
+                </p>
+
+                <ul class="employers-features">
+                    <li class="employers-feature">
+                        <span class="employers-feature__icon">
+                            <i class="fa-solid fa-users"></i>
+                        </span>
+                        <div>
+                            <h3>Talento Calificado</h3>
+                            <p>Accede a una base de datos de más de 50,000 candidatos validados.</p>
+                        </div>
+                    </li>
+                    <li class="employers-feature">
+                        <span class="employers-feature__icon">
+                            <i class="fa-solid fa-rocket"></i>
+                        </span>
+                        <div>
+                            <h3>Publicación Rápida</h3>
+                            <p>Crea y publica tus vacantes en menos de 5 minutos.</p>
+                        </div>
+                    </li>
+                    <li class="employers-feature">
+                        <span class="employers-feature__icon">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </span>
+                        <div>
+                            <h3>Match Inteligente</h3>
+                            <p>Nuestro algoritmo te muestra los candidatos que mejor encajan.</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="employers-actions">
+                    <a href="../views/publicarvacante.html" class="employers-button employers-button--primary">Registrar mi Empresa</a>
+                    <a href="../views/contacto.html" class="employers-button employers-button--secondary">Hablar con un asesor</a>
+                </div>
+            </div>
+
+            <div class="employers-panel">
+                <div class="employers-panel__header">
+                    <span class="employers-panel__icon">
+                        <i class="fa-solid fa-building"></i>
+                    </span>
+                    <div>
+                        <h3>Panel de Reclutador</h3>
+                        <p>Métricas de reclutamiento hoy</p>
+                    </div>
+                </div>
+
+                <div class="employers-panel__progress">
+                    <div class="employers-panel__progress-bar" style="width: 70%;"></div>
+                </div>
+
+                <div class="employers-panel__stats">
+                    <div class="employers-stat">
+                        <span class="employers-stat__number">12</span>
+                        <span class="employers-stat__label">CVS HOY</span>
+                    </div>
+                    <div class="employers-stat">
+                        <span class="employers-stat__number">24</span>
+                        <span class="employers-stat__label">CVS HOY</span>
+                    </div>
+                    <div class="employers-stat">
+                        <span class="employers-stat__number">36</span>
+                        <span class="employers-stat__label">CVS HOY</span>
+                    </div>
+                </div>
+
+                <a href="../views/buscarempleo.html" class="employers-panel__link">
+                    Ver todas las vacantes <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+          </div>
+        </section>
     </main>
+
     <footer class="footer">
         <section class="footer__items">
             <h3 class="footer__title">WorkPlace</h3>
@@ -77,11 +162,11 @@
             <a class="footer__description footer__description--highlighted" href="#">Politica de Privacidad</a>
             <a class="footer__description footer__description--highlighted" href="#">Politica de cookies</a>
             <a class="footer__description footer__description--highlighted" href="#">Aviso Legal</a>
-            <a class="footer__description footer__description--highlighted" href="#">Código de Conducta</a> 
+            <a class="footer__description footer__description--highlighted" href="#">Código de Conducta</a>
         </section>
         <section class="footer__items">
             <h3 class="footer__title">Contacto de Soporte</h3>
-            <i class= "footer__icon fa-regular fa-envelope"></i><span class="footer__sub-title">Soporte General:</span>
+            <i class="footer__icon fa-regular fa-envelope"></i><span class="footer__sub-title">Soporte General:</span>
             <p class="footer__description">soporte@workplace.com.co</p>
             <i class="footer__icon fa-solid fa-phone"></i><span class="footer__sub-title">Linea Nacional:</span>
             <p class="footer__description">018000912345</p>
@@ -91,6 +176,7 @@
             <p class="footer__description">Calle 45 #27-58, piso 6, Bogotá</p>
         </section>
     </footer>
+
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/WorkPlace/sw.js')
