@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/35fd8e12c7.js" crossorigin="anonymous"></script>
     <link rel="manifest" href="../manifest.json">
     <meta name="theme-color" content="#2f3fb4">
-    <link rel="apple-touch-icon" href="Imagenes/icon-192.png">  
+    <link rel="apple-touch-icon" href="../Imagenes/icon-192.png">
 </head>
 <body>
     <header>
@@ -44,11 +44,11 @@
                     <button type="button" class="ayuda" id="helpButton" aria-label="Centro de Ayuda">
                         <i class="fa-solid fa-circle-question"></i>
                     </button>
-                 
+
                     <div class="help-dropdown" id="helpDropdown">
                         <h3 class="help-dropdown__title">Centro de Ayuda</h3>
                         <hr class="help-dropdown__divider">
-                 
+
                         <a href="#" class="help-dropdown__item" id="helpAcercaDe">
                             <i class="fa-solid fa-circle-info"></i>
                             <div>
@@ -56,7 +56,7 @@
                                 <p class="help-dropdown__item-subtitle">Información del software</p>
                             </div>
                         </a>
-                 
+
                         <a href="../views/centrodeayuda.html" class="help-dropdown__item">
                             <i class="fa-solid fa-book"></i>
                             <div>
@@ -64,7 +64,7 @@
                                 <p class="help-dropdown__item-subtitle">Aprende a usar la plataforma</p>
                             </div>
                         </a>
-                 
+
                         <a href="../views/centrodeayuda.html" class="help-dropdown__item">
                             <i class="fa-solid fa-video"></i>
                             <div>
@@ -72,7 +72,7 @@
                                 <p class="help-dropdown__item-subtitle">Tutoriales paso a paso</p>
                             </div>
                         </a>
-                 
+
                         <a href="../views/centrodeayuda.html" class="help-dropdown__item">
                             <i class="fa-regular fa-circle-question"></i>
                             <div>
@@ -80,9 +80,9 @@
                                 <p class="help-dropdown__item-subtitle">Respuestas rápidas</p>
                             </div>
                         </a>
-                 
+
                         <p class="help-dropdown__section-label">Contáctanos</p>
-                 
+
                         <a href="../views/contacto.html" class="help-dropdown__item">
                             <i class="fa-solid fa-comment"></i>
                             <div>
@@ -90,7 +90,7 @@
                                 <p class="help-dropdown__item-subtitle">Lun-Vie 8am-6pm</p>
                             </div>
                         </a>
-                 
+
                         <a href="tel:+573019308927" class="help-dropdown__item">
                             <i class="fa-solid fa-phone"></i>
                             <div>
@@ -98,7 +98,7 @@
                                 <p class="help-dropdown__item-subtitle">301 930 8927</p>
                             </div>
                         </a>
-                 
+
                         <a href="mailto:soporte@workplace.com.co" class="help-dropdown__item">
                             <i class="fa-solid fa-envelope"></i>
                             <div>
@@ -116,7 +116,7 @@
                             <span class="profile-trigger__role">Candidato</span>
                         </span>
                     </button>
-                 
+
                     <div class="profile-dropdown" id="profileDropdown">
                         <div class="profile-dropdown__header">
                             <p class="profile-dropdown__name">María González</p>
@@ -124,9 +124,9 @@
                             <p class="profile-dropdown__detail">+57 310 123 4567</p>
                             <p class="profile-dropdown__location">Bogotá, Colombia</p>
                         </div>
-                 
+
                         <hr class="profile-dropdown__divider">
-                 
+
                         <a href="../views/perfil.html" class="profile-dropdown__item">
                             <i class="fa-solid fa-user"></i> Mi Perfil
                         </a>
@@ -142,9 +142,9 @@
                         <a href="../views/configuracion.html" class="profile-dropdown__item">
                             <i class="fa-solid fa-gear"></i> Configuración
                         </a>
-                 
+
                         <hr class="profile-dropdown__divider">
-                 
+
                         <a href="../index.html" class="profile-dropdown__item profile-dropdown__item--danger" id="cerrarSesionBtn">
                             <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
                         </a>
@@ -152,15 +152,14 @@
                 </li>
             </ul>
         </nav>
-        </nav>
     </header>
     <main class="container">
         <section class="job-search">
             <div class="job-search__container">
-                <h2 class="job-search__title">Explora <span style="color: #3b82f6;"> miles de oportunidades</span> laborales</h2>
+                <h2 class="job-search__title">Explora <span style="color: #93c5fd;"> miles de oportunidades</span> laborales</h2>
                 <form class="job-search__form">
                     <article class="job-search__field">
-                        <i class="fa-solid fa magnifying-glass job-search__icon"></i>
+                        <i class="fa-solid fa-magnifying-glass job-search__icon"></i>
                         <input
                             type="text"
                             class="job-search__input"
@@ -182,7 +181,7 @@
         <section class="jobs">
             <div class="jobs__header">
                 <p>Mostrando vacantes encontradas</p>
-                <div class="job__order">
+                <div class="jobs__order">
                     <span>Ordenar por:</span>
                     <select>
                         <option>Más recientes</option>
@@ -195,45 +194,45 @@
                 <!--FILTROS-->
                 <aside class="jobs__sidebar">
                     <div class="jobs__filters">
-                    <h2><span>Filtros</span></h2>
-                    <div class="filter-group">
-                        <h3>MODALIDAD DE TRABAJO</h3>
-                        <label>
-                            <input type="checkbox">
-                            <span>Remoto</span>
-                        </label>
-                        <label>
-                            <input type="checkbox">
-                            <span>Presencial</span>
-                        </label>
-                        <label>
-                            <input type="checkbox">
-                            <span>Híbrido</span>
-                        </label>
-                    </div>
-                    <div class="filter-group">
-                        <h3>RANGO SALARIAL MENSUAL(COP)</h3>
-                        <label>
-                            <input type="radio" name="salary">
-                            <span>Hasta $2M (SMLV+)</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="salary">
-                            <span>$2M - $5M</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="salary">
-                            <span>$5M - $10M</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="salary">
-                            <span> Más de $10.000.000 </span>
-                        </label>
-                    </div>
+                        <h2><span>Filtros</span></h2>
+                        <div class="filter-group">
+                            <h3>MODALIDAD DE TRABAJO</h3>
+                            <label>
+                                <input type="checkbox">
+                                <span>Remoto</span>
+                            </label>
+                            <label>
+                                <input type="checkbox">
+                                <span>Presencial</span>
+                            </label>
+                            <label>
+                                <input type="checkbox">
+                                <span>Híbrido</span>
+                            </label>
+                        </div>
+                        <div class="filter-group">
+                            <h3>RANGO SALARIAL MENSUAL(COP)</h3>
+                            <label>
+                                <input type="radio" name="salary">
+                                <span>Hasta $2M (SMLV+)</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="salary">
+                                <span>$2M - $5M</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="salary">
+                                <span>$5M - $10M</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="salary">
+                                <span> Más de $10.000.000 </span>
+                            </label>
+                        </div>
                     </div>
                     <div class="job-alert">
                         <h3>
-                            <span class="job-alert__icon"></span>
+                            <span class="job-alert__icon"><i class="fa-solid fa-bell"></i></span>
                             Alerta de empleo
                         </h3>
                         <p> Recibe ofertas similares a tú busqueda en tu email.</p>
@@ -257,11 +256,11 @@
                         </div>
                         <div class="job-card__right">
                             <div class="job-card__top">
-                                <span class="job-car__tag">PRESENCIAL</span>
+                                <span class="job-card__tag">PRESENCIAL</span>
                                 <span class="job-card__time">HACE 2H</span>
                             </div>
                             <div class="job-card__buttons">
-                                <button class="save-button"></button>
+                                <button class="save-button"><i class="fa-regular fa-bookmark"></i></button>
                                 <button class="apply-button">Postularme</button>
                             </div>
                         </div>
@@ -283,7 +282,7 @@
                                 <span class="job-card__time">HACE 5H</span>
                             </div>
                             <div class="job-card__buttons">
-                                <button clsss="save-button"></button>
+                                <button class="save-button"><i class="fa-regular fa-bookmark"></i></button>
                                 <button class="apply-button">Postularme</button>
                             </div>
                         </div>
@@ -305,7 +304,7 @@
                                 <span class="job-card__time">AYER</span>
                             </div>
                             <div class="job-card__buttons">
-                                <button class="save-button"></button>
+                                <button class="save-button"><i class="fa-regular fa-bookmark"></i></button>
                                 <button class="apply-button">Postularme</button>
                             </div>
                         </div>
@@ -327,7 +326,7 @@
                                 <span class="job-card__time">HACE 2 DÍAS</span>
                             </div>
                             <div class="job-card__buttons">
-                                <button class="save-button"></button>
+                                <button class="save-button"><i class="fa-regular fa-bookmark"></i></button>
                                 <button class="apply-button">Postularme</button>
                             </div>
                         </div>
@@ -349,7 +348,7 @@
                                 <span class="job-card__time">HACE 6 DÍAS</span>
                             </div>
                             <div class="job-card__buttons">
-                                <button class="save-button"></button>
+                                <button class="save-button"><i class="fa-regular fa-bookmark"></i></button>
                                 <button class="apply-button">Postularme</button>
                             </div>
                         </div>
@@ -371,7 +370,7 @@
                                 <span class="job-card__time">HACE 2 DÍAS</span>
                             </div>
                             <div class="job-card__buttons">
-                                <button class="save-button"></button>
+                                <button class="save-button"><i class="fa-regular fa-bookmark"></i></button>
                                 <button class="apply-button">Postularme</button>
                             </div>
                         </div>
@@ -394,7 +393,7 @@
                                 <span class="job-card__time">HACE 1 DÍA</span>
                             </div>
                             <div class="job-card__buttons">
-                                <button class="save-button"></button>
+                                <button class="save-button"><i class="fa-regular fa-bookmark"></i></button>
                                 <button class="apply-button">Postularme</button>
                             </div>
                         </div>
@@ -416,7 +415,7 @@
                                 <span class="job-card__time">HACE 5 HORAS</span>
                             </div>
                             <div class="job-card__buttons">
-                                <button class="save-button"></button>
+                                <button class="save-button"><i class="fa-regular fa-bookmark"></i></button>
                                 <button class="apply-button">Postularme</button>
                             </div>
                         </div>
@@ -438,7 +437,7 @@
                                 <span class="job-card__time">HACE 12 HORAS</span>
                             </div>
                             <div class="job-card__buttons">
-                                <button class="save-button"></button>
+                                <button class="save-button"><i class="fa-regular fa-bookmark"></i></button>
                                 <button class="apply-button">Postularme</button>
                             </div>
                         </div>
@@ -447,7 +446,7 @@
                     <article class="job-card">
                         <div class="job-card__logo">A</div>
                         <div class="job-card__info">
-                            <h2>Asesor de Servicio al Cliente BilingÜe</h2>
+                            <h2>Asesor de Servicio al Cliente Bilingüe</h2>
                             <h4>Avianca</h4>
                             <div class="job-card__details">
                                 <span>Pereira, Risaralda</span>
@@ -460,7 +459,7 @@
                                 <span class="job-card__time">HACE 8 HORAS</span>
                             </div>
                             <div class="job-card__buttons">
-                                <button class="save-button"></button>
+                                <button class="save-button"><i class="fa-regular fa-bookmark"></i></button>
                                 <button class="apply-button">Postularme</button>
                             </div>
                         </div>
@@ -521,7 +520,7 @@
             <button type="button" class="info-modal__close" id="infoModalClose" aria-label="Cerrar">
                 <i class="fa-solid fa-xmark"></i>
             </button>
-     
+
             <div class="info-modal__header">
                 <span class="info-modal__logo">W</span>
                 <div>
@@ -529,14 +528,14 @@
                     <p class="info-modal__subtitle">Versión 1.0.0 - Plataforma de Empleo en Colombia</p>
                 </div>
             </div>
-     
+
             <h3 class="info-modal__section-title">¿Qué es WorkPlace?</h3>
             <p class="info-modal__text">
                 WorkPlace es una plataforma integral de empleo diseñada específicamente para el mercado colombiano.
                 Conectamos profesionales talentosos con empresas que buscan los mejores candidatos, facilitando
                 el proceso de búsqueda y selección de personal.
             </p>
-     
+
             <h3 class="info-modal__section-title">Características Principales</h3>
             <div class="info-modal__grid">
                 <div class="info-modal__feature">
@@ -568,7 +567,7 @@
                     </div>
                 </div>
             </div>
-     
+
             <h3 class="info-modal__section-title">¿Qué ofrece el software?</h3>
             <ul class="info-modal__list">
                 <li><strong>Para Candidatos:</strong> Búsqueda de empleos, postulación online, seguimiento de aplicaciones, alertas personalizadas y creación de CV profesional.</li>
@@ -576,9 +575,9 @@
                 <li><strong>Trazabilidad:</strong> Historial completo de todas tus acciones en la plataforma para mayor control y transparencia.</li>
                 <li><strong>Soporte 24/7:</strong> Equipo de ayuda disponible para resolver cualquier duda o inconveniente.</li>
             </ul>
-     
+
             <hr class="info-modal__divider">
-     
+
             <h3 class="info-modal__section-title">Información Técnica</h3>
             <div class="info-modal__tech-grid">
                 <div>
@@ -598,9 +597,9 @@
                     <p class="info-modal__tech-value">Colombia</p>
                 </div>
             </div>
-     
+
             <hr class="info-modal__divider">
-     
+
             <div class="info-modal__footer">
                 <p><i class="fa-solid fa-globe"></i> www.workplace.com.co</p>
                 <p class="info-modal__copyright">© 2025 WorkPlace. Todos los derechos reservados.</p>
@@ -611,23 +610,21 @@
         const infoButton = document.getElementById('infoButton');
         const infoModalOverlay = document.getElementById('infoModalOverlay');
         const infoModalClose = document.getElementById('infoModalClose');
-     
+
         infoButton.addEventListener('click', () => {
             infoModalOverlay.classList.add('is-open');
         });
-     
+
         infoModalClose.addEventListener('click', () => {
             infoModalOverlay.classList.remove('is-open');
         });
-     
-        // Cerrar al hacer clic fuera de la tarjeta del modal
+
         infoModalOverlay.addEventListener('click', (e) => {
             if (e.target === infoModalOverlay) {
                 infoModalOverlay.classList.remove('is-open');
             }
         });
-     
-        // Cerrar con la tecla Escape
+
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 infoModalOverlay.classList.remove('is-open');
@@ -638,27 +635,24 @@
         const helpButton = document.getElementById('helpButton');
         const helpDropdown = document.getElementById('helpDropdown');
         const helpAcercaDe = document.getElementById('helpAcercaDe');
-     
+
         helpButton.addEventListener('click', (e) => {
             e.stopPropagation();
             helpDropdown.classList.toggle('is-open');
         });
-     
-        // Cerrar al hacer clic en cualquier parte fuera del dropdown
+
         document.addEventListener('click', (e) => {
             if (!helpDropdown.contains(e.target) && e.target !== helpButton) {
                 helpDropdown.classList.remove('is-open');
             }
         });
-     
-        // Cerrar con la tecla Escape
+
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 helpDropdown.classList.remove('is-open');
             }
         });
-     
-        // "Acerca de WorkPlace" abre el modal de información, si existe en esta página
+
         helpAcercaDe.addEventListener('click', (e) => {
             e.preventDefault();
             helpDropdown.classList.remove('is-open');
@@ -671,18 +665,18 @@
     <script>
         const profileButton = document.getElementById('profileButton');
         const profileDropdown = document.getElementById('profileDropdown');
-     
+
         profileButton.addEventListener('click', (e) => {
             e.stopPropagation();
             profileDropdown.classList.toggle('is-open');
         });
-     
+
         document.addEventListener('click', (e) => {
             if (!profileDropdown.contains(e.target) && e.target !== profileButton) {
                 profileDropdown.classList.remove('is-open');
             }
         });
-     
+
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 profileDropdown.classList.remove('is-open');
