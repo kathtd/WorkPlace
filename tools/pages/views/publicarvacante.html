@@ -1,0 +1,108 @@
+<!--
+title: Publicar Vacante | WorkPlace
+description: Publica una vacante en WorkPlace en tres pasos y llega a miles de candidatos.
+active: publicar
+scripts: data/vacantes.js, js/publicarvacante.js
+-->
+<main class="page" id="contenido">
+    <div class="container narrow">
+        <ol class="stepper" id="stepper" aria-label="Progreso">
+            <li class="stepper__step is-active"><span class="stepper__circle"><span>1</span><i class="fa-solid fa-check" aria-hidden="true"></i></span><span class="stepper__label">Información</span></li>
+            <li class="stepper__line" aria-hidden="true"></li>
+            <li class="stepper__step"><span class="stepper__circle"><span>2</span><i class="fa-solid fa-check" aria-hidden="true"></i></span><span class="stepper__label">Detalles</span></li>
+            <li class="stepper__line" aria-hidden="true"></li>
+            <li class="stepper__step"><span class="stepper__circle"><span>3</span><i class="fa-solid fa-check" aria-hidden="true"></i></span><span class="stepper__label">Publicado</span></li>
+        </ol>
+
+        <form class="form-card" id="vacancyForm" novalidate>
+            <section class="form-step" data-step="1">
+                <div>
+                    <h1 class="form-step__title" tabindex="-1">Publica una Vacante</h1>
+                    <p class="form-step__text">Comienza con la información básica del cargo.</p>
+                </div>
+                <div class="form-fields">
+                    <div class="field">
+                        <label class="field__label" for="cargo"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Título del Cargo</label>
+                        <input class="input" type="text" id="cargo" name="cargo" placeholder="Ej. Desarrollador Fullstack" maxlength="80" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="field">
+                            <label class="field__label" for="empresa"><i class="fa-solid fa-building" aria-hidden="true"></i> Empresa</label>
+                            <input class="input" type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa" maxlength="60" autocomplete="organization" required>
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="ubicacion"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Ubicación</label>
+                            <input class="input" type="text" id="ubicacion" name="ubicacion" placeholder="Bogotá, Medellín, Remoto..." maxlength="60" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="field">
+                            <label class="field__label" for="modalidad"><i class="fa-solid fa-house-laptop" aria-hidden="true"></i> Modalidad</label>
+                            <select class="input" id="modalidad" name="modalidad">
+                                <option>Presencial</option>
+                                <option>Híbrido</option>
+                                <option>Remoto</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="jornada"><i class="fa-regular fa-clock" aria-hidden="true"></i> Jornada</label>
+                            <select class="input" id="jornada" name="jornada">
+                                <option>Tiempo Completo</option>
+                                <option>Medio Tiempo</option>
+                                <option>Turnos</option>
+                                <option>Por Proyecto</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn--primary btn--lg btn--block" id="nextStep">Siguiente Paso</button>
+            </section>
+
+            <section class="form-step" data-step="2" hidden>
+                <div>
+                    <h1 class="form-step__title" tabindex="-1">Detalles de la Oferta</h1>
+                    <p class="form-step__text">Añade los requisitos y beneficios.</p>
+                </div>
+                <div class="form-fields">
+                    <div class="form-row">
+                        <div class="field">
+                            <label class="field__label" for="salario"><i class="fa-solid fa-dollar-sign" aria-hidden="true"></i> Rango Salarial (COP)</label>
+                            <input class="input" type="text" id="salario" name="salario" placeholder="Ej. 5M - 8M o 2.500.000" maxlength="40" required>
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="categoria"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Categoría</label>
+                            <select class="input" id="categoria" name="categoria"></select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="field__label" for="descripcion"><i class="fa-regular fa-file-lines" aria-hidden="true"></i> Descripción del Cargo</label>
+                        <textarea class="input input--tall" id="descripcion" name="descripcion" rows="6" placeholder="Describe las responsabilidades del cargo..." maxlength="1500" required></textarea>
+                    </div>
+                    <div class="field">
+                        <label class="field__label" for="requisitos"><i class="fa-regular fa-circle-check" aria-hidden="true"></i> Requisitos <span class="field__hint">(uno por línea, opcional)</span></label>
+                        <textarea class="input" id="requisitos" name="requisitos" rows="4" placeholder="Título profesional en...&#10;2 años de experiencia en..." maxlength="1000"></textarea>
+                    </div>
+                    <div class="field">
+                        <label class="field__label" for="beneficios"><i class="fa-solid fa-gift" aria-hidden="true"></i> Beneficios <span class="field__hint">(uno por línea, opcional)</span></label>
+                        <textarea class="input" id="beneficios" name="beneficios" rows="3" placeholder="Contrato a término indefinido&#10;Esquema híbrido" maxlength="1000"></textarea>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn--outline form-actions__back" id="prevStep">Atrás</button>
+                    <button type="submit" class="btn btn--primary form-actions__submit" id="publishButton">Publicar Vacante</button>
+                </div>
+            </section>
+
+            <section class="success" data-step="3" hidden>
+                <span class="success__icon"><i class="fa-solid fa-circle-check" aria-hidden="true"></i></span>
+                <h1 class="success__title" tabindex="-1">¡Vacante Publicada!</h1>
+                <p class="success__text">Tu oferta ya aparece en Buscar Empleo. Queda guardada en este navegador.</p>
+                <div class="success__actions">
+                    <a href="vacante.html" class="btn btn--primary btn--lg" id="verVacante">Ver mi vacante</a>
+                    <button type="button" class="btn btn--outline btn--lg" id="publishAnother">Publicar Otra</button>
+                    <a href="{{base}}index.html" class="link-button success__home">Ir al Inicio</a>
+                </div>
+            </section>
+        </form>
+    </div>
+</main>

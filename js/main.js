@@ -1,5 +1,6 @@
 // Comportamiento común a todas las páginas: service worker, menú móvil, menús
-// desplegables, panel de actividades, modal de información y notificaciones.
+// desplegables, panel de actividades, modal de información, datos del perfil
+// y notificaciones. Depende de js/store.js.
 
 // sw.js está en la raíz del proyecto, un nivel por encima de /js/
 const swUrl = new URL('../sw.js', document.currentScript.src);
@@ -16,21 +17,71 @@ function showToast(message) {
     if (!region) {
         region = document.createElement('div');
         region.className = 'toast-region';
+        region.setAttribute('role', 'status');
         region.setAttribute('aria-live', 'polite');
         document.body.appendChild(region);
     }
 
     const toast = document.createElement('div');
     toast.className = 'toast';
-    toast.innerHTML = '<i class="fa-solid fa-circle-check"></i><span></span>';
+    toast.innerHTML = '<i class="fa-solid fa-circle-check" aria-hidden="true"></i><span></span>';
     toast.querySelector('span').textContent = message;
     region.appendChild(toast);
 
     setTimeout(() => {
         toast.classList.add('is-leaving');
         toast.addEventListener('animationend', () => toast.remove());
-    }, 3500);
+    }, 4000);
 }
+
+// Rellena los elementos con data-profile="nombre|email|telefono|ciudad|rol|initials"
+function refreshProfile() {
+    const perfil = Store.getPerfil();
+    document.querySelectorAll('[data-profile]').forEach((el) => {
+        const campo = el.dataset.profile;
+        if (campo !== 'initials') {
+            el.textContent = perfil[campo] ?? '';
+            return;
+        }
+        if (perfil.foto) {
+            el.innerHTML = `<img src="${perfil.foto}" alt="">`;
+        } else {
+            el.textContent = Formato.iniciales(perfil.nombre);
+        }
+    });
+}
+
+// Mantiene el foco del teclado dentro de un diálogo abierto y lo devuelve al cerrarlo
+const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+let dialogoAbierto = null;
+let focoAnterior = null;
+
+function abrirDialogo(contenedor) {
+    focoAnterior = document.activeElement;
+    dialogoAbierto = contenedor;
+    contenedor.querySelector(FOCUSABLE)?.focus();
+}
+
+function cerrarDialogo() {
+    dialogoAbierto = null;
+    focoAnterior?.focus();
+    focoAnterior = null;
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab' || !dialogoAbierto) return;
+    const items = Array.from(dialogoAbierto.querySelectorAll(FOCUSABLE)).filter((el) => el.offsetParent !== null);
+    if (!items.length) return;
+    const first = items[0];
+    const last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+    }
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     const infoButton = document.getElementById('infoButton');
@@ -56,6 +107,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const activityEmpty = document.getElementById('activityEmpty');
     const activityBadge = document.getElementById('activityBadge');
 
+    refreshProfile();
+    document.querySelectorAll('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
+
     // Menú móvil
     menuToggle?.addEventListener('click', () => {
         const isOpen = mobileMenu.classList.toggle('is-open');
@@ -65,8 +119,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Modal de información
-    const openInfoModal = () => infoModalOverlay?.classList.add('is-open');
-    const closeInfoModal = () => infoModalOverlay?.classList.remove('is-open');
+    function openInfoModal() {
+        infoModalOverlay.classList.add('is-open');
+        abrirDialogo(infoModalOverlay);
+    }
+    function closeInfoModal() {
+        if (!infoModalOverlay?.classList.contains('is-open')) return;
+        infoModalOverlay.classList.remove('is-open');
+        cerrarDialogo();
+    }
 
     if (infoButton && infoModalOverlay) {
         infoButton.addEventListener('click', openInfoModal);
@@ -79,85 +140,118 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Panel lateral de actividades
-    const openActivity = () => {
+    function renderActividades() {
+        const actividades = Store.getActividades();
+        activityList.innerHTML = actividades.map((a) => `<li class="activity">
+            <span class="activity__icon activity__icon--${Formato.html(a.color)}"><i class="${Formato.html(a.icono)}" aria-hidden="true"></i></span>
+            <div><p class="activity__title">${Formato.html(a.texto)}</p><p class="activity__time">${Formato.haceTiempo(a.fecha)}</p></div>
+        </li>`).join('');
+        activityEmpty.hidden = actividades.length > 0;
+        activityClear.disabled = actividades.length === 0;
+
+        const nuevas = actividades.filter((a) => a.fecha > Store.getActividadesVistas()).length;
+        activityBadge.hidden = nuevas === 0;
+        activityBadge.textContent = nuevas > 9 ? '9+' : nuevas;
+        activityButton.setAttribute('aria-label', nuevas ? `Actividades recientes (${nuevas} nuevas)` : 'Actividades recientes');
+    }
+
+    function openActivity() {
+        renderActividades();
+        Store.marcarActividadesVistas();
+        activityBadge.hidden = true;
         activitySheet.classList.add('is-open');
         activityOverlay.classList.add('is-open');
         activitySheet.setAttribute('aria-hidden', 'false');
-    };
-    const closeActivity = () => {
-        activitySheet?.classList.remove('is-open');
-        activityOverlay?.classList.remove('is-open');
-        activitySheet?.setAttribute('aria-hidden', 'true');
-    };
+        abrirDialogo(activitySheet);
+    }
+    function closeActivity() {
+        if (!activitySheet?.classList.contains('is-open')) return;
+        activitySheet.classList.remove('is-open');
+        activityOverlay.classList.remove('is-open');
+        activitySheet.setAttribute('aria-hidden', 'true');
+        cerrarDialogo();
+    }
 
     if (activityButton && activitySheet) {
+        renderActividades();
+        // Cualquier script que registre una actividad actualiza el panel y el contador
+        window.addEventListener('workplace:actividades', renderActividades);
         activityButton.addEventListener('click', openActivity);
         activityClose.addEventListener('click', closeActivity);
         activityOverlay.addEventListener('click', closeActivity);
-
         activityClear.addEventListener('click', () => {
-            activityList.innerHTML = '';
-            activityEmpty.hidden = false;
-            activityBadge.hidden = true;
-            activityClear.disabled = true;
+            Store.clearActividades();
+            activityClose.focus();
         });
     }
 
-    // Menú de ayuda
-    if (helpButton && helpDropdown) {
-        helpButton.addEventListener('click', (e) => {
+    // Menús desplegables de ayuda y perfil
+    const dropdowns = [[helpButton, helpDropdown], [profileButton, profileDropdown]].filter(([b, d]) => b && d);
+
+    function setDropdown(button, dropdown, open) {
+        dropdown.classList.toggle('is-open', open);
+        button.setAttribute('aria-expanded', open);
+    }
+    const closeDropdowns = () => dropdowns.forEach(([b, d]) => setDropdown(b, d, false));
+
+    dropdowns.forEach(([button, dropdown]) => {
+        button.addEventListener('click', (e) => {
             e.stopPropagation();
-            profileDropdown?.classList.remove('is-open');
-            helpDropdown.classList.toggle('is-open');
+            const open = !dropdown.classList.contains('is-open');
+            closeDropdowns();
+            setDropdown(button, dropdown, open);
+            if (open) dropdown.querySelector('a')?.focus();
         });
+    });
 
-        // "Acerca de WorkPlace" abre el modal de información
-        helpAcercaDe?.addEventListener('click', (e) => {
-            e.preventDefault();
-            helpDropdown.classList.remove('is-open');
-            openInfoModal();
-        });
-    }
-
-    // Menú de perfil
-    if (profileButton && profileDropdown) {
-        profileButton.addEventListener('click', (e) => {
-            e.stopPropagation();
-            helpDropdown?.classList.remove('is-open');
-            profileDropdown.classList.toggle('is-open');
-        });
-    }
+    // "Acerca de WorkPlace" abre el modal de información
+    helpAcercaDe?.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeDropdowns();
+        openInfoModal();
+    });
 
     // Cerrar los menús al hacer clic en cualquier parte fuera de ellos
     document.addEventListener('click', (e) => {
-        if (helpDropdown && !helpDropdown.contains(e.target)) {
-            helpDropdown.classList.remove('is-open');
-        }
-        if (profileDropdown && !profileDropdown.contains(e.target)) {
-            profileDropdown.classList.remove('is-open');
-        }
+        dropdowns.forEach(([button, dropdown]) => {
+            if (!dropdown.contains(e.target)) setDropdown(button, dropdown, false);
+        });
     });
 
-    // Cerrar todo con la tecla Escape
+    // Cerrar todo con la tecla Escape, devolviendo el foco al botón del menú abierto
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closeInfoModal();
-            closeActivity();
-            helpDropdown?.classList.remove('is-open');
-            profileDropdown?.classList.remove('is-open');
-        }
+        if (e.key !== 'Escape') return;
+        dropdowns.forEach(([button, dropdown]) => {
+            if (dropdown.classList.contains('is-open')) {
+                setDropdown(button, dropdown, false);
+                button.focus();
+            }
+        });
+        closeInfoModal();
+        closeActivity();
     });
 
-    // Formularios y botones con data-toast muestran una confirmación
+    // Formularios y botones con data-toast muestran una confirmación;
+    // data-activity="texto|icono|color" además la registra en el historial
+    const registrar = (el) => {
+        if (!el.dataset.activity) return;
+        const [texto, icono, color] = el.dataset.activity.split('|');
+        Store.logActividad(texto, icono, color);
+    };
+
     document.querySelectorAll('form[data-toast]').forEach((form) => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             showToast(form.dataset.toast);
+            registrar(form);
             form.reset();
         });
     });
 
     document.querySelectorAll('button[data-toast]').forEach((button) => {
-        button.addEventListener('click', () => showToast(button.dataset.toast));
+        button.addEventListener('click', () => {
+            showToast(button.dataset.toast);
+            registrar(button);
+        });
     });
 });

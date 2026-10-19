@@ -1,0 +1,66 @@
+<div class="overlay" id="activityOverlay"></div>
+<aside class="sheet" id="activitySheet" role="dialog" aria-modal="true" aria-labelledby="activityTitle" aria-hidden="true">
+    <button type="button" class="sheet__close" id="activityClose" aria-label="Cerrar"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    <h2 class="sheet__title" id="activityTitle"><i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i> Trazabilidad de Actividades</h2>
+    <p class="sheet__description">Historial completo de tus acciones en la plataforma</p>
+    <div class="sheet__body">
+        <ul class="sheet__list" id="activityList"></ul>
+        <div class="sheet__empty" id="activityEmpty" hidden>
+            <i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i>
+            <p>No hay actividades registradas</p>
+        </div>
+    </div>
+    <div class="sheet__footer">
+        <button type="button" class="btn btn--outline btn--sm btn--block" id="activityClear"><i class="fa-regular fa-trash-can" aria-hidden="true"></i> Limpiar Historial</button>
+    </div>
+</aside>
+<div class="modal-overlay" id="infoModalOverlay">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="infoModalTitle">
+        <button type="button" class="modal__close" id="infoModalClose" aria-label="Cerrar"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        <div class="modal__header">
+            <img class="modal__logo" src="{{base}}Imagenes/icon-192.png" alt="" width="48" height="48">
+            <div>
+                <h2 class="modal__title" id="infoModalTitle">WorkPlace</h2>
+                <p class="modal__subtitle">Versión 1.1.0 - Plataforma de Empleo en Colombia</p>
+            </div>
+        </div>
+        <div class="modal__body">
+            <section>
+                <h3 class="modal__section-title">¿Qué es WorkPlace?</h3>
+                <p class="modal__text">WorkPlace es una plataforma integral de empleo diseñada específicamente para el mercado colombiano. Conectamos profesionales talentosos con empresas que buscan los mejores candidatos, facilitando el proceso de búsqueda y selección de personal.</p>
+            </section>
+            <section>
+                <h3 class="modal__section-title">Características Principales</h3>
+                <div class="modal__grid">
+                    <div class="modal__feature"><i class="fa-solid fa-bolt" aria-hidden="true"></i><div><h4>Búsqueda Inteligente</h4><p>Encuentra empleos relevantes con filtros avanzados</p></div></div>
+                    <div class="modal__feature"><i class="fa-solid fa-users" aria-hidden="true"></i><div><h4>Portal para Empresas</h4><p>Publica vacantes y gestiona candidatos</p></div></div>
+                    <div class="modal__feature"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i><div><h4>Verificación de Empresas</h4><p>Todas las ofertas son verificadas</p></div></div>
+                    <div class="modal__feature"><i class="fa-solid fa-award" aria-hidden="true"></i><div><h4>Perfil Profesional</h4><p>Destaca tu experiencia y habilidades</p></div></div>
+                </div>
+            </section>
+            <section>
+                <h3 class="modal__section-title">¿Qué ofrece el software?</h3>
+                <ul class="modal__list">
+                    <li><span><strong>Para Candidatos:</strong> Búsqueda de empleos, postulación online, seguimiento de aplicaciones, vacantes guardadas y hoja de vida en tu perfil.</span></li>
+                    <li><span><strong>Para Empresas:</strong> Publicación de vacantes, gestión de candidatos, filtros de preselección y estadísticas de reclutamiento.</span></li>
+                    <li><span><strong>Trazabilidad:</strong> Historial completo de todas tus acciones en la plataforma para mayor control y transparencia.</span></li>
+                    <li><span><strong>Soporte:</strong> Equipo de ayuda disponible de lunes a viernes de 8:00 a 18:00 y sábados de 9:00 a 13:00.</span></li>
+                </ul>
+            </section>
+            <section class="modal__divider">
+                <h3 class="modal__section-title">Información Técnica</h3>
+                <div class="modal__tech">
+                    <div><p class="modal__tech-label">Versión:</p><p class="modal__tech-value">1.1.0</p></div>
+                    <div><p class="modal__tech-label">Última actualización:</p><p class="modal__tech-value">Octubre 2026</p></div>
+                    <div><p class="modal__tech-label">Plataforma:</p><p class="modal__tech-value">Web (Responsive) e instalable</p></div>
+                    <div><p class="modal__tech-label">Región:</p><p class="modal__tech-value">Colombia</p></div>
+                </div>
+                <a class="modal__link" href="{{base}}views/informaciontecnica.html">Ver información técnica completa <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </section>
+            <footer class="modal__divider modal__footer">
+                <p><i class="fa-solid fa-globe" aria-hidden="true"></i> www.workplace.com.co</p>
+                <p class="modal__copyright">© <span data-year>2026</span> WorkPlace. Todos los derechos reservados.</p>
+            </footer>
+        </div>
+    </div>
+</div>

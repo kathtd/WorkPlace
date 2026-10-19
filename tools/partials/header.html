@@ -1,0 +1,97 @@
+<header class="header">
+    <div class="container header__inner">
+        <a href="{{base}}index.html" class="header__brand">
+            <img class="header__logo" src="{{base}}Imagenes/icon-192.png" alt="" width="40" height="40">
+            <span class="header__brand-name">WorkPlace</span>
+        </a>
+        <nav class="header__nav" aria-label="Principal">
+            {{nav}}
+        </nav>
+        <div class="header__actions">
+            <button type="button" class="icon-button" id="activityButton" aria-label="Actividades recientes" aria-haspopup="dialog" aria-controls="activitySheet">
+                <i class="fa-regular fa-bell" aria-hidden="true"></i>
+                <span class="icon-button__badge" id="activityBadge" hidden></span>
+            </button>
+            <div class="dropdown-wrapper">
+                <button type="button" class="icon-button" id="helpButton" aria-label="Menú de Ayuda" aria-haspopup="true" aria-expanded="false" aria-controls="helpDropdown">
+                    <i class="fa-regular fa-circle-question" aria-hidden="true"></i>
+                </button>
+                <div class="dropdown dropdown--accent" id="helpDropdown">
+                    <p class="dropdown__label dropdown__label--accent">Centro de Ayuda</p>
+                    <hr class="dropdown__divider">
+                    <a href="#" class="dropdown__item" id="helpAcercaDe">
+                        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                        <span><span class="dropdown__item-title">Acerca de WorkPlace</span><span class="dropdown__item-subtitle">Información del software</span></span>
+                    </a>
+                    <a href="{{base}}views/centrodeayuda.html#guias" class="dropdown__item">
+                        <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+                        <span><span class="dropdown__item-title">Guía de Usuario</span><span class="dropdown__item-subtitle">Aprende a usar la plataforma</span></span>
+                    </a>
+                    <a href="{{base}}views/centrodeayuda.html#tutoriales" class="dropdown__item">
+                        <i class="fa-solid fa-list-check" aria-hidden="true"></i>
+                        <span><span class="dropdown__item-title">Tutoriales</span><span class="dropdown__item-subtitle">Paso a paso de cada tarea</span></span>
+                    </a>
+                    <a href="{{base}}views/centrodeayuda.html#faq" class="dropdown__item">
+                        <i class="fa-regular fa-circle-question" aria-hidden="true"></i>
+                        <span><span class="dropdown__item-title">Preguntas Frecuentes</span><span class="dropdown__item-subtitle">Respuestas rápidas</span></span>
+                    </a>
+                    <hr class="dropdown__divider">
+                    <p class="dropdown__section-label">Contáctanos</p>
+                    <a href="{{base}}views/contacto.html" class="dropdown__item">
+                        <i class="fa-regular fa-comment" aria-hidden="true"></i>
+                        <span><span class="dropdown__item-title">Formulario de Soporte</span><span class="dropdown__item-subtitle">Lun-Vie 8am-6pm</span></span>
+                    </a>
+                    <a href="tel:+573019308927" class="dropdown__item">
+                        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                        <span><span class="dropdown__item-title">Línea de Soporte</span><span class="dropdown__item-subtitle">+57 301 930 8927</span></span>
+                    </a>
+                    <a href="mailto:soporte@workplace.com.co" class="dropdown__item">
+                        <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                        <span><span class="dropdown__item-title">Email</span><span class="dropdown__item-subtitle">soporte@workplace.com.co</span></span>
+                    </a>
+                </div>
+            </div>
+            <button type="button" class="icon-button" id="infoButton" aria-label="Acerca de WorkPlace" aria-haspopup="dialog" aria-controls="infoModalOverlay">
+                <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-wrapper">
+                <button type="button" class="profile-trigger" id="profileButton" aria-label="Menú de perfil" aria-haspopup="true" aria-expanded="false" aria-controls="profileDropdown">
+                    <span class="avatar" data-profile="initials">MG</span>
+                    <span class="profile-trigger__text">
+                        <span class="profile-trigger__name" data-profile="nombre">María González</span>
+                        <span class="profile-trigger__role" data-profile="rol">Candidato</span>
+                    </span>
+                </button>
+                <div class="dropdown" id="profileDropdown">
+                    <div class="dropdown__header">
+                        <p class="dropdown__name" data-profile="nombre">María González</p>
+                        <p class="dropdown__detail" data-profile="email">maria.gonzalez@email.com</p>
+                    </div>
+                    <hr class="dropdown__divider">
+                    <a href="{{base}}views/perfil.html" class="dropdown__item"><i class="fa-regular fa-user" aria-hidden="true"></i> Mi Perfil</a>
+                    <a href="{{base}}views/perfil.html#postulaciones" class="dropdown__item"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Mis Postulaciones</a>
+                    <a href="{{base}}views/perfil.html#guardadas" class="dropdown__item"><i class="fa-regular fa-heart" aria-hidden="true"></i> Vacantes Guardadas</a>
+                    <a href="{{base}}views/perfil.html#cv" class="dropdown__item"><i class="fa-regular fa-file-lines" aria-hidden="true"></i> Mi CV</a>
+                    <a href="{{base}}views/perfil.html#preferencias" class="dropdown__item"><i class="fa-solid fa-gear" aria-hidden="true"></i> Preferencias</a>
+                    <hr class="dropdown__divider">
+                    <a href="{{base}}index.html" class="dropdown__item dropdown__item--danger" id="cerrarSesionBtn"><i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i> Cerrar Sesión</a>
+                </div>
+            </div>
+            <button type="button" class="header__menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+    <nav class="container mobile-menu" id="mobileMenu" aria-label="Menú móvil">
+        <div class="mobile-menu__links">
+            {{nav}}
+        </div>
+        <a href="{{base}}views/perfil.html" class="mobile-menu__profile">
+            <span class="avatar" data-profile="initials">MG</span>
+            <span class="profile-trigger__text">
+                <span class="profile-trigger__name" data-profile="nombre">María González</span>
+                <span class="profile-trigger__role" data-profile="rol">Candidato</span>
+            </span>
+        </a>
+    </nav>
+</header>

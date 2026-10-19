@@ -1,0 +1,192 @@
+<!--
+title: WorkPlace | Empleo en Colombia
+description: WorkPlace conecta el talento colombiano con las empresas que están transformando el país.
+active: inicio
+scripts: data/vacantes.js, js/vacantes.js, js/inicio.js
+-->
+<main id="contenido">
+    <section class="hero">
+        <div class="hero__blob hero__blob--top"></div>
+        <div class="hero__blob hero__blob--bottom"></div>
+        <div class="container hero__inner">
+            <div class="hero__text">
+                <h1 class="hero__title">Encuentra tu próximo <span class="hero__title--accent">gran desafío</span> laboral en Colombia</h1>
+                <p class="hero__description">Conectamos el talento más brillante con las empresas que están transformando el país. Tu carrera merece el mejor lugar para crecer.</p>
+            </div>
+            <form class="search-box" action="{{base}}views/buscarempleo.html" method="get" role="search">
+                <label class="search-box__field">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <span class="search-box__control">
+                        <span class="search-box__label">¿Qué buscas?</span>
+                        <input class="search-box__input" type="text" name="q" placeholder="Cargo o empresa">
+                    </span>
+                </label>
+                <span class="search-box__divider"></span>
+                <label class="search-box__field">
+                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                    <span class="search-box__control">
+                        <span class="search-box__label">¿Dónde?</span>
+                        <input class="search-box__input" type="text" name="ciudad" placeholder="Ciudad en Colombia" list="ciudades">
+                    </span>
+                </label>
+                <datalist id="ciudades">
+                    <option value="Bogotá D.C.">
+                    <option value="Medellín, Antioquia">
+                    <option value="Cali, Valle del Cauca">
+                    <option value="Barranquilla, Atlántico">
+                    <option value="Cartagena, Bolívar">
+                    <option value="Bucaramanga, Santander">
+                    <option value="Pereira, Risaralda">
+                    <option value="Manizales, Caldas">
+                    <option value="San Juan de Pasto, Nariño">
+                </datalist>
+                <span class="search-box__divider"></span>
+                <label class="search-box__field">
+                    <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
+                    <span class="search-box__control">
+                        <span class="search-box__label">Categoría</span>
+                        <select class="search-box__input" name="categoria" id="homeCategoria">
+                            <option value="">Cualquier sector</option>
+                        </select>
+                    </span>
+                </label>
+                <button type="submit" class="search-box__button"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Buscar</button>
+            </form>
+            <div class="hero__stats">
+                <div class="hero__stat"><p class="hero__stat-number">+15K</p><p class="hero__stat-label">Vacantes Activas</p></div>
+                <div class="hero__stat"><p class="hero__stat-number">+2.5K</p><p class="hero__stat-label">Empresas Aliadas</p></div>
+                <div class="hero__stat"><p class="hero__stat-number">+ Colombia</p><p class="hero__stat-label">Presencia Nacional</p></div>
+                <div class="hero__stat"><p class="hero__stat-number">98%</p><p class="hero__stat-label">Match Exitoso</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="funciones">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Funcionalidades Principales</h2>
+                <p class="section__subtitle">WorkPlace ofrece todo lo que necesitas para encontrar el empleo ideal o contratar al mejor talento.</p>
+            </div>
+            <div class="grid-3">
+                <article class="feature-card">
+                    <i class="feature-card__icon fa-solid fa-user-plus" aria-hidden="true"></i>
+                    <h3 class="feature-card__title">Registro Rápido</h3>
+                    <p class="feature-card__text">Crea tu perfil en minutos y comienza a explorar oportunidades o publicar vacantes al instante.</p>
+                </article>
+                <article class="feature-card">
+                    <i class="feature-card__icon fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <h3 class="feature-card__title">Búsqueda Inteligente</h3>
+                    <p class="feature-card__text">Encuentra las vacantes perfectas con filtros por ciudad, categoría, modalidad y salario.</p>
+                </article>
+                <article class="feature-card">
+                    <i class="feature-card__icon fa-solid fa-file-lines" aria-hidden="true"></i>
+                    <h3 class="feature-card__title">Publicación de Vacantes</h3>
+                    <p class="feature-card__text">Las empresas pueden publicar ofertas de empleo de forma sencilla y gestionar candidatos eficientemente.</p>
+                </article>
+                <article class="feature-card">
+                    <i class="feature-card__icon fa-solid fa-building" aria-hidden="true"></i>
+                    <h3 class="feature-card__title">Portal para Empresas</h3>
+                    <p class="feature-card__text">Panel completo para empresas con seguimiento de aplicaciones, análisis y gestión de talento.</p>
+                </article>
+                <article class="feature-card">
+                    <i class="feature-card__icon fa-solid fa-arrow-trend-up" aria-hidden="true"></i>
+                    <h3 class="feature-card__title">Análisis y Métricas</h3>
+                    <p class="feature-card__text">Obtén insights sobre tus aplicaciones o el rendimiento de tus publicaciones.</p>
+                </article>
+                <article class="feature-card">
+                    <i class="feature-card__icon fa-solid fa-shield-halved" aria-hidden="true"></i>
+                    <h3 class="feature-card__title">Seguro y Confiable</h3>
+                    <p class="feature-card__text">Tu información está protegida con los más altos estándares de seguridad y privacidad.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">¿Por qué elegir WorkPlace?</h2>
+                <p class="section__subtitle section__subtitle--wide">WorkPlace es más que una plataforma de empleo. Es tu aliado estratégico para encontrar oportunidades laborales o el talento que tu empresa necesita. Conoce las ventajas que nos hacen diferentes.</p>
+            </div>
+            <div class="grid-3">
+                <article class="benefit-card">
+                    <span class="benefit-card__icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
+                    <div><h3 class="benefit-card__title">Seguro y Confiable</h3><p class="benefit-card__text">Todas las empresas son verificadas. Tu información está protegida.</p></div>
+                </article>
+                <article class="benefit-card">
+                    <span class="benefit-card__icon"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
+                    <div><h3 class="benefit-card__title">Rápido y Eficiente</h3><p class="benefit-card__text">Encuentra empleos o candidatos en minutos con nuestra búsqueda inteligente.</p></div>
+                </article>
+                <article class="benefit-card">
+                    <span class="benefit-card__icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></span>
+                    <div><h3 class="benefit-card__title">Cobertura Nacional</h3><p class="benefit-card__text">Vacantes en todas las ciudades principales de Colombia.</p></div>
+                </article>
+                <article class="benefit-card">
+                    <span class="benefit-card__icon"><i class="fa-solid fa-headset" aria-hidden="true"></i></span>
+                    <div><h3 class="benefit-card__title">Soporte Cercano</h3><p class="benefit-card__text">Equipo de atención disponible de lunes a sábado por teléfono, WhatsApp y correo.</p></div>
+                </article>
+                <article class="benefit-card">
+                    <span class="benefit-card__icon"><i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i></span>
+                    <div><h3 class="benefit-card__title">Trazabilidad Total</h3><p class="benefit-card__text">Monitorea todas tus actividades y postulaciones en tiempo real.</p></div>
+                </article>
+                <article class="benefit-card">
+                    <span class="benefit-card__icon"><i class="fa-solid fa-circle-check" aria-hidden="true"></i></span>
+                    <div><h3 class="benefit-card__title">100% Gratuito</h3><p class="benefit-card__text">Busca empleos y postula sin costo alguno para candidatos.</p></div>
+                </article>
+            </div>
+            <div class="highlight">
+                <div>
+                    <h3 class="highlight__title">Software diseñado para Colombia</h3>
+                    <p class="highlight__text">WorkPlace está específicamente adaptado al mercado laboral colombiano, con salarios en pesos (COP), ciudades locales y soporte en español.</p>
+                    <ul class="check-list">
+                        <li><i class="fa-regular fa-circle-check" aria-hidden="true"></i><span>Interfaz intuitiva y fácil de usar</span></li>
+                        <li><i class="fa-regular fa-circle-check" aria-hidden="true"></i><span>Sistema de notificaciones en tiempo real</span></li>
+                        <li><i class="fa-regular fa-circle-check" aria-hidden="true"></i><span>Historial completo de actividades y postulaciones</span></li>
+                        <li><i class="fa-regular fa-circle-check" aria-hidden="true"></i><span>Actualizaciones constantes de nuevas vacantes</span></li>
+                    </ul>
+                </div>
+                <div class="highlight__stats">
+                    <div class="stat-box"><p class="stat-box__number">+15K</p><p class="stat-box__label">Vacantes Activas</p></div>
+                    <div class="stat-box"><p class="stat-box__number">+2.5K</p><p class="stat-box__label">Empresas Aliadas</p></div>
+                    <div class="stat-box"><p class="stat-box__number">+50K</p><p class="stat-box__label">Candidatos</p></div>
+                    <div class="stat-box"><p class="stat-box__number">98%</p><p class="stat-box__label">Satisfacción</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--tint" id="vacantes">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title">Vacantes Destacadas</h2>
+                <p class="section__subtitle">Explora las mejores oportunidades laborales de empresas líderes en sus sectores.</p>
+            </div>
+            <div class="grid-3" id="featuredJobs">
+                <noscript><p>Activa JavaScript para ver las vacantes destacadas o <a href="{{base}}views/buscarempleo.html">entra a Buscar Empleo</a>.</p></noscript>
+            </div>
+            <div class="section__footer">
+                <a href="{{base}}views/buscarempleo.html" class="btn btn--outline btn--lg">Ver Todas las Vacantes</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container cta__inner">
+            <img class="cta__image" src="{{base}}Imagenes/oficina.jpg" alt="Espacio de trabajo profesional con escritorios y plantas" loading="lazy" width="1080" height="720">
+            <div class="cta__content">
+                <h2 class="cta__title">¿Eres una empresa? Encuentra el talento que necesitas</h2>
+                <p class="cta__text">Publica tus vacantes, gestiona candidatos y encuentra a los mejores profesionales para hacer crecer tu equipo. Todo en una plataforma simple y efectiva.</p>
+                <ul class="cta__list">
+                    <li><span class="cta__check"><i class="fa-solid fa-check" aria-hidden="true"></i></span>Publica vacantes sin costo</li>
+                    <li><span class="cta__check"><i class="fa-solid fa-check" aria-hidden="true"></i></span>Acceso a miles de candidatos cualificados</li>
+                    <li><span class="cta__check"><i class="fa-solid fa-check" aria-hidden="true"></i></span>Sistema de seguimiento de candidatos integrado</li>
+                    <li><span class="cta__check"><i class="fa-solid fa-check" aria-hidden="true"></i></span>Análisis y reportes en tiempo real</li>
+                </ul>
+                <div class="cta__actions">
+                    <a href="{{base}}views/publicarvacante.html" class="btn btn--secondary btn--lg">Publicar Vacante Gratis</a>
+                    <a href="{{base}}views/paraempresas.html" class="btn btn--outline-light btn--lg">Conocer Más</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

@@ -1,0 +1,84 @@
+<!--
+title: Buscar Empleo | WorkPlace
+description: Explora oportunidades laborales en Colombia y filtra por ciudad, categoría, modalidad y salario.
+active: empleos
+scripts: data/vacantes.js, js/vacantes.js, js/buscarempleo.js
+-->
+<main class="page" id="contenido">
+    <div class="container">
+        <section class="search-hero">
+            <div class="search-hero__blob"></div>
+            <div class="search-hero__content">
+                <h1 class="search-hero__title">Explora <span>miles de oportunidades</span> laborales</h1>
+                <form class="search-hero__form" id="jobSearchForm" role="search">
+                    <label class="search-hero__field">
+                        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                        <input type="text" name="q" id="searchQuery" placeholder="Cargo, empresa o palabra clave" aria-label="Cargo, empresa o palabra clave">
+                    </label>
+                    <label class="search-hero__field">
+                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                        <input type="text" name="ciudad" id="searchCity" placeholder="Ciudad o región" aria-label="Ciudad o región">
+                    </label>
+                    <button type="submit" class="search-hero__button">Buscar</button>
+                </form>
+            </div>
+        </section>
+
+        <div class="jobs-layout">
+            <aside class="filters" aria-label="Filtros">
+                <div class="filters__header">
+                    <h2 class="filters__title"><i class="fa-solid fa-filter" aria-hidden="true"></i> Filtros</h2>
+                    <button type="button" class="link-button" id="clearFilters">Limpiar</button>
+                </div>
+                <div class="filters__group">
+                    <label class="filters__label" for="filterCategoria">Categoría</label>
+                    <select class="input" id="filterCategoria">
+                        <option value="">Todas las categorías</option>
+                    </select>
+                </div>
+                <fieldset class="filters__group">
+                    <legend class="filters__label">Modalidad de Trabajo</legend>
+                    <label class="check"><input type="checkbox" name="modalidad" value="Remoto"> Remoto</label>
+                    <label class="check"><input type="checkbox" name="modalidad" value="Presencial"> Presencial</label>
+                    <label class="check"><input type="checkbox" name="modalidad" value="Híbrido"> Híbrido</label>
+                </fieldset>
+                <fieldset class="filters__group">
+                    <legend class="filters__label">Rango Salarial Mensual (COP)</legend>
+                    <label class="check"><input type="radio" name="salario" value="0-2000000"> Hasta $2M (SMLV+)</label>
+                    <label class="check"><input type="radio" name="salario" value="2000000-5000000"> $2M - $5M</label>
+                    <label class="check"><input type="radio" name="salario" value="5000000-10000000"> $5M - $10M</label>
+                    <label class="check"><input type="radio" name="salario" value="10000000-999999999"> Más de $10.000.000</label>
+                </fieldset>
+                <div class="alert-box">
+                    <p class="alert-box__title"><i class="fa-regular fa-bell" aria-hidden="true"></i> Alertas de empleo</p>
+                    <p class="alert-box__text">Recibe ofertas similares a tu búsqueda en tu email.</p>
+                    <button type="button" class="btn btn--outline-primary btn--sm btn--block" data-toast="Alerta activada. Te avisaremos de nuevas vacantes similares." data-activity="Activaste una alerta de empleo|fa-regular fa-bell|orange">Activar Alerta</button>
+                </div>
+            </aside>
+
+            <section class="results" aria-labelledby="resultsHeading">
+                <h2 class="sr-only" id="resultsHeading">Resultados</h2>
+                <div class="results__toolbar">
+                    <p class="results__count" role="status">Mostrando <strong id="resultsCount">0</strong> vacantes encontradas</p>
+                    <div class="results__sort">
+                        <label for="sortJobs">Ordenar por:</label>
+                        <select id="sortJobs">
+                            <option value="recientes">Más recientes</option>
+                            <option value="mayor">Mayor salario</option>
+                            <option value="menor">Menor salario</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="results__list" id="jobsList">
+                    <noscript><p>Activa JavaScript para ver y filtrar las vacantes.</p></noscript>
+                </div>
+                <div class="empty-state" id="jobsEmpty" hidden>
+                    <span class="empty-state__icon"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></span>
+                    <h3 class="empty-state__title">No encontramos vacantes</h3>
+                    <p class="empty-state__text">Intenta ajustar tus filtros o buscar con términos menos específicos.</p>
+                    <button type="button" class="btn btn--outline" id="showAllJobs">Ver todos los empleos</button>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>

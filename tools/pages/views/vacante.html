@@ -1,0 +1,20 @@
+<!--
+title: Detalle de Vacante | WorkPlace
+description: Conoce la descripción, requisitos y beneficios de esta vacante y postúlate en WorkPlace.
+active: empleos
+scripts: data/vacantes.js, js/vacantes.js, js/vacante.js
+-->
+<main class="page" id="contenido">
+    <div class="container">
+        <a href="buscarempleo.html" class="back-link"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver a las vacantes</a>
+        <div id="vacanteDetalle">
+            <noscript><p>Activa JavaScript para ver el detalle de la vacante.</p></noscript>
+        </div>
+        <div class="empty-state" id="vacanteNoEncontrada" hidden>
+            <span class="empty-state__icon"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></span>
+            <h1 class="empty-state__title">No encontramos esta vacante</h1>
+            <p class="empty-state__text">Es posible que ya no esté disponible o que el enlace esté incompleto.</p>
+            <a href="buscarempleo.html" class="btn btn--primary">Ver todas las vacantes</a>
+        </div>
+    </div>
+</main>

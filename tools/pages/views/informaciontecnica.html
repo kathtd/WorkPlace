@@ -1,0 +1,66 @@
+<!--
+title: Información Técnica | WorkPlace
+description: Versión, tecnologías, navegadores compatibles, instalación como app y manejo de datos de WorkPlace.
+scripts: js/informaciontecnica.js
+-->
+<main class="page" id="contenido">
+    <div class="container narrow tech">
+        <header class="tech__header">
+            <span class="sitemap__icon"><i class="fa-solid fa-microchip" aria-hidden="true"></i></span>
+            <h1 class="sitemap__title">Información Técnica</h1>
+            <p class="sitemap__text">Detalles de la versión actual de WorkPlace y de cómo funciona en tu dispositivo.</p>
+        </header>
+
+        <div class="stats-row tech__stats">
+            <div class="stat-tile"><p class="stat-tile__number">1.1.0</p><p class="stat-tile__label">Versión</p></div>
+            <div class="stat-tile"><p class="stat-tile__number">Oct 2026</p><p class="stat-tile__label">Última actualización</p></div>
+            <div class="stat-tile"><p class="stat-tile__number">PWA</p><p class="stat-tile__label">Web instalable</p></div>
+            <div class="stat-tile"><p class="stat-tile__number">CO</p><p class="stat-tile__label">Región</p></div>
+        </div>
+
+        <section class="panel-card tech__section">
+            <h2 class="panel-card__heading"><i class="fa-solid fa-code" aria-hidden="true"></i> Tecnologías</h2>
+            <ul class="check-list">
+                <li><i class="fa-regular fa-circle-check" aria-hidden="true"></i><span>HTML5 semántico y CSS3 sin frameworks, con diseño responsive.</span></li>
+                <li><i class="fa-regular fa-circle-check" aria-hidden="true"></i><span>JavaScript nativo para búsquedas, filtros, perfil e historial.</span></li>
+                <li><i class="fa-regular fa-circle-check" aria-hidden="true"></i><span>Aplicación web progresiva (PWA) con service worker para uso sin conexión.</span></li>
+                <li><i class="fa-regular fa-circle-check" aria-hidden="true"></i><span>Íconos Font Awesome 6 incluidos en el sitio, sin dependencias externas.</span></li>
+            </ul>
+        </section>
+
+        <section class="panel-card tech__section">
+            <h2 class="panel-card__heading"><i class="fa-solid fa-globe" aria-hidden="true"></i> Navegadores compatibles</h2>
+            <p class="detail__text">Últimas versiones de Chrome, Edge, Firefox y Safari, en computador, Android y iPhone.</p>
+        </section>
+
+        <section class="panel-card tech__section" id="instalar">
+            <h2 class="panel-card__heading"><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i> Instalar como aplicación</h2>
+            <ol class="tutorial__steps">
+                <li><strong>Chrome o Edge (computador):</strong> pulsa el ícono de instalar en la barra de direcciones.</li>
+                <li><strong>Android:</strong> abre el menú ⋮ y elige «Instalar aplicación».</li>
+                <li><strong>iPhone (Safari):</strong> toca Compartir y luego «Agregar a inicio».</li>
+            </ol>
+        </section>
+
+        <section class="panel-card tech__section" id="tus-datos">
+            <h2 class="panel-card__heading"><i class="fa-solid fa-database" aria-hidden="true"></i> Tus datos</h2>
+            <p class="detail__text">Tu perfil, foto, hoja de vida (solo el nombre del archivo), postulaciones, vacantes guardadas, vacantes publicadas e historial de actividades se guardan únicamente en este navegador. No se envían a ningún servidor.</p>
+            <p class="detail__text" id="datosResumen"></p>
+            <button type="button" class="btn btn--outline tech__danger" id="borrarDatos"><i class="fa-regular fa-trash-can" aria-hidden="true"></i> Borrar mis datos de este navegador</button>
+        </section>
+
+        <section class="panel-card tech__section">
+            <h2 class="panel-card__heading"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> Historial de versiones</h2>
+            <dl class="changelog">
+                <div>
+                    <dt>1.1.0 · Octubre 2026</dt>
+                    <dd>Rediseño completo, detalle de vacantes, perfil editable, vacantes guardadas, Centro de Ayuda, información legal y funcionamiento sin conexión.</dd>
+                </div>
+                <div>
+                    <dt>1.0.0 · Noviembre 2025</dt>
+                    <dd>Primera versión: inicio, búsqueda de empleo, publicación de vacantes, contacto y portal para empresas.</dd>
+                </div>
+            </dl>
+        </section>
+    </div>
+</main>

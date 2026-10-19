@@ -1,0 +1,124 @@
+<!--
+title: Mi Perfil | WorkPlace
+description: Gestiona tu perfil, tu hoja de vida, tus postulaciones y tus vacantes guardadas en WorkPlace.
+scripts: data/vacantes.js, js/vacantes.js, js/perfil.js
+-->
+<main class="page" id="contenido">
+    <div class="container profile-layout">
+        <div class="stack">
+            <section class="panel-card profile-card">
+                <div class="profile-card__avatar-wrap">
+                    <span class="profile-card__avatar" data-profile="initials">MG</span>
+                    <button type="button" class="profile-card__camera" id="cambiarFoto" aria-label="Cambiar foto de perfil"><i class="fa-solid fa-camera" aria-hidden="true"></i></button>
+                    <input type="file" id="fotoInput" accept="image/*" hidden>
+                </div>
+                <h1 class="profile-card__name" data-profile="nombre">María González</h1>
+                <p class="profile-card__role" data-profile="rol">Candidato</p>
+                <ul class="profile-card__details">
+                    <li class="profile-card__detail"><i class="fa-regular fa-envelope" aria-hidden="true"></i> <span data-profile="email">maria.gonzalez@email.com</span></li>
+                    <li class="profile-card__detail"><i class="fa-solid fa-phone" aria-hidden="true"></i> <span data-profile="telefono">+57 310 123 4567</span></li>
+                    <li class="profile-card__detail"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> <span data-profile="ciudad">Bogotá, Colombia</span></li>
+                </ul>
+                <button type="button" class="btn btn--primary btn--block" id="editarPerfil">Editar Perfil</button>
+            </section>
+
+            <section class="panel-card panel-card--compact" id="cv">
+                <h2 class="panel-card__title">Hoja de Vida</h2>
+                <div class="upload" id="cvInfo">
+                    <span class="upload__icon"><i class="fa-regular fa-file-lines" aria-hidden="true"></i></span>
+                    <div>
+                        <p class="upload__name" id="cvNombre">Sin hoja de vida</p>
+                        <p class="upload__date" id="cvFecha">Sube tu documento en PDF o Word</p>
+                    </div>
+                </div>
+                <button type="button" class="btn btn--outline-primary btn--block" id="subirCV"><i class="fa-solid fa-upload" aria-hidden="true"></i> Subir Nueva Versión</button>
+                <input type="file" id="cvInput" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" hidden>
+            </section>
+
+            <section class="panel-card panel-card--compact" id="preferencias">
+                <h2 class="panel-card__title">Preferencias</h2>
+                <form class="prefs" id="prefsForm">
+                    <label class="check"><input type="checkbox" name="alertas"> Alertas de empleo por email</label>
+                    <label class="check"><input type="checkbox" name="estados"> Avisos de estado de mis postulaciones</label>
+                    <label class="check"><input type="checkbox" name="boletin"> Boletín semanal de WorkPlace</label>
+                    <div class="field">
+                        <label class="field__label" for="prefModalidad">Modalidad preferida</label>
+                        <select class="input" id="prefModalidad" name="modalidad">
+                            <option value="">Sin preferencia</option>
+                            <option>Presencial</option>
+                            <option>Híbrido</option>
+                            <option>Remoto</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn--outline btn--block">Guardar Preferencias</button>
+                </form>
+            </section>
+        </div>
+
+        <div class="stack">
+            <section class="panel-card" id="postulaciones">
+                <div class="panel-card__header">
+                    <h2 class="panel-card__heading"><i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i> Historial de Postulaciones</h2>
+                    <span class="badge badge--outline" id="postulacionesActivas"></span>
+                </div>
+                <ul class="application-list" id="listaPostulaciones"></ul>
+                <p class="detail__muted" id="sinPostulaciones" hidden>Aún no te has postulado a ninguna vacante.</p>
+            </section>
+
+            <section class="panel-card" id="guardadas">
+                <div class="panel-card__header">
+                    <h2 class="panel-card__heading"><i class="fa-regular fa-heart" aria-hidden="true"></i> Vacantes Guardadas</h2>
+                </div>
+                <ul class="application-list" id="listaGuardadas"></ul>
+                <div class="saved-empty" id="sinGuardadas" hidden>
+                    <p class="detail__muted">Guarda vacantes con el corazón para revisarlas después.</p>
+                    <a href="buscarempleo.html" class="btn btn--outline btn--sm">Explorar vacantes</a>
+                </div>
+            </section>
+
+            <div class="action-cards">
+                <a href="buscarempleo.html" class="action-card action-card--primary">
+                    <i class="action-card__icon fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <p class="action-card__title">Nueva Postulación</p>
+                    <p class="action-card__text">Explora las vacantes disponibles hoy</p>
+                </a>
+                <a href="centrodeayuda.html" class="action-card action-card--dark">
+                    <i class="action-card__icon fa-regular fa-circle-question" aria-hidden="true"></i>
+                    <p class="action-card__title">Centro de Ayuda</p>
+                    <p class="action-card__text">Guías y respuestas a dudas frecuentes</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="editProfileOverlay">
+        <div class="modal modal--narrow" role="dialog" aria-modal="true" aria-labelledby="editProfileTitle">
+            <button type="button" class="modal__close" id="editProfileClose" aria-label="Cerrar"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+            <h2 class="modal__title" id="editProfileTitle">Editar Perfil</h2>
+            <form class="form-fields modal__form" id="editProfileForm">
+                <div class="field">
+                    <label class="field__label" for="perfilNombre">Nombre completo</label>
+                    <input class="input" type="text" id="perfilNombre" name="nombre" autocomplete="name" maxlength="60" required>
+                </div>
+                <div class="field">
+                    <label class="field__label" for="perfilEmail">Correo electrónico</label>
+                    <input class="input" type="email" id="perfilEmail" name="email" autocomplete="email" maxlength="80" required>
+                </div>
+                <div class="form-row">
+                    <div class="field">
+                        <label class="field__label" for="perfilTelefono">Teléfono</label>
+                        <input class="input" type="tel" id="perfilTelefono" name="telefono" autocomplete="tel" maxlength="20">
+                    </div>
+                    <div class="field">
+                        <label class="field__label" for="perfilCiudad">Ciudad</label>
+                        <input class="input" type="text" id="perfilCiudad" name="ciudad" autocomplete="address-level2" maxlength="60">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn--outline form-actions__back" id="editProfileCancel">Cancelar</button>
+                    <button type="submit" class="btn btn--primary form-actions__submit">Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>

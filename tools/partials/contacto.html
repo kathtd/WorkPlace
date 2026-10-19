@@ -1,0 +1,73 @@
+<section class="contact" id="contacto">
+    <div class="container contact__inner">
+        <div class="contact__header">
+            <h2 class="contact__title">¿Necesitas Ayuda?</h2>
+            <p class="contact__text">Nuestro equipo de soporte está disponible para ayudarte con cualquier duda sobre la plataforma, problemas técnicos o asesoría para empresas.</p>
+        </div>
+        <div class="contact__grid">
+            <div class="contact__info">
+                <article class="info-card">
+                    <div class="info-card__header">
+                        <span class="info-card__icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>
+                        <div>
+                            <h3 class="info-card__title">Línea de Soporte</h3>
+                            <p class="info-card__subtitle">Llamadas y WhatsApp en horario de atención</p>
+                        </div>
+                    </div>
+                    <a class="info-card__highlight" href="tel:+573019308927">+57 301 930 8927</a>
+                </article>
+                <article class="info-card">
+                    <div class="info-card__header">
+                        <span class="info-card__icon"><i class="fa-regular fa-envelope" aria-hidden="true"></i></span>
+                        <div>
+                            <h3 class="info-card__title">Correo Electrónico</h3>
+                            <p class="info-card__subtitle">Respuesta en menos de 24h hábiles</p>
+                        </div>
+                    </div>
+                    <a class="info-card__highlight" href="mailto:soporte@workplace.com.co">soporte@workplace.com.co</a>
+                </article>
+                <article class="info-card">
+                    <div class="info-card__header">
+                        <span class="info-card__icon"><i class="fa-regular fa-clock" aria-hidden="true"></i></span>
+                        <div>
+                            <h3 class="info-card__title">Horario de Atención</h3>
+                        </div>
+                    </div>
+                    <div class="schedule">
+                        <p class="schedule__row"><span>Lunes a Viernes:</span><span>8:00 - 18:00</span></p>
+                        <p class="schedule__row"><span>Sábados:</span><span>9:00 - 13:00</span></p>
+                        <p class="schedule__row schedule__row--closed"><span>Domingos y festivos:</span><span>Cerrado</span></p>
+                    </div>
+                </article>
+            </div>
+            <form class="contact-form" data-toast="Mensaje enviado correctamente. El equipo de soporte te contactará pronto." data-activity="Enviaste un mensaje a soporte|fa-regular fa-comment|blue">
+                <div class="form-row">
+                    <div class="field">
+                        <label class="field__label" for="nombre">Nombre Completo</label>
+                        <input class="input" type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" autocomplete="name" required>
+                    </div>
+                    <div class="field">
+                        <label class="field__label" for="correo">Correo Electrónico</label>
+                        <input class="input" type="email" id="correo" name="correo" placeholder="juan@ejemplo.com" autocomplete="email" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="field__label" for="asunto">Asunto</label>
+                    <select class="input" id="asunto" name="asunto">
+                        <option>Duda sobre mi perfil</option>
+                        <option>Problema técnico al postularme</option>
+                        <option>Información para empresas</option>
+                        <option>Reportar contenido inapropiado</option>
+                        <option>Otro motivo</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label class="field__label" for="mensaje">Mensaje</label>
+                    <textarea class="input" id="mensaje" name="mensaje" rows="6" placeholder="Cuéntanos en qué podemos ayudarte..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn--primary btn--block">Enviar Mensaje de Soporte</button>
+                <p class="form-note"><i class="fa-solid fa-lock" aria-hidden="true"></i> Tus datos están protegidos según nuestra <a href="{{base}}views/legal.html#privacidad">Política de Privacidad</a>.</p>
+            </form>
+        </div>
+    </div>
+</section>
