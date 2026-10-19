@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa del Sitio | WorkPlace</title>
+    <meta name="description" content="Navegación completa de todas las secciones y funcionalidades de WorkPlace.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../Imagenes/icon-192.png" type="image/png">
+    <script src="https://kit.fontawesome.com/35fd8e12c7.js" crossorigin="anonymous"></script>
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#2f3fb4">
+    <link rel="apple-touch-icon" href="../Imagenes/icon-192.png">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="../index.html" class="header__brand">
+                <img class="header__logo" src="../Imagenes/icon-192.png" alt="" width="40" height="40">
+                <span class="header__brand-name">WorkPlace</span>
+            </a>
+            <nav class="header__nav" aria-label="Principal">
+                <a class="header__link" href="../index.html">Inicio</a>
+                <a class="header__link" href="../views/buscarempleo.html">Buscar Empleos</a>
+                <a class="header__link" href="../views/publicarvacante.html">Publicar Vacante</a>
+                <a class="header__link" href="../views/paraempresas.html">Para Empresas</a>
+                <a class="header__link" href="../views/contacto.html">Contacto</a>
+            </nav>
+            <div class="header__actions">
+                <button type="button" class="icon-button" id="activityButton" aria-label="Actividades recientes">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="icon-button__badge" id="activityBadge">5</span>
+                </button>
+                <div class="dropdown-wrapper">
+                    <button type="button" class="icon-button" id="helpButton" aria-label="Menú de Ayuda">
+                        <i class="fa-regular fa-circle-question"></i>
+                    </button>
+                    <div class="dropdown dropdown--accent" id="helpDropdown">
+                        <p class="dropdown__label dropdown__label--accent">Centro de Ayuda</p>
+                        <hr class="dropdown__divider">
+                        <a href="#" class="dropdown__item" id="helpAcercaDe">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <span><span class="dropdown__item-title">Acerca de WorkPlace</span><span class="dropdown__item-subtitle">Información del software</span></span>
+                        </a>
+                        <a href="../views/centrodeayuda.html" class="dropdown__item">
+                            <i class="fa-solid fa-book-open"></i>
+                            <span><span class="dropdown__item-title">Guía de Usuario</span><span class="dropdown__item-subtitle">Aprende a usar la plataforma</span></span>
+                        </a>
+                        <a href="../views/centrodeayuda.html" class="dropdown__item">
+                            <i class="fa-solid fa-video"></i>
+                            <span><span class="dropdown__item-title">Video Tutoriales</span><span class="dropdown__item-subtitle">Tutoriales paso a paso</span></span>
+                        </a>
+                        <a href="../views/centrodeayuda.html" class="dropdown__item">
+                            <i class="fa-regular fa-circle-question"></i>
+                            <span><span class="dropdown__item-title">Preguntas Frecuentes</span><span class="dropdown__item-subtitle">Respuestas rápidas</span></span>
+                        </a>
+                        <hr class="dropdown__divider">
+                        <p class="dropdown__section-label">Contáctanos</p>
+                        <a href="../views/contacto.html" class="dropdown__item">
+                            <i class="fa-regular fa-comment"></i>
+                            <span><span class="dropdown__item-title">Chat en Vivo</span><span class="dropdown__item-subtitle">Lun-Vie 8am-6pm</span></span>
+                        </a>
+                        <a href="tel:+573019308927" class="dropdown__item">
+                            <i class="fa-solid fa-phone"></i>
+                            <span><span class="dropdown__item-title">Línea de Soporte</span><span class="dropdown__item-subtitle">301 930 8927</span></span>
+                        </a>
+                        <a href="mailto:soporte@workplace.com.co" class="dropdown__item">
+                            <i class="fa-regular fa-envelope"></i>
+                            <span><span class="dropdown__item-title">Email</span><span class="dropdown__item-subtitle">soporte@workplace.com.co</span></span>
+                        </a>
+                    </div>
+                </div>
+                <button type="button" class="icon-button" id="infoButton" aria-label="Acerca de WorkPlace">
+                    <i class="fa-solid fa-circle-info"></i>
+                </button>
+                <div class="dropdown-wrapper">
+                    <button type="button" class="profile-trigger" id="profileButton" aria-label="Menú de perfil">
+                        <span class="avatar">MG</span>
+                        <span class="profile-trigger__text">
+                            <span class="profile-trigger__name">María González</span>
+                            <span class="profile-trigger__role">Candidato</span>
+                        </span>
+                    </button>
+                    <div class="dropdown" id="profileDropdown">
+                        <div class="dropdown__header">
+                            <p class="dropdown__name">María González</p>
+                            <p class="dropdown__detail">maria.gonzalez@email.com</p>
+                        </div>
+                        <hr class="dropdown__divider">
+                        <a href="../views/perfil.html" class="dropdown__item"><i class="fa-regular fa-user"></i> Mi Perfil</a>
+                        <a href="../views/perfil.html#postulaciones" class="dropdown__item"><i class="fa-solid fa-briefcase"></i> Mis Postulaciones</a>
+                        <a href="../views/perfil.html#cv" class="dropdown__item"><i class="fa-regular fa-file-lines"></i> Mi CV</a>
+                        <a href="../views/perfil.html#notificaciones" class="dropdown__item"><i class="fa-regular fa-bell"></i> Notificaciones</a>
+                        <a href="../views/perfil.html#configuracion" class="dropdown__item"><i class="fa-solid fa-gear"></i> Configuración</a>
+                        <hr class="dropdown__divider">
+                        <a href="../index.html" class="dropdown__item dropdown__item--danger" id="cerrarSesionBtn"><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</a>
+                    </div>
+                </div>
+                <button type="button" class="header__menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <nav class="container mobile-menu" id="mobileMenu" aria-label="Menú móvil">
+            <div class="mobile-menu__links">
+                <a class="header__link" href="../index.html">Inicio</a>
+                <a class="header__link" href="../views/buscarempleo.html">Buscar Empleos</a>
+                <a class="header__link" href="../views/publicarvacante.html">Publicar Vacante</a>
+                <a class="header__link" href="../views/paraempresas.html">Para Empresas</a>
+                <a class="header__link" href="../views/contacto.html">Contacto</a>
+            </div>
+            <a href="../views/perfil.html" class="mobile-menu__profile">
+                <span class="avatar">MG</span>
+                <span class="profile-trigger__text">
+                    <span class="profile-trigger__name">María González</span>
+                    <span class="profile-trigger__role">Candidato</span>
+                </span>
+            </a>
+        </nav>
+    </header>
+    <main class="sitemap">
+        <div class="container sitemap__inner">
+            <div class="sitemap__header">
+                <span class="sitemap__icon"><i class="fa-solid fa-sitemap"></i></span>
+                <h1 class="sitemap__title">Mapa del Sitio</h1>
+                <p class="sitemap__text">Navegación completa de todas las secciones y funcionalidades disponibles en WorkPlace</p>
+            </div>
+            <section class="sitemap__card">
+                <div class="sitemap__card-header">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <h2>Estructura de la Plataforma</h2>
+                </div>
+                <div class="tree">
+                    <details class="tree__group" open>
+                        <summary class="tree__summary"><i class="tree__chevron fa-solid fa-chevron-right"></i><i class="tree__icon fa-solid fa-house"></i> Inicio</summary>
+                        <ul class="tree__items">
+                            <li class="tree__item"><span class="tree__dot"></span><div><a class="tree__link" href="../index.html">Página Principal</a><p class="tree__desc">Presentación de la plataforma y buscador rápido</p></div></li>
+                            <li class="tree__item"><span class="tree__dot"></span><div><a class="tree__link" href="../index.html#vacantes">Vacantes Destacadas</a><p class="tree__desc">Ofertas laborales más relevantes</p></div></li>
+                            <li class="tree__item"><span class="tree__dot"></span><div><a class="tree__link" href="../index.html#funciones">Funcionalidades</a><p class="tree__desc">Servicios principales de WorkPlace</p></div></li>
+                        </ul>
+                    </details>
+                    <details class="tree__group" open>
+                        <summary class="tree__summary"><i class="tree__chevron fa-solid fa-chevron-right"></i><i class="tree__icon fa-solid fa-magnifying-glass"></i> Buscar Empleos</summary>
+                        <ul class="tree__items">
+                            <li class="tree__item"><span class="tree__dot"></span><div><a class="tree__link" href="buscarempleo.html">Sistema de Búsqueda</a><p class="tree__desc">Buscador avanzado por palabra clave y ubicación</p></div></li>
+                            <li class="tree__item"><span class="tree__dot"></span><div><a class="tree__link" href="buscarempleo.html">Filtros de Búsqueda</a><p class="tree__desc">Modalidad de trabajo y rango salarial</p></div></li>
+                            <li class="tree__item"><span class="tree__dot"></span><div><a class="tree__link" href="buscarempleo.html">Listado de Vacantes</a><p class="tree__desc">Tarjetas con información completa y postulación</p></div></li>
+                        </ul>
+                    </details>
+                    <details class="tree__group" open>
+                        <summary class="tree__summary"><i class="tree__chevron fa-solid fa-chevron-right"></i><i class="tree__icon fa-solid fa-building"></i> Para Empresas</summary>
+                        <ul class="tree__items">
+                            <li class="tree__item"><span class="tree__dot"></span><div><a class="tree__link" href="paraempresas.html">Información Institucional</a><p class="tree__desc">Quiénes somos y beneficios para empleadores</p></div></li>
+                            <li class="tree__item"><span class="tree__dot"></span><div><a class="tree__link" href="paraempresas.html">Panel de Reclutador</a><p class="tree__desc">Métricas de reclutamiento y acceso a talento</p></div></li>
+                            <li class="tree__item"><span class="tree__dot"></span><div><a class="tree__link" href="paraempresas.html#contacto">Hablar con un Asesor</a><p class="tree__desc">Asesoría para empresas y registro</p></div></li>
+                        </ul>
+                    </details>
+                    <details class="tree__group" open>
+                        <summary class="tree__summary"><i class="tree__chevron fa-solid fa-chevron-right"></i><i class="tree__icon fa-solid fa-file-circle-plus"></i> Publicar Vacante</summary>
+                        <ul class="tree__items">
+                            <li class="tree__item"><span class="tree__dot"></span><div><a class="tree__link" href="publicarvacante.html">Crear Vacante</a><p class="tree__desc">Formulario en tres pasos para publicar una oferta</p></div></li>
+                        </ul>
+                    </details>
+                    <details class="tree__group" open>
+                        <summary class="tree__summary"><i class="tree__chevron fa-solid fa-chevron-right"></i><i class="tree__icon fa-solid fa-user"></i> Mi Perfil</summary>
+                        <ul class="tree__items">
+                            <li class="tree__item"><span class="tree__dot"></span><div><a class="tree__link" href="perfil.html">Información Personal</a><p class="tree__desc">Perfil, foto y datos de contacto</p></div></li>
+                            <li class="tree__item"><span class="tree__dot"></span><div><a class="tree__link" href="perfil.html#cv">Hoja de Vida / CV</a><p class="tree__desc">Documento de hoja de vida actualizado</p></div></li>
+                            <li class="tree__item"><span class="tree__dot"></span><div><a class="tree__link" href="perfil.html#postulaciones">Historial de Postulaciones</a><p class="tree__desc">Estado de tus aplicaciones</p></div></li>
+                            <li class="tree__item"><span class="tree__dot"></span><div><a class="tree__link" href="perfil.html#configuracion">Configuración de Cuenta</a><p class="tree__desc">Preferencias y alertas de empleo</p></div></li>
+                        </ul>
+                    </details>
+                    <details class="tree__group" open>
+                        <summary class="tree__summary"><i class="tree__chevron fa-solid fa-chevron-right"></i><i class="tree__icon fa-solid fa-headset"></i> Contacto y Soporte</summary>
+                        <ul class="tree__items">
+                            <li class="tree__item"><span class="tree__dot"></span><div><a class="tree__link" href="contacto.html">Canales de Comunicación</a><p class="tree__desc">Formulario, email y teléfono</p></div></li>
+                            <li class="tree__item"><span class="tree__dot"></span><div><a class="tree__link" href="centrodeayuda.html">Centro de Ayuda</a><p class="tree__desc">Preguntas frecuentes, guías y soporte técnico</p></div></li>
+                            <li class="tree__item"><span class="tree__dot"></span><div><a class="tree__link" href="contacto.html">Información de Contacto</a><p class="tree__desc">Sede en Bogotá y horarios</p></div></li>
+                        </ul>
+                    </details>
+                    <details class="tree__group" open>
+                        <summary class="tree__summary"><i class="tree__chevron fa-solid fa-chevron-right"></i><i class="tree__icon fa-solid fa-scale-balanced"></i> Información Legal</summary>
+                        <ul class="tree__items">
+                            <li class="tree__item"><span class="tree__dot"></span><div><span class="tree__link">Términos y Condiciones</span><p class="tree__desc">Condiciones de uso y políticas</p></div></li>
+                            <li class="tree__item"><span class="tree__dot"></span><div><span class="tree__link">Políticas de Privacidad</span><p class="tree__desc">Tratamiento de datos y HABEAS DATA</p></div></li>
+                            <li class="tree__item"><span class="tree__dot"></span><div><span class="tree__link">Normatividad Laboral</span><p class="tree__desc">Leyes laborales colombianas</p></div></li>
+                            <li class="tree__item"><span class="tree__dot"></span><div><span class="tree__link">Seguridad y Cumplimiento</span><p class="tree__desc">Código de conducta y prevención de fraude</p></div></li>
+                        </ul>
+                    </details>
+                </div>
+            </section>
+            <section class="help-banner">
+                <h2 class="help-banner__title">¿Necesitas ayuda para navegar?</h2>
+                <p class="help-banner__text">Nuestro equipo de soporte está disponible para ayudarte a encontrar lo que necesitas en WorkPlace. Contáctanos en cualquier momento.</p>
+                <div class="help-banner__actions">
+                    <a href="contacto.html" class="btn btn--white btn--lg"><i class="fa-regular fa-envelope"></i> Contáctanos</a>
+                    <a href="../index.html" class="btn btn--dark btn--lg"><i class="fa-solid fa-house"></i> Volver al Inicio</a>
+                </div>
+            </section>
+            <div class="stats-row">
+                <div class="stat-tile"><p class="stat-tile__number">7</p><p class="stat-tile__label">Secciones Principales</p></div>
+                <div class="stat-tile"><p class="stat-tile__number">20+</p><p class="stat-tile__label">Categorías</p></div>
+                <div class="stat-tile"><p class="stat-tile__number">24/7</p><p class="stat-tile__label">Acceso Disponible</p></div>
+                <div class="stat-tile"><p class="stat-tile__number">100%</p><p class="stat-tile__label">Gratuito</p></div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__grid">
+                <div class="footer__col">
+                    <div class="footer__brand">
+                        <img src="../Imagenes/icon-192.png" alt="" width="32" height="32">
+                        <span>WorkPlace</span>
+                    </div>
+                    <p class="footer__text">La plataforma líder que conecta talento con oportunidades. Encuentra tu próximo empleo o el candidato perfecto.</p>
+                    <div class="footer__social">
+                        <a href="https://www.instagram.com/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://es-la.facebook.com/" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://x.com/" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.linkedin.com/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__title">Enlaces Rápidos</h3>
+                    <ul class="footer__links">
+                        <li><a href="../views/buscarempleo.html">Buscar Empleos</a></li>
+                        <li><a href="../views/publicarvacante.html">Publicar Vacante</a></li>
+                        <li><a href="../views/paraempresas.html">Para Empresas</a></li>
+                        <li><a href="../views/perfil.html">Mi Perfil</a></li>
+                        <li><a href="../views/contacto.html">Contacto</a></li>
+                        <li><a href="../views/mapadelsitio.html">Mapa del Sitio</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__title">Información Legal</h3>
+                    <ul class="footer__links">
+                        <li><a href="#">Términos y Condiciones</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Política de Cookies</a></li>
+                        <li><a href="#">Aviso Legal</a></li>
+                        <li><a href="#">Código de Conducta</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__title">Contacto de Soporte</h3>
+                    <ul class="footer__contact">
+                        <li class="footer__contact-item">
+                            <i class="fa-regular fa-envelope"></i>
+                            <span><span class="footer__contact-label">Soporte General:</span>soporte@workplace.com.co</span>
+                        </li>
+                        <li class="footer__contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <span><span class="footer__contact-label">Línea Nacional:</span>01 8000 912 345<span class="footer__contact-label">Bogotá:</span>+57 (601) 456-7890</span>
+                        </li>
+                        <li class="footer__contact-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span><span class="footer__contact-label">Sede Principal:</span>Calle 45 #27-58, piso 6<br>Bogotá D.C., Colombia</span>
+                        </li>
+                    </ul>
+                    <form class="newsletter" data-toast="¡Suscripción exitosa! Recibirás nuestras novedades.">
+                        <label class="newsletter__label" for="newsletterEmail">Suscríbete a nuestro boletín</label>
+                        <div class="newsletter__form">
+                            <input class="newsletter__input" type="email" id="newsletterEmail" name="email" placeholder="Tu email" required>
+                            <button type="submit" class="btn btn--primary btn--sm">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>© 2025 WorkPlace. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <div class="overlay" id="activityOverlay"></div>
+    <aside class="sheet" id="activitySheet" aria-labelledby="activityTitle" aria-hidden="true">
+        <button type="button" class="sheet__close" id="activityClose" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+        <h2 class="sheet__title" id="activityTitle"><i class="fa-solid fa-clock-rotate-left"></i> Trazabilidad de Actividades</h2>
+        <p class="sheet__description">Historial completo de tus acciones en la plataforma</p>
+        <div class="sheet__body">
+            <ul class="sheet__list" id="activityList">
+                <li class="activity">
+                    <span class="activity__icon activity__icon--green"><i class="fa-solid fa-right-to-bracket"></i></span>
+                    <div><p class="activity__title">Iniciaste sesión en WorkPlace</p><p class="activity__time">Hace 5 minutos</p></div>
+                </li>
+                <li class="activity">
+                    <span class="activity__icon activity__icon--blue"><i class="fa-solid fa-magnifying-glass"></i></span>
+                    <div><p class="activity__title">Búsqueda: Desarrollador Frontend</p><p class="activity__time">Hace 20 minutos</p></div>
+                </li>
+                <li class="activity">
+                    <span class="activity__icon activity__icon--blue"><i class="fa-solid fa-briefcase"></i></span>
+                    <div><p class="activity__title">Postulación iniciada para: Analista Financiero</p><p class="activity__time">Hace 2 horas</p></div>
+                </li>
+                <li class="activity">
+                    <span class="activity__icon activity__icon--orange"><i class="fa-regular fa-eye"></i></span>
+                    <div><p class="activity__title">Vista de vacante: Ingeniero de Datos en Audifarma S.A.</p><p class="activity__time">Hace 5 horas</p></div>
+                </li>
+                <li class="activity">
+                    <span class="activity__icon activity__icon--gray"><i class="fa-regular fa-file-lines"></i></span>
+                    <div><p class="activity__title">Actualizaste tu hoja de vida</p><p class="activity__time">Hace 1 día</p></div>
+                </li>
+            </ul>
+            <div class="sheet__empty" id="activityEmpty" hidden>
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <p>No hay actividades registradas</p>
+            </div>
+        </div>
+        <div class="sheet__footer">
+            <button type="button" class="btn btn--outline btn--sm btn--block" id="activityClear"><i class="fa-regular fa-trash-can"></i> Limpiar Historial</button>
+        </div>
+    </aside>
+    <div class="modal-overlay" id="infoModalOverlay">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="infoModalTitle">
+            <button type="button" class="modal__close" id="infoModalClose" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal__header">
+                <img class="modal__logo" src="../Imagenes/icon-192.png" alt="" width="48" height="48">
+                <div>
+                    <h2 class="modal__title" id="infoModalTitle">WorkPlace</h2>
+                    <p class="modal__subtitle">Versión 1.0.0 - Plataforma de Empleo en Colombia</p>
+                </div>
+            </div>
+            <div class="modal__body">
+                <section>
+                    <h3 class="modal__section-title">¿Qué es WorkPlace?</h3>
+                    <p class="modal__text">WorkPlace es una plataforma integral de empleo diseñada específicamente para el mercado colombiano. Conectamos profesionales talentosos con empresas que buscan los mejores candidatos, facilitando el proceso de búsqueda y selección de personal.</p>
+                </section>
+                <section>
+                    <h3 class="modal__section-title">Características Principales</h3>
+                    <div class="modal__grid">
+                        <div class="modal__feature"><i class="fa-solid fa-bolt"></i><div><h4>Búsqueda Inteligente</h4><p>Encuentra empleos relevantes con filtros avanzados</p></div></div>
+                        <div class="modal__feature"><i class="fa-solid fa-users"></i><div><h4>Portal para Empresas</h4><p>Publica vacantes y gestiona candidatos</p></div></div>
+                        <div class="modal__feature"><i class="fa-solid fa-shield-halved"></i><div><h4>Verificación de Empresas</h4><p>Todas las ofertas son verificadas</p></div></div>
+                        <div class="modal__feature"><i class="fa-solid fa-award"></i><div><h4>Perfil Profesional</h4><p>Destaca tu experiencia y habilidades</p></div></div>
+                    </div>
+                </section>
+                <section>
+                    <h3 class="modal__section-title">¿Qué ofrece el software?</h3>
+                    <ul class="modal__list">
+                        <li><span><strong>Para Candidatos:</strong> Búsqueda de empleos, postulación online, seguimiento de aplicaciones, alertas personalizadas y creación de CV profesional.</span></li>
+                        <li><span><strong>Para Empresas:</strong> Publicación ilimitada de vacantes, gestión de candidatos, filtros de preselección y estadísticas de reclutamiento.</span></li>
+                        <li><span><strong>Trazabilidad:</strong> Historial completo de todas tus acciones en la plataforma para mayor control y transparencia.</span></li>
+                        <li><span><strong>Soporte 24/7:</strong> Equipo de ayuda disponible para resolver cualquier duda o inconveniente.</span></li>
+                    </ul>
+                </section>
+                <section class="modal__divider">
+                    <h3 class="modal__section-title">Información Técnica</h3>
+                    <div class="modal__tech">
+                        <div><p class="modal__tech-label">Versión:</p><p class="modal__tech-value">1.0.0</p></div>
+                        <div><p class="modal__tech-label">Última actualización:</p><p class="modal__tech-value">Noviembre 2025</p></div>
+                        <div><p class="modal__tech-label">Plataforma:</p><p class="modal__tech-value">Web (Responsive)</p></div>
+                        <div><p class="modal__tech-label">Región:</p><p class="modal__tech-value">Colombia</p></div>
+                    </div>
+                </section>
+                <footer class="modal__divider modal__footer">
+                    <p><i class="fa-solid fa-globe"></i> www.workplace.com.co</p>
+                    <p class="modal__copyright">© 2025 WorkPlace. Todos los derechos reservados.</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <script src="../js/main.js"></script>
+</body>
+</html>

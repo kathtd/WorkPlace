@@ -1,687 +1,579 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WorkPlace</title>
+    <title>Buscar Empleo | WorkPlace</title>
+    <meta name="description" content="Explora miles de oportunidades laborales en Colombia y filtra por modalidad y salario.">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="shortcut icon" href="../Imagenes/WorkPlace_logo.webp" type="image/x-icon" sizes="11x11">
+    <link rel="icon" href="../Imagenes/icon-192.png" type="image/png">
     <script src="https://kit.fontawesome.com/35fd8e12c7.js" crossorigin="anonymous"></script>
     <link rel="manifest" href="../manifest.json">
     <meta name="theme-color" content="#2f3fb4">
     <link rel="apple-touch-icon" href="../Imagenes/icon-192.png">
 </head>
 <body>
-    <header>
-        <nav class="nav">
-            <a href="../index.html">
-                <img class="nav__logo" src="../Imagenes/WorkPlace_logo.webp" alt="imagen_logo">
+    <header class="header">
+        <div class="container header__inner">
+            <a href="../index.html" class="header__brand">
+                <img class="header__logo" src="../Imagenes/icon-192.png" alt="" width="40" height="40">
+                <span class="header__brand-name">WorkPlace</span>
             </a>
-            <ul class="nav__list">
-                <li class="nav__list-item">
-                    <a class="Inicio " href="../index.html">Inicio</a>
-                </li>
-                <li class="nav__list-item">
-                    <a class=" activo buscarempleo" href="../views/buscarempleo.html">Buscar Empleo</a>
-                </li>
-                <li class="nav__list-item">
-                    <a class="publicarvacante" href="../views/publicarvacante.html">Publicar Vacante</a>
-                </li>
-                <li class="nav__list-item">
-                    <a class="empresas" href="../views/paraempresas.html">Empresas</a>
-                </li>
-                <li class="nav__list-item">
-                    <a class="Contacto" href="../views/contacto.html">Contacto</a>
-                </li>
-            </ul>
-            <ul class="nav__list">
-                <li class="nav__list-item">
-                    <button type="button" class="informacion" id="infoButton" aria-label="Información de WorkPlace">
-                        <i class="fa-solid fa-circle-info"></i>
+            <nav class="header__nav" aria-label="Principal">
+                <a class="header__link" href="../index.html">Inicio</a>
+                <a class="header__link header__link--active" aria-current="page" href="../views/buscarempleo.html">Buscar Empleos</a>
+                <a class="header__link" href="../views/publicarvacante.html">Publicar Vacante</a>
+                <a class="header__link" href="../views/paraempresas.html">Para Empresas</a>
+                <a class="header__link" href="../views/contacto.html">Contacto</a>
+            </nav>
+            <div class="header__actions">
+                <button type="button" class="icon-button" id="activityButton" aria-label="Actividades recientes">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="icon-button__badge" id="activityBadge">5</span>
+                </button>
+                <div class="dropdown-wrapper">
+                    <button type="button" class="icon-button" id="helpButton" aria-label="Menú de Ayuda">
+                        <i class="fa-regular fa-circle-question"></i>
                     </button>
-                </li>
-                <li class="nav__list-item nav__dropdown-wrapper">
-                    <button type="button" class="ayuda" id="helpButton" aria-label="Centro de Ayuda">
-                        <i class="fa-solid fa-circle-question"></i>
-                    </button>
-
-                    <div class="help-dropdown" id="helpDropdown">
-                        <h3 class="help-dropdown__title">Centro de Ayuda</h3>
-                        <hr class="help-dropdown__divider">
-
-                        <a href="#" class="help-dropdown__item" id="helpAcercaDe">
+                    <div class="dropdown dropdown--accent" id="helpDropdown">
+                        <p class="dropdown__label dropdown__label--accent">Centro de Ayuda</p>
+                        <hr class="dropdown__divider">
+                        <a href="#" class="dropdown__item" id="helpAcercaDe">
                             <i class="fa-solid fa-circle-info"></i>
-                            <div>
-                                <p class="help-dropdown__item-title">Acerca de WorkPlace</p>
-                                <p class="help-dropdown__item-subtitle">Información del software</p>
-                            </div>
+                            <span><span class="dropdown__item-title">Acerca de WorkPlace</span><span class="dropdown__item-subtitle">Información del software</span></span>
                         </a>
-
-                        <a href="../views/centrodeayuda.html" class="help-dropdown__item">
-                            <i class="fa-solid fa-book"></i>
-                            <div>
-                                <p class="help-dropdown__item-title">Guía de Usuario</p>
-                                <p class="help-dropdown__item-subtitle">Aprende a usar la plataforma</p>
-                            </div>
+                        <a href="../views/centrodeayuda.html" class="dropdown__item">
+                            <i class="fa-solid fa-book-open"></i>
+                            <span><span class="dropdown__item-title">Guía de Usuario</span><span class="dropdown__item-subtitle">Aprende a usar la plataforma</span></span>
                         </a>
-
-                        <a href="../views/centrodeayuda.html" class="help-dropdown__item">
+                        <a href="../views/centrodeayuda.html" class="dropdown__item">
                             <i class="fa-solid fa-video"></i>
-                            <div>
-                                <p class="help-dropdown__item-title">Video Tutoriales</p>
-                                <p class="help-dropdown__item-subtitle">Tutoriales paso a paso</p>
-                            </div>
+                            <span><span class="dropdown__item-title">Video Tutoriales</span><span class="dropdown__item-subtitle">Tutoriales paso a paso</span></span>
                         </a>
-
-                        <a href="../views/centrodeayuda.html" class="help-dropdown__item">
+                        <a href="../views/centrodeayuda.html" class="dropdown__item">
                             <i class="fa-regular fa-circle-question"></i>
-                            <div>
-                                <p class="help-dropdown__item-title">Preguntas Frecuentes</p>
-                                <p class="help-dropdown__item-subtitle">Respuestas rápidas</p>
-                            </div>
+                            <span><span class="dropdown__item-title">Preguntas Frecuentes</span><span class="dropdown__item-subtitle">Respuestas rápidas</span></span>
                         </a>
-
-                        <p class="help-dropdown__section-label">Contáctanos</p>
-
-                        <a href="../views/contacto.html" class="help-dropdown__item">
-                            <i class="fa-solid fa-comment"></i>
-                            <div>
-                                <p class="help-dropdown__item-title">Chat en Vivo</p>
-                                <p class="help-dropdown__item-subtitle">Lun-Vie 8am-6pm</p>
-                            </div>
+                        <hr class="dropdown__divider">
+                        <p class="dropdown__section-label">Contáctanos</p>
+                        <a href="../views/contacto.html" class="dropdown__item">
+                            <i class="fa-regular fa-comment"></i>
+                            <span><span class="dropdown__item-title">Chat en Vivo</span><span class="dropdown__item-subtitle">Lun-Vie 8am-6pm</span></span>
                         </a>
-
-                        <a href="tel:+573019308927" class="help-dropdown__item">
+                        <a href="tel:+573019308927" class="dropdown__item">
                             <i class="fa-solid fa-phone"></i>
-                            <div>
-                                <p class="help-dropdown__item-title">Línea de Soporte</p>
-                                <p class="help-dropdown__item-subtitle">301 930 8927</p>
-                            </div>
+                            <span><span class="dropdown__item-title">Línea de Soporte</span><span class="dropdown__item-subtitle">301 930 8927</span></span>
                         </a>
-
-                        <a href="mailto:soporte@workplace.com.co" class="help-dropdown__item">
-                            <i class="fa-solid fa-envelope"></i>
-                            <div>
-                                <p class="help-dropdown__item-title">Email</p>
-                                <p class="help-dropdown__item-subtitle">soporte@workplace.com.co</p>
-                            </div>
+                        <a href="mailto:soporte@workplace.com.co" class="dropdown__item">
+                            <i class="fa-regular fa-envelope"></i>
+                            <span><span class="dropdown__item-title">Email</span><span class="dropdown__item-subtitle">soporte@workplace.com.co</span></span>
                         </a>
                     </div>
-                </li>
-                <li class="nav__list-item nav__dropdown-wrapper">
-                    <button type="button" class="profile-trigger" id="profileButton">
-                        <span class="profile-trigger__avatar">MG</span>
+                </div>
+                <button type="button" class="icon-button" id="infoButton" aria-label="Acerca de WorkPlace">
+                    <i class="fa-solid fa-circle-info"></i>
+                </button>
+                <div class="dropdown-wrapper">
+                    <button type="button" class="profile-trigger" id="profileButton" aria-label="Menú de perfil">
+                        <span class="avatar">MG</span>
                         <span class="profile-trigger__text">
                             <span class="profile-trigger__name">María González</span>
                             <span class="profile-trigger__role">Candidato</span>
                         </span>
                     </button>
-
-                    <div class="profile-dropdown" id="profileDropdown">
-                        <div class="profile-dropdown__header">
-                            <p class="profile-dropdown__name">María González</p>
-                            <p class="profile-dropdown__detail">maria.gonzalez@email.com</p>
-                            <p class="profile-dropdown__detail">+57 310 123 4567</p>
-                            <p class="profile-dropdown__location">Bogotá, Colombia</p>
+                    <div class="dropdown" id="profileDropdown">
+                        <div class="dropdown__header">
+                            <p class="dropdown__name">María González</p>
+                            <p class="dropdown__detail">maria.gonzalez@email.com</p>
                         </div>
-
-                        <hr class="profile-dropdown__divider">
-
-                        <a href="../views/perfil.html" class="profile-dropdown__item">
-                            <i class="fa-solid fa-user"></i> Mi Perfil
-                        </a>
-                        <a href="../views/misPostulaciones.html" class="profile-dropdown__item">
-                            <i class="fa-solid fa-briefcase"></i> Mis Postulaciones
-                        </a>
-                        <a href="../views/miCV.html" class="profile-dropdown__item">
-                            <i class="fa-solid fa-file-lines"></i> Mi CV
-                        </a>
-                        <a href="../views/notificaciones.html" class="profile-dropdown__item">
-                            <i class="fa-solid fa-bell"></i> Notificaciones
-                        </a>
-                        <a href="../views/configuracion.html" class="profile-dropdown__item">
-                            <i class="fa-solid fa-gear"></i> Configuración
-                        </a>
-
-                        <hr class="profile-dropdown__divider">
-
-                        <a href="../index.html" class="profile-dropdown__item profile-dropdown__item--danger" id="cerrarSesionBtn">
-                            <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
-                        </a>
+                        <hr class="dropdown__divider">
+                        <a href="../views/perfil.html" class="dropdown__item"><i class="fa-regular fa-user"></i> Mi Perfil</a>
+                        <a href="../views/perfil.html#postulaciones" class="dropdown__item"><i class="fa-solid fa-briefcase"></i> Mis Postulaciones</a>
+                        <a href="../views/perfil.html#cv" class="dropdown__item"><i class="fa-regular fa-file-lines"></i> Mi CV</a>
+                        <a href="../views/perfil.html#notificaciones" class="dropdown__item"><i class="fa-regular fa-bell"></i> Notificaciones</a>
+                        <a href="../views/perfil.html#configuracion" class="dropdown__item"><i class="fa-solid fa-gear"></i> Configuración</a>
+                        <hr class="dropdown__divider">
+                        <a href="../index.html" class="dropdown__item dropdown__item--danger" id="cerrarSesionBtn"><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</a>
                     </div>
-                </li>
-            </ul>
+                </div>
+                <button type="button" class="header__menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <nav class="container mobile-menu" id="mobileMenu" aria-label="Menú móvil">
+            <div class="mobile-menu__links">
+                <a class="header__link" href="../index.html">Inicio</a>
+                <a class="header__link header__link--active" aria-current="page" href="../views/buscarempleo.html">Buscar Empleos</a>
+                <a class="header__link" href="../views/publicarvacante.html">Publicar Vacante</a>
+                <a class="header__link" href="../views/paraempresas.html">Para Empresas</a>
+                <a class="header__link" href="../views/contacto.html">Contacto</a>
+            </div>
+            <a href="../views/perfil.html" class="mobile-menu__profile">
+                <span class="avatar">MG</span>
+                <span class="profile-trigger__text">
+                    <span class="profile-trigger__name">María González</span>
+                    <span class="profile-trigger__role">Candidato</span>
+                </span>
+            </a>
         </nav>
     </header>
-    <main class="container">
-        <section class="job-search">
-            <div class="job-search__container">
-                <h2 class="job-search__title">Explora <span style="color: #93c5fd;"> miles de oportunidades</span> laborales</h2>
-                <form class="job-search__form">
-                    <article class="job-search__field">
-                        <i class="fa-solid fa-magnifying-glass job-search__icon"></i>
-                        <input
-                            type="text"
-                            class="job-search__input"
-                            placeholder="Cargo, empresa o palabra clave">
-                    </article>
-                    <article class="job-search__field">
-                        <i class="fa-solid fa-location-dot job-search__icon"></i>
-                        <input
-                            type="text"
-                            class="job-search__input"
-                            placeholder="Ciudad o región">
-                    </article>
-                    <button type="submit" class="job-search__button">
-                        Buscar
-                    </button>
-                </form>
-            </div>
-        </section>
-        <section class="jobs">
-            <div class="jobs__header">
-                <p>Mostrando vacantes encontradas</p>
-                <div class="jobs__order">
-                    <span>Ordenar por:</span>
-                    <select>
-                        <option>Más recientes</option>
-                        <option>Mayor salario</option>
-                        <option>Menor salario</option>
-                    </select>
+    <main class="page">
+        <div class="container">
+            <section class="search-hero">
+                <div class="search-hero__blob"></div>
+                <div class="search-hero__content">
+                    <h1 class="search-hero__title">Explora <span>miles de oportunidades</span> laborales</h1>
+                    <form class="search-hero__form" id="jobSearchForm" role="search">
+                        <label class="search-hero__field">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" name="q" id="searchQuery" placeholder="Cargo, empresa o palabra clave" aria-label="Cargo, empresa o palabra clave">
+                        </label>
+                        <label class="search-hero__field">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <input type="text" name="ciudad" id="searchCity" placeholder="Ciudad o región" aria-label="Ciudad o región">
+                        </label>
+                        <button type="submit" class="search-hero__button">Buscar</button>
+                    </form>
                 </div>
-            </div>
-            <div class="jobs__content">
-                <!--FILTROS-->
-                <aside class="jobs__sidebar">
-                    <div class="jobs__filters">
-                        <h2><span>Filtros</span></h2>
-                        <div class="filter-group">
-                            <h3>MODALIDAD DE TRABAJO</h3>
-                            <label>
-                                <input type="checkbox">
-                                <span>Remoto</span>
-                            </label>
-                            <label>
-                                <input type="checkbox">
-                                <span>Presencial</span>
-                            </label>
-                            <label>
-                                <input type="checkbox">
-                                <span>Híbrido</span>
-                            </label>
-                        </div>
-                        <div class="filter-group">
-                            <h3>RANGO SALARIAL MENSUAL(COP)</h3>
-                            <label>
-                                <input type="radio" name="salary">
-                                <span>Hasta $2M (SMLV+)</span>
-                            </label>
-                            <label>
-                                <input type="radio" name="salary">
-                                <span>$2M - $5M</span>
-                            </label>
-                            <label>
-                                <input type="radio" name="salary">
-                                <span>$5M - $10M</span>
-                            </label>
-                            <label>
-                                <input type="radio" name="salary">
-                                <span> Más de $10.000.000 </span>
-                            </label>
-                        </div>
+            </section>
+
+            <div class="jobs-layout">
+                <aside class="filters" aria-label="Filtros">
+                    <div class="filters__header">
+                        <h2 class="filters__title"><i class="fa-solid fa-filter"></i> Filtros</h2>
+                        <button type="button" class="link-button" id="clearFilters">Limpiar</button>
                     </div>
-                    <div class="job-alert">
-                        <h3>
-                            <span class="job-alert__icon"><i class="fa-solid fa-bell"></i></span>
-                            Alerta de empleo
-                        </h3>
-                        <p> Recibe ofertas similares a tú busqueda en tu email.</p>
-                        <button type="button" class="job-alert__button">
-                            Activar Alerta
-                        </button>
+                    <fieldset class="filters__group">
+                        <legend class="filters__label">Modalidad de Trabajo</legend>
+                        <label class="check"><input type="checkbox" name="modalidad" value="remoto"> Remoto</label>
+                        <label class="check"><input type="checkbox" name="modalidad" value="presencial"> Presencial</label>
+                        <label class="check"><input type="checkbox" name="modalidad" value="hibrido"> Híbrido</label>
+                    </fieldset>
+                    <fieldset class="filters__group">
+                        <legend class="filters__label">Rango Salarial Mensual (COP)</legend>
+                        <label class="check"><input type="radio" name="salario" value="0-2000000"> Hasta $2M (SMLV+)</label>
+                        <label class="check"><input type="radio" name="salario" value="2000000-5000000"> $2M - $5M</label>
+                        <label class="check"><input type="radio" name="salario" value="5000000-10000000"> $5M - $10M</label>
+                        <label class="check"><input type="radio" name="salario" value="10000000-999999999"> Más de $10.000.000</label>
+                    </fieldset>
+                    <div class="alert-box">
+                        <p class="alert-box__title"><i class="fa-regular fa-bell"></i> Alertas de empleo</p>
+                        <p class="alert-box__text">Recibe ofertas similares a tu búsqueda en tu email.</p>
+                        <button type="button" class="btn btn--outline-primary btn--sm btn--block" data-toast="Alerta activada. Te avisaremos de nuevas vacantes similares.">Activar Alerta</button>
                     </div>
                 </aside>
-                <!--lista de vacantes-->
-                <div class="jobs__list">
-                    <!--vacante 1-->
-                    <article class="job-card">
-                        <div class="job-card__logo"> C </div>
-                        <div class="job-card__info">
-                            <h2>Enfermera Jefe de Urgencias</h2>
-                            <h4>Clínica San Rafael</h4>
-                            <div class="job-card__details">
-                                <span>Bogotá D.C.</span>
-                                <strong>$4.500.000 - 6.000.000</strong>
-                            </div>
-                        </div>
-                        <div class="job-card__right">
-                            <div class="job-card__top">
-                                <span class="job-card__tag">PRESENCIAL</span>
-                                <span class="job-card__time">HACE 2H</span>
-                            </div>
-                            <div class="job-card__buttons">
-                                <button class="save-button"><i class="fa-regular fa-bookmark"></i></button>
-                                <button class="apply-button">Postularme</button>
-                            </div>
-                        </div>
-                    </article>
-                    <!--vacante 2-->
-                    <article class="job-card">
-                        <div class="job-card__logo">A</div>
-                        <div class="job-card__info">
-                            <h2>Gerente de Mercadeo</h2>
-                            <h4>Alpina</h4>
-                            <div class="job-card__details">
-                                <span>Pereira, Risaralda</span>
-                                <strong>$8.000.000 - 12.000.000</strong>
-                            </div>
-                        </div>
-                        <div class="job-card__right">
-                            <div class="job-card__top">
-                                <span class="job-card__tag">Híbrido</span>
-                                <span class="job-card__time">HACE 5H</span>
-                            </div>
-                            <div class="job-card__buttons">
-                                <button class="save-button"><i class="fa-regular fa-bookmark"></i></button>
-                                <button class="apply-button">Postularme</button>
-                            </div>
-                        </div>
-                    </article>
-                    <!--Vacante 3-->
-                    <article class="job-card">
-                        <div class="job-card__logo">B</div>
-                        <div class="job-card__info">
-                            <h2>Analista Contable Junior</h2>
-                            <h4>Bancolombia</h4>
-                            <div class="job-card__details">
-                                <span>Medellin, Antioquia</span>
-                                <strong>$2.800.000 - $3.500.000</strong>
-                            </div>
-                        </div>
-                        <div class="job-card__right">
-                            <div class="job-card__top">
-                                <span class="job-card__tag">PRESENCIAL</span>
-                                <span class="job-card__time">AYER</span>
-                            </div>
-                            <div class="job-card__buttons">
-                                <button class="save-button"><i class="fa-regular fa-bookmark"></i></button>
-                                <button class="apply-button">Postularme</button>
-                            </div>
-                        </div>
-                    </article>
-                    <!--Vacante 4-->
-                    <article class="job-card">
-                        <div class="job-card__logo">W</div>
-                        <div class="job-card__info">
-                            <h2>Desarrolador Frontend Junior</h2>
-                            <h4>Confamiliar</h4>
-                            <div class="job-card__details">
-                                <span>Pereira, Risaralda</span>
-                                <strong>$3.500.000 - $4.500.000</strong>
-                            </div>
-                        </div>
-                        <div class="job-card__right">
-                            <div class="job-card__top">
-                                <span class="job-card__tag">REMOTO</span>
-                                <span class="job-card__time">HACE 2 DÍAS</span>
-                            </div>
-                            <div class="job-card__buttons">
-                                <button class="save-button"><i class="fa-regular fa-bookmark"></i></button>
-                                <button class="apply-button">Postularme</button>
-                            </div>
-                        </div>
-                    </article>
-                    <!--Vacante 5-->
-                    <article class="job-card">
-                        <div class="job-card__logo">C</div>
-                        <div class="job-card__info">
-                            <h2>Profesor de Ingles - Bachillerato</h2>
-                            <h4>Colegio Pino verde</h4>
-                            <div class="job-card__details">
-                                <span>Pereira, Risaralda</span>
-                                <strong>$3.000.000 - $4.000.000</strong>
-                            </div>
-                        </div>
-                        <div class="job-card__right">
-                            <div class="job-card__top">
-                                <span class="job-card__tag">PRESENCIAL</span>
-                                <span class="job-card__time">HACE 6 DÍAS</span>
-                            </div>
-                            <div class="job-card__buttons">
-                                <button class="save-button"><i class="fa-regular fa-bookmark"></i></button>
-                                <button class="apply-button">Postularme</button>
-                            </div>
-                        </div>
-                    </article>
-                    <!--Vacante 6-->
-                    <article class="job-card">
-                        <div class="job-card__logo">L</div>
-                        <div class="job-card__info">
-                            <h2>Auxiliar Administrativo</h2>
-                            <h4>La Rosa</h4>
-                            <div class="job-card__details">
-                                <span>Manizales, Caldas</span>
-                                <strong>$1.800.000 - $2.200.000</strong>
-                            </div>
-                        </div>
-                        <div class="job-card__right">
-                            <div class="job-card__top">
-                                <span class="job-card__tag">PRESENCIAL</span>
-                                <span class="job-card__time">HACE 2 DÍAS</span>
-                            </div>
-                            <div class="job-card__buttons">
-                                <button class="save-button"><i class="fa-regular fa-bookmark"></i></button>
-                                <button class="apply-button">Postularme</button>
-                            </div>
-                        </div>
-                    </article>
-                    <!--Vacante 7-->
-                    <article class="job-card">
-                        <div class="job-card__featured">DESTACADO</div>
-                        <div class="job-card__logo">A</div>
-                        <div class="job-card__info">
-                            <h2>Ingeniero de Datos </h2>
-                            <h4>Audifarma S.A.</h4>
-                            <div class="job-card__details">
-                                <span>Cali, Valle del Cauca</span>
-                                <strong>$5.000.000 - $7.500.000</strong>
-                            </div>
-                        </div>
-                        <div class="job-card__right">
-                            <div class="job-card__top">
-                                <span class="job-card__tag">REMOTO</span>
-                                <span class="job-card__time">HACE 1 DÍA</span>
-                            </div>
-                            <div class="job-card__buttons">
-                                <button class="save-button"><i class="fa-regular fa-bookmark"></i></button>
-                                <button class="apply-button">Postularme</button>
-                            </div>
-                        </div>
-                    </article>
-                    <!--Vacante 8-->
-                    <article class="job-card">
-                        <div class="job-card__logo">F</div>
-                        <div class="job-card__info">
-                            <h2>Auxiliar Farmacia</h2>
-                            <h4>Farmatodo</h4>
-                            <div class="job-card__details">
-                                <span>San Juan de Pasto, Nariño</span>
-                                <strong>$1.600.000 - $2.200.000</strong>
-                            </div>
-                        </div>
-                        <div class="job-card__right">
-                            <div class="job-card__top">
-                                <span class="job-card__tag">PRESENCIAL</span>
-                                <span class="job-card__time">HACE 5 HORAS</span>
-                            </div>
-                            <div class="job-card__buttons">
-                                <button class="save-button"><i class="fa-regular fa-bookmark"></i></button>
-                                <button class="apply-button">Postularme</button>
-                            </div>
-                        </div>
-                    </article>
-                    <!--Vacante 9-->
-                    <article class="job-card">
-                        <div class="job-card__logo">W</div>
-                        <div class="job-card__info">
-                            <h2>Operador de Maquinaria Pesada</h2>
-                            <h4>Manpower Group Colombia</h4>
-                            <div class="job-card__details">
-                                <span>Bucaramanga, Santander</span>
-                                <strong>$2.800.000 - $4.200.000</strong>
-                            </div>
-                        </div>
-                        <div class="job-card__right">
-                            <div class="job-card__top">
-                                <span class="job-card__tag">PRESENCIAL</span>
-                                <span class="job-card__time">HACE 12 HORAS</span>
-                            </div>
-                            <div class="job-card__buttons">
-                                <button class="save-button"><i class="fa-regular fa-bookmark"></i></button>
-                                <button class="apply-button">Postularme</button>
-                            </div>
-                        </div>
-                    </article>
-                    <!--Vacante 10-->
-                    <article class="job-card">
-                        <div class="job-card__logo">A</div>
-                        <div class="job-card__info">
-                            <h2>Asesor de Servicio al Cliente Bilingüe</h2>
-                            <h4>Avianca</h4>
-                            <div class="job-card__details">
-                                <span>Pereira, Risaralda</span>
-                                <strong>$2.000.000 - $3.000.000</strong>
-                            </div>
-                        </div>
-                        <div class="job-card__right">
-                            <div class="job-card__top">
-                                <span class="job-card__tag">PRESENCIAL</span>
-                                <span class="job-card__time">HACE 8 HORAS</span>
-                            </div>
-                            <div class="job-card__buttons">
-                                <button class="save-button"><i class="fa-regular fa-bookmark"></i></button>
-                                <button class="apply-button">Postularme</button>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
 
+                <section class="results" aria-label="Resultados">
+                    <div class="results__toolbar">
+                        <p class="results__count">Mostrando <strong id="resultsCount">10</strong> vacantes encontradas</p>
+                        <div class="results__sort">
+                            <label for="sortJobs">Ordenar por:</label>
+                            <select id="sortJobs">
+                                <option value="recientes">Más recientes</option>
+                                <option value="mayor">Mayor salario</option>
+                                <option value="menor">Menor salario</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="results__list" id="jobsList">
+                        <article class="job-row" data-modalidad="presencial" data-min="4500000" data-max="6000000" data-age="2">
+                            <div class="job-row__main">
+                                <span class="job-row__logo" aria-hidden="true">C</span>
+                                <div class="job-row__info">
+                                    <h3 class="job-row__title">Enfermera Jefe de Urgencias <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                                    <p class="job-row__company">Clínica San Rafael</p>
+                                    <div class="job-row__meta">
+                                        <span class="job-row__location"><i class="fa-solid fa-location-dot"></i> Bogotá D.C.</span>
+                                        <span class="job-row__salary">$4.500.000 - $6.000.000</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-row__side">
+                                <div class="job-row__badges">
+                                    <span class="badge badge--soft">Presencial</span>
+                                    <span class="job-row__time">Hace 2h</span>
+                                </div>
+                                <div class="job-row__actions">
+                                    <button type="button" class="fav-button" aria-label="Guardar vacante" aria-pressed="false"><i class="fa-regular fa-heart"></i></button>
+                                    <button type="button" class="apply-button" data-toast="Postulación iniciada para: Enfermera Jefe de Urgencias">Postularme</button>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="job-row" data-modalidad="hibrido" data-min="8000000" data-max="12000000" data-age="5">
+                            <div class="job-row__main">
+                                <span class="job-row__logo" aria-hidden="true">A</span>
+                                <div class="job-row__info">
+                                    <h3 class="job-row__title">Gerente de Mercadeo <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                                    <p class="job-row__company">Alpina</p>
+                                    <div class="job-row__meta">
+                                        <span class="job-row__location"><i class="fa-solid fa-location-dot"></i> Pereira, Risaralda</span>
+                                        <span class="job-row__salary">$8.000.000 - $12.000.000</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-row__side">
+                                <div class="job-row__badges">
+                                    <span class="badge badge--soft">Híbrido</span>
+                                    <span class="job-row__time">Hace 5h</span>
+                                </div>
+                                <div class="job-row__actions">
+                                    <button type="button" class="fav-button" aria-label="Guardar vacante" aria-pressed="false"><i class="fa-regular fa-heart"></i></button>
+                                    <button type="button" class="apply-button" data-toast="Postulación iniciada para: Gerente de Mercadeo">Postularme</button>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="job-row" data-modalidad="presencial" data-min="2800000" data-max="3500000" data-age="24">
+                            <div class="job-row__main">
+                                <span class="job-row__logo" aria-hidden="true">B</span>
+                                <div class="job-row__info">
+                                    <h3 class="job-row__title">Analista Contable Junior <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                                    <p class="job-row__company">Bancolombia</p>
+                                    <div class="job-row__meta">
+                                        <span class="job-row__location"><i class="fa-solid fa-location-dot"></i> Medellín, Antioquia</span>
+                                        <span class="job-row__salary">$2.800.000 - $3.500.000</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-row__side">
+                                <div class="job-row__badges">
+                                    <span class="badge badge--soft">Presencial</span>
+                                    <span class="job-row__time">Ayer</span>
+                                </div>
+                                <div class="job-row__actions">
+                                    <button type="button" class="fav-button" aria-label="Guardar vacante" aria-pressed="false"><i class="fa-regular fa-heart"></i></button>
+                                    <button type="button" class="apply-button" data-toast="Postulación iniciada para: Analista Contable Junior">Postularme</button>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="job-row" data-modalidad="remoto" data-min="3500000" data-max="4500000" data-age="48">
+                            <div class="job-row__main">
+                                <span class="job-row__logo" aria-hidden="true">C</span>
+                                <div class="job-row__info">
+                                    <h3 class="job-row__title">Desarrollador Frontend Junior <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                                    <p class="job-row__company">Confamiliar</p>
+                                    <div class="job-row__meta">
+                                        <span class="job-row__location"><i class="fa-solid fa-location-dot"></i> Pereira, Risaralda</span>
+                                        <span class="job-row__salary">$3.500.000 - $4.500.000</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-row__side">
+                                <div class="job-row__badges">
+                                    <span class="badge badge--soft">Remoto</span>
+                                    <span class="job-row__time">Hace 2 días</span>
+                                </div>
+                                <div class="job-row__actions">
+                                    <button type="button" class="fav-button" aria-label="Guardar vacante" aria-pressed="false"><i class="fa-regular fa-heart"></i></button>
+                                    <button type="button" class="apply-button" data-toast="Postulación iniciada para: Desarrollador Frontend Junior">Postularme</button>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="job-row" data-modalidad="presencial" data-min="3000000" data-max="4000000" data-age="144">
+                            <div class="job-row__main">
+                                <span class="job-row__logo" aria-hidden="true">C</span>
+                                <div class="job-row__info">
+                                    <h3 class="job-row__title">Profesor de Inglés - Bachillerato <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                                    <p class="job-row__company">Colegio Pino Verde</p>
+                                    <div class="job-row__meta">
+                                        <span class="job-row__location"><i class="fa-solid fa-location-dot"></i> Pereira, Risaralda</span>
+                                        <span class="job-row__salary">$3.000.000 - $4.000.000</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-row__side">
+                                <div class="job-row__badges">
+                                    <span class="badge badge--soft">Presencial</span>
+                                    <span class="job-row__time">Hace 6 días</span>
+                                </div>
+                                <div class="job-row__actions">
+                                    <button type="button" class="fav-button" aria-label="Guardar vacante" aria-pressed="false"><i class="fa-regular fa-heart"></i></button>
+                                    <button type="button" class="apply-button" data-toast="Postulación iniciada para: Profesor de Inglés - Bachillerato">Postularme</button>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="job-row" data-modalidad="presencial" data-min="1800000" data-max="2200000" data-age="48">
+                            <div class="job-row__main">
+                                <span class="job-row__logo" aria-hidden="true">L</span>
+                                <div class="job-row__info">
+                                    <h3 class="job-row__title">Auxiliar Administrativo <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                                    <p class="job-row__company">La Rosa</p>
+                                    <div class="job-row__meta">
+                                        <span class="job-row__location"><i class="fa-solid fa-location-dot"></i> Manizales, Caldas</span>
+                                        <span class="job-row__salary">$1.800.000 - $2.200.000</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-row__side">
+                                <div class="job-row__badges">
+                                    <span class="badge badge--soft">Presencial</span>
+                                    <span class="job-row__time">Hace 2 días</span>
+                                </div>
+                                <div class="job-row__actions">
+                                    <button type="button" class="fav-button" aria-label="Guardar vacante" aria-pressed="false"><i class="fa-regular fa-heart"></i></button>
+                                    <button type="button" class="apply-button" data-toast="Postulación iniciada para: Auxiliar Administrativo">Postularme</button>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="job-row" data-modalidad="remoto" data-min="5000000" data-max="7500000" data-age="24">
+                            <span class="job-row__ribbon">Destacado</span>
+                            <div class="job-row__main">
+                                <span class="job-row__logo" aria-hidden="true">A</span>
+                                <div class="job-row__info">
+                                    <h3 class="job-row__title">Ingeniero de Datos <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                                    <p class="job-row__company">Audifarma S.A.</p>
+                                    <div class="job-row__meta">
+                                        <span class="job-row__location"><i class="fa-solid fa-location-dot"></i> Cali, Valle del Cauca</span>
+                                        <span class="job-row__salary">$5.000.000 - $7.500.000</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-row__side">
+                                <div class="job-row__badges">
+                                    <span class="badge badge--soft">Remoto</span>
+                                    <span class="job-row__time">Hace 1 día</span>
+                                </div>
+                                <div class="job-row__actions">
+                                    <button type="button" class="fav-button" aria-label="Guardar vacante" aria-pressed="false"><i class="fa-regular fa-heart"></i></button>
+                                    <button type="button" class="apply-button" data-toast="Postulación iniciada para: Ingeniero de Datos">Postularme</button>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="job-row" data-modalidad="presencial" data-min="1600000" data-max="2200000" data-age="5">
+                            <div class="job-row__main">
+                                <span class="job-row__logo" aria-hidden="true">F</span>
+                                <div class="job-row__info">
+                                    <h3 class="job-row__title">Auxiliar de Farmacia <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                                    <p class="job-row__company">Farmatodo</p>
+                                    <div class="job-row__meta">
+                                        <span class="job-row__location"><i class="fa-solid fa-location-dot"></i> San Juan de Pasto, Nariño</span>
+                                        <span class="job-row__salary">$1.600.000 - $2.200.000</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-row__side">
+                                <div class="job-row__badges">
+                                    <span class="badge badge--soft">Presencial</span>
+                                    <span class="job-row__time">Hace 5h</span>
+                                </div>
+                                <div class="job-row__actions">
+                                    <button type="button" class="fav-button" aria-label="Guardar vacante" aria-pressed="false"><i class="fa-regular fa-heart"></i></button>
+                                    <button type="button" class="apply-button" data-toast="Postulación iniciada para: Auxiliar de Farmacia">Postularme</button>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="job-row" data-modalidad="presencial" data-min="2800000" data-max="4200000" data-age="12">
+                            <div class="job-row__main">
+                                <span class="job-row__logo" aria-hidden="true">M</span>
+                                <div class="job-row__info">
+                                    <h3 class="job-row__title">Operador de Maquinaria Pesada <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                                    <p class="job-row__company">Manpower Group Colombia</p>
+                                    <div class="job-row__meta">
+                                        <span class="job-row__location"><i class="fa-solid fa-location-dot"></i> Bucaramanga, Santander</span>
+                                        <span class="job-row__salary">$2.800.000 - $4.200.000</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-row__side">
+                                <div class="job-row__badges">
+                                    <span class="badge badge--soft">Presencial</span>
+                                    <span class="job-row__time">Hace 12h</span>
+                                </div>
+                                <div class="job-row__actions">
+                                    <button type="button" class="fav-button" aria-label="Guardar vacante" aria-pressed="false"><i class="fa-regular fa-heart"></i></button>
+                                    <button type="button" class="apply-button" data-toast="Postulación iniciada para: Operador de Maquinaria Pesada">Postularme</button>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="job-row" data-modalidad="presencial" data-min="2000000" data-max="3000000" data-age="8">
+                            <span class="job-row__ribbon">Destacado</span>
+                            <div class="job-row__main">
+                                <span class="job-row__logo" aria-hidden="true">A</span>
+                                <div class="job-row__info">
+                                    <h3 class="job-row__title">Asesor de Servicio al Cliente Bilingüe <i class="fa-solid fa-arrow-up-right-from-square"></i></h3>
+                                    <p class="job-row__company">Avianca</p>
+                                    <div class="job-row__meta">
+                                        <span class="job-row__location"><i class="fa-solid fa-location-dot"></i> Pereira, Risaralda</span>
+                                        <span class="job-row__salary">$2.000.000 - $3.000.000</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-row__side">
+                                <div class="job-row__badges">
+                                    <span class="badge badge--soft">Presencial</span>
+                                    <span class="job-row__time">Hace 8h</span>
+                                </div>
+                                <div class="job-row__actions">
+                                    <button type="button" class="fav-button" aria-label="Guardar vacante" aria-pressed="false"><i class="fa-regular fa-heart"></i></button>
+                                    <button type="button" class="apply-button" data-toast="Postulación iniciada para: Asesor de Servicio al Cliente Bilingüe">Postularme</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="empty-state" id="jobsEmpty" hidden>
+                        <span class="empty-state__icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <h3 class="empty-state__title">No encontramos vacantes</h3>
+                        <p class="empty-state__text">Intenta ajustar tus filtros o buscar con términos menos específicos.</p>
+                        <button type="button" class="btn btn--outline" id="showAllJobs">Ver todos los empleos</button>
+                    </div>
+                </section>
+            </div>
+        </div>
     </main>
     <footer class="footer">
-        <section class="footer__items">
-            <h3 class="footer__title">WorkPlace</h3>
-            <p class="footer__description">La plataforma líder que conecta talento con oportunidades. Encuentra tu próximo empleo o el candidato perfecto.</p>
-            <article class="footer__media">
-                <a class="fa-brands fa-instagram" href="https://www.instagram.com/"></a>
-                <a class="fa-brands fa-facebook-f" href="https://es-la.facebook.com/"></a>
-                <a class="fa-brands fa-square-x-twitter" href="https://x.com/"></a>
-            </article>
-        </section>
-        <section class="footer__items">
-            <h3 class="footer__title">Enlaces Rápidos</h3>
-            <a class="footer__description footer__description--highlighted" href="views/buscarempleo.html">Buscar Empleos</a>
-            <a class="footer__description footer__description--highlighted" href="views/publicarvacante.html">Publicar Vacante</a>
-            <a class="footer__description footer__description--highlighted" href="views/paraempresas.html">Para Empresas</a>
-            <a class="footer__description footer__description--highlighted" href="views/perfil.html">Mi Perfil</a>
-            <a class="footer__description footer__description--highlighted" href="views/contacto.html">Contacto</a>
-            <a class="footer__description footer__description--highlighted">Mapa del Sitio</a>
-        </section>
-        <section class="footer__items">
-            <h3 class="footer__title">Información Legal</h3>
-            <a class="footer__description footer__description--highlighted" href="#"> Terminos y Condiciones</a>
-            <a class="footer__description footer__description--highlighted" href="#">Politica de Privacidad</a>
-            <a class="footer__description footer__description--highlighted" href="#">Politica de cookies</a>
-            <a class="footer__description footer__description--highlighted" href="#">Aviso Legal</a>
-            <a class="footer__description footer__description--highlighted" href="#">Código de Conducta</a> 
-        </section>
-        <section class="footer__items">
-            <h3 class="footer__title">Contacto de Soporte</h3>
-            <i class= "footer__icon fa-regular fa-envelope"></i><span class="footer__sub-title">Soporte General:</span>
-            <p class="footer__description">soporte@workplace.com.co</p>
-            <i class="footer__icon fa-solid fa-phone"></i><span class="footer__sub-title">Linea Nacional:</span>
-            <p class="footer__description">018000912345</p>
-            <span class="footer__sub-title">Bogotá:</span>
-            <p class="footer__description">+57 (601) 456-7890</p>
-            <i class="footer__icon fa-solid fa-location-dot"></i><span class="footer__sub-title">Sede Principial:</span>
-            <p class="footer__description">Calle 45 #27-58, piso 6, Bogotá</p>
-        </section>
+        <div class="container footer__inner">
+            <div class="footer__grid">
+                <div class="footer__col">
+                    <div class="footer__brand">
+                        <img src="../Imagenes/icon-192.png" alt="" width="32" height="32">
+                        <span>WorkPlace</span>
+                    </div>
+                    <p class="footer__text">La plataforma líder que conecta talento con oportunidades. Encuentra tu próximo empleo o el candidato perfecto.</p>
+                    <div class="footer__social">
+                        <a href="https://www.instagram.com/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://es-la.facebook.com/" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://x.com/" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.linkedin.com/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__title">Enlaces Rápidos</h3>
+                    <ul class="footer__links">
+                        <li><a href="../views/buscarempleo.html">Buscar Empleos</a></li>
+                        <li><a href="../views/publicarvacante.html">Publicar Vacante</a></li>
+                        <li><a href="../views/paraempresas.html">Para Empresas</a></li>
+                        <li><a href="../views/perfil.html">Mi Perfil</a></li>
+                        <li><a href="../views/contacto.html">Contacto</a></li>
+                        <li><a href="../views/mapadelsitio.html">Mapa del Sitio</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__title">Información Legal</h3>
+                    <ul class="footer__links">
+                        <li><a href="#">Términos y Condiciones</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Política de Cookies</a></li>
+                        <li><a href="#">Aviso Legal</a></li>
+                        <li><a href="#">Código de Conducta</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__title">Contacto de Soporte</h3>
+                    <ul class="footer__contact">
+                        <li class="footer__contact-item">
+                            <i class="fa-regular fa-envelope"></i>
+                            <span><span class="footer__contact-label">Soporte General:</span>soporte@workplace.com.co</span>
+                        </li>
+                        <li class="footer__contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <span><span class="footer__contact-label">Línea Nacional:</span>01 8000 912 345<span class="footer__contact-label">Bogotá:</span>+57 (601) 456-7890</span>
+                        </li>
+                        <li class="footer__contact-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span><span class="footer__contact-label">Sede Principal:</span>Calle 45 #27-58, piso 6<br>Bogotá D.C., Colombia</span>
+                        </li>
+                    </ul>
+                    <form class="newsletter" data-toast="¡Suscripción exitosa! Recibirás nuestras novedades.">
+                        <label class="newsletter__label" for="newsletterEmail">Suscríbete a nuestro boletín</label>
+                        <div class="newsletter__form">
+                            <input class="newsletter__input" type="email" id="newsletterEmail" name="email" placeholder="Tu email" required>
+                            <button type="submit" class="btn btn--primary btn--sm">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>© 2025 WorkPlace. Todos los derechos reservados.</p>
+            </div>
+        </div>
     </footer>
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('../sw.js')
-            .then(() => console.log('SW registrado'))
-            .catch(err => console.log('Error SW:', err));
-        }
-    </script>
-    <div class="info-modal-overlay" id="infoModalOverlay">
-        <div class="info-modal" role="dialog" aria-modal="true" aria-labelledby="infoModalTitle">
-            <button type="button" class="info-modal__close" id="infoModalClose" aria-label="Cerrar">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-            <div class="info-modal__header">
-                <span class="info-modal__logo">W</span>
-                <div>
-                    <h2 id="infoModalTitle">WorkPlace</h2>
-                    <p class="info-modal__subtitle">Versión 1.0.0 - Plataforma de Empleo en Colombia</p>
-                </div>
-            </div>
-
-            <h3 class="info-modal__section-title">¿Qué es WorkPlace?</h3>
-            <p class="info-modal__text">
-                WorkPlace es una plataforma integral de empleo diseñada específicamente para el mercado colombiano.
-                Conectamos profesionales talentosos con empresas que buscan los mejores candidatos, facilitando
-                el proceso de búsqueda y selección de personal.
-            </p>
-
-            <h3 class="info-modal__section-title">Características Principales</h3>
-            <div class="info-modal__grid">
-                <div class="info-modal__feature">
-                    <i class="fa-solid fa-bolt"></i>
-                    <div>
-                        <h4>Búsqueda Inteligente</h4>
-                        <p>Encuentra empleos relevantes con filtros avanzados</p>
-                    </div>
-                </div>
-                <div class="info-modal__feature">
-                    <i class="fa-solid fa-users"></i>
-                    <div>
-                        <h4>Portal para Empresas</h4>
-                        <p>Publica vacantes y gestiona candidatos</p>
-                    </div>
-                </div>
-                <div class="info-modal__feature">
-                    <i class="fa-solid fa-shield"></i>
-                    <div>
-                        <h4>Verificación de Empresas</h4>
-                        <p>Todas las ofertas son verificadas</p>
-                    </div>
-                </div>
-                <div class="info-modal__feature">
-                    <i class="fa-solid fa-award"></i>
-                    <div>
-                        <h4>Perfil Profesional</h4>
-                        <p>Destaca tu experiencia y habilidades</p>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="info-modal__section-title">¿Qué ofrece el software?</h3>
-            <ul class="info-modal__list">
-                <li><strong>Para Candidatos:</strong> Búsqueda de empleos, postulación online, seguimiento de aplicaciones, alertas personalizadas y creación de CV profesional.</li>
-                <li><strong>Para Empresas:</strong> Publicación ilimitada de vacantes, gestión de candidatos, filtros de preselección y estadísticas de reclutamiento.</li>
-                <li><strong>Trazabilidad:</strong> Historial completo de todas tus acciones en la plataforma para mayor control y transparencia.</li>
-                <li><strong>Soporte 24/7:</strong> Equipo de ayuda disponible para resolver cualquier duda o inconveniente.</li>
+    <div class="overlay" id="activityOverlay"></div>
+    <aside class="sheet" id="activitySheet" aria-labelledby="activityTitle" aria-hidden="true">
+        <button type="button" class="sheet__close" id="activityClose" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+        <h2 class="sheet__title" id="activityTitle"><i class="fa-solid fa-clock-rotate-left"></i> Trazabilidad de Actividades</h2>
+        <p class="sheet__description">Historial completo de tus acciones en la plataforma</p>
+        <div class="sheet__body">
+            <ul class="sheet__list" id="activityList">
+                <li class="activity">
+                    <span class="activity__icon activity__icon--green"><i class="fa-solid fa-right-to-bracket"></i></span>
+                    <div><p class="activity__title">Iniciaste sesión en WorkPlace</p><p class="activity__time">Hace 5 minutos</p></div>
+                </li>
+                <li class="activity">
+                    <span class="activity__icon activity__icon--blue"><i class="fa-solid fa-magnifying-glass"></i></span>
+                    <div><p class="activity__title">Búsqueda: Desarrollador Frontend</p><p class="activity__time">Hace 20 minutos</p></div>
+                </li>
+                <li class="activity">
+                    <span class="activity__icon activity__icon--blue"><i class="fa-solid fa-briefcase"></i></span>
+                    <div><p class="activity__title">Postulación iniciada para: Analista Financiero</p><p class="activity__time">Hace 2 horas</p></div>
+                </li>
+                <li class="activity">
+                    <span class="activity__icon activity__icon--orange"><i class="fa-regular fa-eye"></i></span>
+                    <div><p class="activity__title">Vista de vacante: Ingeniero de Datos en Audifarma S.A.</p><p class="activity__time">Hace 5 horas</p></div>
+                </li>
+                <li class="activity">
+                    <span class="activity__icon activity__icon--gray"><i class="fa-regular fa-file-lines"></i></span>
+                    <div><p class="activity__title">Actualizaste tu hoja de vida</p><p class="activity__time">Hace 1 día</p></div>
+                </li>
             </ul>
-
-            <hr class="info-modal__divider">
-
-            <h3 class="info-modal__section-title">Información Técnica</h3>
-            <div class="info-modal__tech-grid">
+            <div class="sheet__empty" id="activityEmpty" hidden>
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <p>No hay actividades registradas</p>
+            </div>
+        </div>
+        <div class="sheet__footer">
+            <button type="button" class="btn btn--outline btn--sm btn--block" id="activityClear"><i class="fa-regular fa-trash-can"></i> Limpiar Historial</button>
+        </div>
+    </aside>
+    <div class="modal-overlay" id="infoModalOverlay">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="infoModalTitle">
+            <button type="button" class="modal__close" id="infoModalClose" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal__header">
+                <img class="modal__logo" src="../Imagenes/icon-192.png" alt="" width="48" height="48">
                 <div>
-                    <p class="info-modal__tech-label">Versión:</p>
-                    <p class="info-modal__tech-value">1.0.0</p>
-                </div>
-                <div>
-                    <p class="info-modal__tech-label">Última actualización:</p>
-                    <p class="info-modal__tech-value">Noviembre 2025</p>
-                </div>
-                <div>
-                    <p class="info-modal__tech-label">Plataforma:</p>
-                    <p class="info-modal__tech-value">Web (Responsive)</p>
-                </div>
-                <div>
-                    <p class="info-modal__tech-label">Región:</p>
-                    <p class="info-modal__tech-value">Colombia</p>
+                    <h2 class="modal__title" id="infoModalTitle">WorkPlace</h2>
+                    <p class="modal__subtitle">Versión 1.0.0 - Plataforma de Empleo en Colombia</p>
                 </div>
             </div>
-
-            <hr class="info-modal__divider">
-
-            <div class="info-modal__footer">
-                <p><i class="fa-solid fa-globe"></i> www.workplace.com.co</p>
-                <p class="info-modal__copyright">© 2025 WorkPlace. Todos los derechos reservados.</p>
+            <div class="modal__body">
+                <section>
+                    <h3 class="modal__section-title">¿Qué es WorkPlace?</h3>
+                    <p class="modal__text">WorkPlace es una plataforma integral de empleo diseñada específicamente para el mercado colombiano. Conectamos profesionales talentosos con empresas que buscan los mejores candidatos, facilitando el proceso de búsqueda y selección de personal.</p>
+                </section>
+                <section>
+                    <h3 class="modal__section-title">Características Principales</h3>
+                    <div class="modal__grid">
+                        <div class="modal__feature"><i class="fa-solid fa-bolt"></i><div><h4>Búsqueda Inteligente</h4><p>Encuentra empleos relevantes con filtros avanzados</p></div></div>
+                        <div class="modal__feature"><i class="fa-solid fa-users"></i><div><h4>Portal para Empresas</h4><p>Publica vacantes y gestiona candidatos</p></div></div>
+                        <div class="modal__feature"><i class="fa-solid fa-shield-halved"></i><div><h4>Verificación de Empresas</h4><p>Todas las ofertas son verificadas</p></div></div>
+                        <div class="modal__feature"><i class="fa-solid fa-award"></i><div><h4>Perfil Profesional</h4><p>Destaca tu experiencia y habilidades</p></div></div>
+                    </div>
+                </section>
+                <section>
+                    <h3 class="modal__section-title">¿Qué ofrece el software?</h3>
+                    <ul class="modal__list">
+                        <li><span><strong>Para Candidatos:</strong> Búsqueda de empleos, postulación online, seguimiento de aplicaciones, alertas personalizadas y creación de CV profesional.</span></li>
+                        <li><span><strong>Para Empresas:</strong> Publicación ilimitada de vacantes, gestión de candidatos, filtros de preselección y estadísticas de reclutamiento.</span></li>
+                        <li><span><strong>Trazabilidad:</strong> Historial completo de todas tus acciones en la plataforma para mayor control y transparencia.</span></li>
+                        <li><span><strong>Soporte 24/7:</strong> Equipo de ayuda disponible para resolver cualquier duda o inconveniente.</span></li>
+                    </ul>
+                </section>
+                <section class="modal__divider">
+                    <h3 class="modal__section-title">Información Técnica</h3>
+                    <div class="modal__tech">
+                        <div><p class="modal__tech-label">Versión:</p><p class="modal__tech-value">1.0.0</p></div>
+                        <div><p class="modal__tech-label">Última actualización:</p><p class="modal__tech-value">Noviembre 2025</p></div>
+                        <div><p class="modal__tech-label">Plataforma:</p><p class="modal__tech-value">Web (Responsive)</p></div>
+                        <div><p class="modal__tech-label">Región:</p><p class="modal__tech-value">Colombia</p></div>
+                    </div>
+                </section>
+                <footer class="modal__divider modal__footer">
+                    <p><i class="fa-solid fa-globe"></i> www.workplace.com.co</p>
+                    <p class="modal__copyright">© 2025 WorkPlace. Todos los derechos reservados.</p>
+                </footer>
             </div>
         </div>
     </div>
-    <script>
-        const infoButton = document.getElementById('infoButton');
-        const infoModalOverlay = document.getElementById('infoModalOverlay');
-        const infoModalClose = document.getElementById('infoModalClose');
-
-        infoButton.addEventListener('click', () => {
-            infoModalOverlay.classList.add('is-open');
-        });
-
-        infoModalClose.addEventListener('click', () => {
-            infoModalOverlay.classList.remove('is-open');
-        });
-
-        infoModalOverlay.addEventListener('click', (e) => {
-            if (e.target === infoModalOverlay) {
-                infoModalOverlay.classList.remove('is-open');
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                infoModalOverlay.classList.remove('is-open');
-            }
-        });
-    </script>
-    <script>
-        const helpButton = document.getElementById('helpButton');
-        const helpDropdown = document.getElementById('helpDropdown');
-        const helpAcercaDe = document.getElementById('helpAcercaDe');
-
-        helpButton.addEventListener('click', (e) => {
-            e.stopPropagation();
-            helpDropdown.classList.toggle('is-open');
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!helpDropdown.contains(e.target) && e.target !== helpButton) {
-                helpDropdown.classList.remove('is-open');
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                helpDropdown.classList.remove('is-open');
-            }
-        });
-
-        helpAcercaDe.addEventListener('click', (e) => {
-            e.preventDefault();
-            helpDropdown.classList.remove('is-open');
-            const infoModalOverlay = document.getElementById('infoModalOverlay');
-            if (infoModalOverlay) {
-                infoModalOverlay.classList.add('is-open');
-            }
-        });
-    </script>
-    <script>
-        const profileButton = document.getElementById('profileButton');
-        const profileDropdown = document.getElementById('profileDropdown');
-
-        profileButton.addEventListener('click', (e) => {
-            e.stopPropagation();
-            profileDropdown.classList.toggle('is-open');
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!profileDropdown.contains(e.target) && e.target !== profileButton) {
-                profileDropdown.classList.remove('is-open');
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                profileDropdown.classList.remove('is-open');
-            }
-        });
-    </script>
+    <script src="../js/main.js"></script>
+    <script src="../js/buscarempleo.js"></script>
 </body>
 </html>
