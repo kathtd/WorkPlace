@@ -1,23 +1,41 @@
-const CACHE_NAME = "workplace-v4";
+const CACHE_NAME = "workplace-v5";
+
+// Rutas relativas a la ubicación de sw.js: funcionan igual en GitHub Pages
+// (/WorkPlace/) que en un servidor local (/).
 const FILES = [
-  "/WorkPlace/",
-  "/WorkPlace/index.html",
-  "/WorkPlace/manifest.json",
-  "/WorkPlace/css/style.css",
-  "/WorkPlace/js/main.js",
-  "/WorkPlace/js/buscarempleo.js",
-  "/WorkPlace/js/publicarvacante.js",
-  "/WorkPlace/views/buscarempleo.html",
-  "/WorkPlace/views/centrodeayuda.html",
-  "/WorkPlace/views/contacto.html",
-  "/WorkPlace/views/informaciontecnica.html",
-  "/WorkPlace/views/mapadelsitio.html",
-  "/WorkPlace/views/paraempresas.html",
-  "/WorkPlace/views/perfil.html",
-  "/WorkPlace/views/publicarvacante.html",
-  "/WorkPlace/Imagenes/icon-192.png",
-  "/WorkPlace/Imagenes/icon-512.png",
-  "/WorkPlace/Imagenes/icon-maskable-512.png"
+  "./",
+  "./index.html",
+  "./manifest.json",
+  "./css/style.css",
+  "./vendor/fontawesome/css/all.min.css",
+  "./vendor/fontawesome/webfonts/fa-solid-900.woff2",
+  "./vendor/fontawesome/webfonts/fa-regular-400.woff2",
+  "./vendor/fontawesome/webfonts/fa-brands-400.woff2",
+  "./data/vacantes.js",
+  "./js/store.js",
+  "./js/main.js",
+  "./js/vacantes.js",
+  "./js/inicio.js",
+  "./js/buscarempleo.js",
+  "./js/vacante.js",
+  "./js/publicarvacante.js",
+  "./js/perfil.js",
+  "./js/centrodeayuda.js",
+  "./js/informaciontecnica.js",
+  "./views/buscarempleo.html",
+  "./views/vacante.html",
+  "./views/publicarvacante.html",
+  "./views/paraempresas.html",
+  "./views/contacto.html",
+  "./views/perfil.html",
+  "./views/centrodeayuda.html",
+  "./views/informaciontecnica.html",
+  "./views/legal.html",
+  "./views/mapadelsitio.html",
+  "./Imagenes/icon-192.png",
+  "./Imagenes/icon-512.png",
+  "./Imagenes/icon-maskable-512.png",
+  "./Imagenes/oficina.jpg"
 ];
 
 self.addEventListener("install", (e) => {
@@ -52,7 +70,7 @@ self.addEventListener("fetch", (e) => {
   if (request.method !== "GET" || new URL(request.url).origin !== self.location.origin) return;
 
   // Páginas HTML: primero la red para mostrar siempre la versión más reciente;
-  // si no hay conexión, se usa la copia en caché.
+  // si no hay conexión, se usa la copia en caché (ignorando ?id=... y similares).
   if (request.mode === "navigate") {
     e.respondWith(
       fetch(request)
@@ -61,14 +79,15 @@ self.addEventListener("fetch", (e) => {
           return response;
         })
         .catch(() =>
-          caches.match(request).then((cached) => cached || caches.match("/WorkPlace/index.html"))
+          caches.match(request, { ignoreSearch: true })
+            .then((cached) => cached || caches.match("./index.html"))
         )
     );
     return;
   }
 
-  // CSS, JS e imágenes: se responde al instante desde caché y se actualiza
-  // en segundo plano (stale-while-revalidate).
+  // CSS, JS, fuentes e imágenes: se responde al instante desde caché y se
+  // actualiza en segundo plano (stale-while-revalidate).
   e.respondWith(
     caches.match(request).then((cached) => {
       const network = fetch(request)

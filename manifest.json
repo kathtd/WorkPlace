@@ -2,10 +2,10 @@
   "id": "/WorkPlace/",
   "name": "WorkPlace",
   "short_name": "WorkPlace",
-  "description": "Plataforma de empleo que conecta talento con empresas en Colombia.",
+  "description": "Plataforma de empleo que conecta talento con empresas en Colombia. Busca vacantes, postúlate y publica ofertas.",
   "lang": "es-CO",
-  "start_url": "/WorkPlace/",
-  "scope": "/WorkPlace/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#2f3fb4",
@@ -42,5 +42,9 @@
       "type": "image/png",
       "form_factor": "narrow"
     }
+  ],
+  "categories": [
+    "business",
+    "productivity"
   ]
 }
