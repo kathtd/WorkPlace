@@ -1,0 +1,5 @@
+# Copiar como db.properties (no se sube a git)
+db.driver=com.mysql.cj.jdbc.Driver
+db.url=jdbc:mysql://localhost:3306/workplace?useUnicode=true&characterEncoding=UTF-8&serverTimezone=America/Bogota
+db.usuario=workplace_app
+db.clave=WorkPlace#Local2026

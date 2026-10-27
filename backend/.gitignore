@@ -1,0 +1,8 @@
+# Compilación de Maven
+target/
+
+# Credenciales locales de la base de datos (usa db.properties.example como plantilla)
+src/main/resources/db.properties
+
+# Registro del servidor de pruebas (Jetty)
+jetty.log
