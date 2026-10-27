@@ -7,27 +7,16 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-/**
- * Limpia y valida los datos del formulario de registro antes de guardarlos.
- * No depende de la base de datos, por eso se prueba con pruebas unitarias.
- */
 public final class ValidadorUsuario {
 
-    /** Cédula o documento colombiano: entre 6 y 10 dígitos. */
     private static final Pattern DOCUMENTO = Pattern.compile("\\d{6,10}");
-    /** Letras (con tildes y ñ), espacios, apóstrofo y guion. */
     private static final Pattern NOMBRE = Pattern.compile("[\\p{L}][\\p{L} '\\-]{1,59}");
     private static final Pattern CORREO = Pattern.compile("[\\w.+\\-]+@[\\w\\-]+(\\.[\\w\\-]+)*\\.[a-z]{2,}");
-    /** Celular (3XXXXXXXXX) o fijo con indicativo nacional (60XXXXXXXX). */
     private static final Pattern TELEFONO = Pattern.compile("(3\\d{9}|60\\d{8})");
 
     private ValidadorUsuario() {
     }
 
-    /**
-     * Devuelve un usuario con los datos limpios: sin espacios sobrantes, correo en
-     * minúsculas y documento y teléfono sin puntos, espacios, guiones ni +57.
-     */
     public static Usuario normalizar(Usuario original) {
         Usuario u = new Usuario();
         u.setDocumento(sinSeparadores(original.getDocumento()));
@@ -42,10 +31,6 @@ public final class ValidadorUsuario {
         return u;
     }
 
-    /**
-     * Valida un usuario ya normalizado. Devuelve los errores por campo
-     * (vacío si todo está bien), en el orden del formulario.
-     */
     public static Map<String, String> validar(Usuario u) {
         Map<String, String> errores = new LinkedHashMap<>();
 
@@ -85,7 +70,6 @@ public final class ValidadorUsuario {
         return valor == null ? "" : valor.trim().replaceAll("\\s+", " ");
     }
 
-    /** Quita separadores habituales (espacios, puntos, guiones, paréntesis y +) pero deja las letras para que la validación las rechace. */
     private static String sinSeparadores(String valor) {
         return valor == null ? "" : valor.replaceAll("[\\s.\\-()+]", "");
     }

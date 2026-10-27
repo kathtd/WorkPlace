@@ -13,9 +13,6 @@ import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * GET /usuarios  muestra los usuarios guardados en la base de datos.
- */
 @WebServlet(name = "UsuariosServlet", urlPatterns = {"/usuarios"})
 public class UsuariosServlet extends HttpServlet {
 

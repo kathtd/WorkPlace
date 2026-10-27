@@ -17,11 +17,6 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * Formulario de registro de usuarios.
- * GET  /registro  muestra el formulario.
- * POST /registro  valida los datos, revisa duplicados y guarda en MySQL.
- */
 @WebServlet(name = "RegistroServlet", urlPatterns = {"/registro"})
 public class RegistroServlet extends HttpServlet {
 
@@ -33,7 +28,7 @@ public class RegistroServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Mensaje de éxito guardado en sesión por el POST anterior (patrón Post/Redirect/Get)
+        // Mensaje de exito que dejo el POST anterior (Post/Redirect/Get)
         HttpSession session = request.getSession(false);
         if (session != null && session.getAttribute("registrado") != null) {
             request.setAttribute("registrado", session.getAttribute("registrado"));

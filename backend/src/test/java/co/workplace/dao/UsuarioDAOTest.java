@@ -14,11 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
-/**
- * Pruebas de integración contra la base de datos MySQL real.
- * Se omiten automáticamente si MySQL no está disponible.
- * Usan documentos que empiezan por 999999 y los borran al terminar.
- */
 @DisplayName("Registro de usuarios en MySQL con JDBC")
 class UsuarioDAOTest {
 
@@ -35,7 +30,7 @@ class UsuarioDAOTest {
         try (Connection con = Conexion.obtener()) {
             disponible = con.isValid(2);
         } catch (Exception | LinkageError e) {
-            // LinkageError cubre ExceptionInInitializerError (por ejemplo, si falta db.properties)
+            // LinkageError por si falta db.properties
             disponible = false;
         }
         assumeTrue(disponible, "MySQL no está disponible: se omiten las pruebas de integración");

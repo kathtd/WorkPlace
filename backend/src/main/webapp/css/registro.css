@@ -1,6 +1,4 @@
-/* Estilos propios del módulo de registro; los base vienen de css/style.css del sitio */
-
-/* En este módulo el menú tiene solo 3 enlaces: se muestra siempre */
+/* Menú siempre visible (solo tiene 3 enlaces) */
 .header__nav--always {
   display: flex;
   flex-wrap: wrap;

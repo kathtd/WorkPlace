@@ -7,11 +7,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-/**
- * Abre conexiones JDBC a MySQL con los datos de {@code db.properties}
- * (src/main/resources). Cada llamada devuelve una conexión nueva que quien
- * la usa debe cerrar, idealmente con try-with-resources.
- */
 public final class Conexion {
 
     private static final String ARCHIVO = "db.properties";
@@ -28,7 +23,7 @@ public final class Conexion {
                         + ". Copia db.properties.example como db.properties en src/main/resources.");
             }
             props.load(in);
-            // Registrar el driver explícitamente: dentro de Tomcat la carga automática puede fallar
+            // Se registra el driver a mano porque en Tomcat la carga automatica puede fallar
             Class.forName(props.getProperty("db.driver", "com.mysql.cj.jdbc.Driver"));
             return props;
         } catch (IOException e) {

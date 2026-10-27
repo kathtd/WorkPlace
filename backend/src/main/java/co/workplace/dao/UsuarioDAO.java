@@ -11,10 +11,6 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Acceso a la tabla {@code usuarios} con JDBC. Todas las consultas usan
- * PreparedStatement para evitar inyección SQL.
- */
 public class UsuarioDAO {
 
     private static final String EXISTE_DOCUMENTO = "SELECT 1 FROM usuarios WHERE documento = ?";
@@ -33,11 +29,7 @@ public class UsuarioDAO {
         return existe(EXISTE_CORREO, correo);
     }
 
-    /**
-     * Registra un usuario después de comprobar que el documento y el correo no
-     * existan. Si dos registros iguales llegan al mismo tiempo, las restricciones
-     * UNIQUE de la tabla detienen el segundo y también se informa como duplicado.
-     */
+    // Revisa documento y correo; si aun asi se repiten, el UNIQUE de la tabla lo detiene
     public void registrar(Usuario usuario) throws SQLException, DatoDuplicadoException {
         if (existeDocumento(usuario.getDocumento())) {
             throw new DatoDuplicadoException("documento", "Ya existe un usuario registrado con ese documento de identidad.");
@@ -88,7 +80,6 @@ public class UsuarioDAO {
         return usuarios;
     }
 
-    /** Usado por las pruebas para limpiar los datos que crean. */
     public boolean eliminarPorDocumento(String documento) throws SQLException {
         try (Connection con = Conexion.obtener();
              PreparedStatement ps = con.prepareStatement(ELIMINAR_POR_DOCUMENTO)) {

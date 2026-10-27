@@ -2,9 +2,6 @@ package co.workplace.modelo;
 
 import java.time.LocalDateTime;
 
-/**
- * Usuario registrado en WorkPlace (tabla {@code usuarios}).
- */
 public class Usuario {
 
     private int id;
