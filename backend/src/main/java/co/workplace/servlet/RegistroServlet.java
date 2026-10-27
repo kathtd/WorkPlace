@@ -28,7 +28,7 @@ public class RegistroServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Mensaje de exito que dejo el POST anterior (Post/Redirect/Get)
+        // Mensaje del registro anterior (llega por el redirect)
         HttpSession session = request.getSession(false);
         if (session != null && session.getAttribute("registrado") != null) {
             request.setAttribute("registrado", session.getAttribute("registrado"));

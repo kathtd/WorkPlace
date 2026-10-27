@@ -30,7 +30,7 @@ class UsuarioDAOTest {
         try (Connection con = Conexion.obtener()) {
             disponible = con.isValid(2);
         } catch (Exception | LinkageError e) {
-            // LinkageError por si falta db.properties
+            // Si falta db.properties, Conexion falla al cargarse
             disponible = false;
         }
         assumeTrue(disponible, "MySQL no está disponible: se omiten las pruebas de integración");

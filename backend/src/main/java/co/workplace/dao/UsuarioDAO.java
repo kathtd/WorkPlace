@@ -29,7 +29,6 @@ public class UsuarioDAO {
         return existe(EXISTE_CORREO, correo);
     }
 
-    // Revisa documento y correo; si aun asi se repiten, el UNIQUE de la tabla lo detiene
     public void registrar(Usuario usuario) throws SQLException, DatoDuplicadoException {
         if (existeDocumento(usuario.getDocumento())) {
             throw new DatoDuplicadoException("documento", "Ya existe un usuario registrado con ese documento de identidad.");
@@ -52,6 +51,7 @@ public class UsuarioDAO {
                 }
             }
         } catch (SQLIntegrityConstraintViolationException e) {
+            // Pasa si dos registros iguales llegan al mismo tiempo
             boolean esCorreo = e.getMessage() != null && e.getMessage().contains("uq_usuarios_correo");
             throw new DatoDuplicadoException(
                     esCorreo ? "correo" : "documento",
