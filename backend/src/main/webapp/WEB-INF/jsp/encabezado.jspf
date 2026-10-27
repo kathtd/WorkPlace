@@ -1,0 +1,15 @@
+<%-- Encabezado compartido por las vistas del módulo de registro --%>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="header">
+    <div class="container header__inner">
+        <a href="${pageContext.request.contextPath}/registro" class="header__brand">
+            <img class="header__logo" src="${pageContext.request.contextPath}/Imagenes/icon-192.png" alt="" width="40" height="40">
+            <span class="header__brand-name">WorkPlace</span>
+        </a>
+        <nav class="header__nav header__nav--always" aria-label="Módulo de registro">
+            <a class="header__link${seccion == 'registro' ? ' header__link--active' : ''}" href="${pageContext.request.contextPath}/registro"${seccion == 'registro' ? ' aria-current="page"' : ''}>Registro</a>
+            <a class="header__link${seccion == 'usuarios' ? ' header__link--active' : ''}" href="${pageContext.request.contextPath}/usuarios"${seccion == 'usuarios' ? ' aria-current="page"' : ''}>Usuarios registrados</a>
+            <a class="header__link" href="https://kathtd.github.io/WorkPlace/">Ir al sitio <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        </nav>
+    </div>
+</header>

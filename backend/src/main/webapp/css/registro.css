@@ -1,0 +1,118 @@
+/* Estilos propios del módulo de registro; los base vienen de css/style.css del sitio */
+
+/* En este módulo el menú tiene solo 3 enlaces: se muestra siempre */
+.header__nav--always {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px 24px;
+}
+
+.registro__intro {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.registro__icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--dark-color), var(--accent-color));
+  color: #fff;
+  font-size: 1.4rem;
+}
+.registro__form {
+  margin-top: 8px;
+}
+
+.alerta {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 14px 16px;
+  border: 1px solid;
+  border-radius: 12px;
+  font-size: 0.9rem;
+}
+.alerta i {
+  margin-top: 3px;
+}
+.alerta a {
+  font-weight: 600;
+  text-decoration: underline;
+}
+.alerta--exito {
+  border-color: #bbf7d0;
+  background-color: var(--success-bg);
+  color: #14532d;
+}
+.alerta--error {
+  border-color: #fecaca;
+  background-color: var(--danger-bg);
+  color: #7f1d1d;
+}
+
+.input--error {
+  border-color: #b91c1c;
+  background-color: #fff;
+}
+.field__help {
+  color: var(--text-subtle);
+  font-size: 0.75rem;
+}
+.field__error {
+  color: #b91c1c;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.tabla-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line-light);
+  border-radius: 12px;
+}
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.tabla th,
+.tabla td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line-light);
+  text-align: left;
+  white-space: nowrap;
+}
+.tabla th {
+  background-color: var(--tint-color);
+  color: var(--dark-color);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.tabla tbody tr:hover {
+  background-color: var(--surface-muted);
+}
+.tabla tbody tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 960px) {
+  .header__nav--always {
+    display: flex;
+  }
+}
+@media (max-width: 600px) {
+  .header__inner {
+    flex-wrap: wrap;
+  }
+  .header__nav--always {
+    justify-content: flex-start;
+    width: 100%;
+  }
+}

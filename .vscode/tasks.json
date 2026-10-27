@@ -1,0 +1,47 @@
+{
+    // Tareas del proyecto: Ctrl+Shift+P → "Tasks: Run Task"
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Backend: ejecutar (http://localhost:8080/workplace)",
+            "type": "shell",
+            "command": ".\\mvnw.cmd jetty:run-war",
+            "options": { "cwd": "${workspaceFolder}/backend" },
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern": { "regexp": "^\\[ERROR\\] (.*)$", "message": 1 },
+                "background": { "activesBegin": "Scanning for projects", "endsPattern": "Started Server" }
+            }
+        },
+        {
+            "label": "Backend: pruebas",
+            "type": "shell",
+            "command": ".\\mvnw.cmd test",
+            "options": { "cwd": "${workspaceFolder}/backend" },
+            "group": { "kind": "test", "isDefault": true },
+            "problemMatcher": []
+        },
+        {
+            "label": "Backend: empaquetar .war para Tomcat",
+            "type": "shell",
+            "command": ".\\mvnw.cmd package",
+            "options": { "cwd": "${workspaceFolder}/backend" },
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Sitio: generar páginas",
+            "type": "shell",
+            "command": "node tools/build.js",
+            "group": { "kind": "build", "isDefault": true },
+            "problemMatcher": []
+        },
+        {
+            "label": "Sitio: servidor local (http://localhost:5173)",
+            "type": "shell",
+            "command": "node tools/serve.js",
+            "isBackground": true,
+            "problemMatcher": []
+        }
+    ]
+}

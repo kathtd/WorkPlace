@@ -71,6 +71,10 @@ El perfil, la foto, las postulaciones, las vacantes guardadas y publicadas, las 
 
 El sitio se publica con GitHub Pages desde la rama `main`. Antes de subir cambios, ejecuta `node tools/build.js` y confirma que las páginas generadas quedaron incluidas en el commit.
 
+## Módulo de registro de usuarios (Java)
+
+La carpeta `backend/` contiene el registro de usuarios con **Servlet + JDBC + MySQL** (evidencia GA7-220501096-AA2). Corre en local con Java 17. GitHub Pages no ejecuta Java, así que este módulo no se publica allí. Instrucciones en [backend/README.md](backend/README.md).
+
 ## Pendientes conocidos
 
 - El contenido de `views/legal.html` es una plantilla de referencia: debe revisarlo un abogado antes de operar con usuarios reales.
