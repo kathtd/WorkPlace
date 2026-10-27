@@ -1,4 +1,4 @@
--- Base de datos de WorkPlace. Ejecutar una vez con root.
+-- Base de datos de WorkPlace (ejecutar una vez con root)
 
 CREATE DATABASE IF NOT EXISTS workplace
     CHARACTER SET utf8mb4
@@ -15,15 +15,13 @@ CREATE TABLE IF NOT EXISTS usuarios (
     telefono        VARCHAR(10)   NOT NULL COMMENT 'Celular (3XXXXXXXXX) o fijo (60XXXXXXXX)',
     fecha_registro  TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
-    -- No permiten documento ni correo repetidos
     CONSTRAINT uq_usuarios_documento UNIQUE (documento),
     CONSTRAINT uq_usuarios_correo    UNIQUE (correo)
 ) ENGINE = InnoDB;
 
--- Usuario de la aplicación, solo con permisos sobre workplace
+-- Usuario que usa la aplicación (solo permisos sobre workplace)
 CREATE USER IF NOT EXISTS 'workplace_app'@'localhost' IDENTIFIED BY 'WorkPlace#Local2026';
 GRANT SELECT, INSERT, UPDATE, DELETE ON workplace.* TO 'workplace_app'@'localhost';
 FLUSH PRIVILEGES;
 
--- Comprobación
 SELECT 'Base de datos lista' AS estado, COUNT(*) AS usuarios_registrados FROM usuarios;

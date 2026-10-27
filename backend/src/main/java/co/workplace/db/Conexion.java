@@ -23,7 +23,7 @@ public final class Conexion {
                         + ". Copia db.properties.example como db.properties en src/main/resources.");
             }
             props.load(in);
-            // Se registra el driver a mano porque en Tomcat la carga automatica puede fallar
+            // En Tomcat el driver a veces no se carga solo
             Class.forName(props.getProperty("db.driver", "com.mysql.cj.jdbc.Driver"));
             return props;
         } catch (IOException e) {

@@ -1,4 +1,3 @@
-/* Menú siempre visible (solo tiene 3 enlaces) */
 .header__nav--always {
   display: flex;
   flex-wrap: wrap;
