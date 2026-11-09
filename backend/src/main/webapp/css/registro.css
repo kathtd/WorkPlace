@@ -113,3 +113,17 @@
     width: 100%;
   }
 }
+
+.perfil__datos {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 10px 20px;
+  margin: 0 0 24px;
+}
+.perfil__datos dt {
+  font-weight: 700;
+}
+.perfil__datos dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}

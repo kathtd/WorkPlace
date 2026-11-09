@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi cuenta | WorkPlace</title>
+    <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/registro.css">
+    <link rel="icon" href="Imagenes/icon-192.png" type="image/png">
+</head>
+<body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="registro" class="header__brand">
+                <img class="header__logo" src="Imagenes/icon-192.png" alt="" width="40" height="40">
+                <span class="header__brand-name">WorkPlace</span>
+            </a>
+            <nav class="header__nav header__nav--always" aria-label="Módulo de registro">
+                <a class="header__link" href="registro">Registro</a>
+                <a class="header__link" href="usuarios">Usuarios registrados</a>
+                <a class="header__link header__link--active" href="cuenta.html" aria-current="page">Mi cuenta</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page" id="contenido">
+        <div class="container narrow">
+
+            <!-- Iniciar sesión -->
+            <div class="form-card" id="vista-login">
+                <div class="registro__intro">
+                    <span class="registro__icon"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i></span>
+                    <div>
+                        <h1 class="form-step__title">Inicia sesión</h1>
+                        <p class="form-step__text">Entra con tu correo y tu contraseña.</p>
+                    </div>
+                </div>
+                <div class="alerta alerta--error" id="login-alerta" role="alert" hidden>
+                    <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                    <p id="login-mensaje"></p>
+                </div>
+                <form class="form-fields registro__form" id="form-login" novalidate>
+                    <div class="field">
+                        <label class="field__label" for="login-correo"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Correo electrónico</label>
+                        <input class="input" type="email" id="login-correo" autocomplete="email" required placeholder="nombre@correo.com">
+                    </div>
+                    <div class="field">
+                        <label class="field__label" for="login-clave"><i class="fa-solid fa-lock" aria-hidden="true"></i> Contraseña</label>
+                        <input class="input" type="password" id="login-clave" autocomplete="current-password" required>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--lg btn--block">Entrar</button>
+                    <p class="form-note">¿No tienes cuenta? <a href="#" data-ir="registro">Crea una aquí</a></p>
+                </form>
+            </div>
+
+            <!-- Crear cuenta -->
+            <div class="form-card" id="vista-registro" hidden>
+                <div class="registro__intro">
+                    <span class="registro__icon"><i class="fa-solid fa-user-plus" aria-hidden="true"></i></span>
+                    <div>
+                        <h1 class="form-step__title">Crea tu cuenta</h1>
+                        <p class="form-step__text">Con este registro podrás iniciar sesión.</p>
+                    </div>
+                </div>
+                <div class="alerta alerta--error" id="registro-alerta" role="alert" hidden>
+                    <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+                    <p id="registro-mensaje"></p>
+                </div>
+                <form class="form-fields registro__form" id="form-registro" novalidate>
+                    <div class="field">
+                        <label class="field__label" for="r-documento"><i class="fa-regular fa-id-card" aria-hidden="true"></i> Documento de identidad</label>
+                        <input class="input" type="text" id="r-documento" inputmode="numeric" maxlength="13" autocomplete="off" required placeholder="Ej. 1088123456">
+                        <p class="field__error" id="e-documento" hidden></p>
+                    </div>
+                    <div class="form-row">
+                        <div class="field">
+                            <label class="field__label" for="r-nombres"><i class="fa-regular fa-user" aria-hidden="true"></i> Nombres</label>
+                            <input class="input" type="text" id="r-nombres" maxlength="60" autocomplete="given-name" required placeholder="Ej. María Fernanda">
+                            <p class="field__error" id="e-nombres" hidden></p>
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="r-apellidos"><i class="fa-regular fa-user" aria-hidden="true"></i> Apellidos</label>
+                            <input class="input" type="text" id="r-apellidos" maxlength="60" autocomplete="family-name" required placeholder="Ej. González Ríos">
+                            <p class="field__error" id="e-apellidos" hidden></p>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="field">
+                            <label class="field__label" for="r-correo"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Correo electrónico</label>
+                            <input class="input" type="email" id="r-correo" maxlength="100" autocomplete="email" required placeholder="nombre@correo.com">
+                            <p class="field__error" id="e-correo" hidden></p>
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="r-telefono"><i class="fa-solid fa-phone" aria-hidden="true"></i> Teléfono de contacto</label>
+                            <input class="input" type="tel" id="r-telefono" maxlength="16" autocomplete="tel" required placeholder="Ej. 301 930 8927">
+                            <p class="field__error" id="e-telefono" hidden></p>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="field__label" for="r-clave"><i class="fa-solid fa-lock" aria-hidden="true"></i> Contraseña</label>
+                        <input class="input" type="password" id="r-clave" autocomplete="new-password" required aria-describedby="r-clave-ayuda">
+                        <p class="field__help" id="r-clave-ayuda">Mínimo 8 caracteres, con una letra y un número.</p>
+                        <p class="field__error" id="e-clave" hidden></p>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--lg btn--block">Crear cuenta</button>
+                    <p class="form-note">¿Ya tienes cuenta? <a href="#" data-ir="login">Inicia sesión</a></p>
+                </form>
+            </div>
+
+            <!-- Perfil -->
+            <div class="form-card" id="vista-perfil" hidden>
+                <div class="registro__intro">
+                    <span class="registro__icon"><i class="fa-solid fa-circle-check" aria-hidden="true"></i></span>
+                    <div>
+                        <h1 class="form-step__title" id="perfil-titulo">Bienvenido</h1>
+                        <p class="form-step__text">Iniciaste sesión correctamente.</p>
+                    </div>
+                </div>
+                <dl class="perfil__datos" id="perfil-datos"></dl>
+                <button type="button" class="btn btn--primary btn--lg btn--block" id="btn-salir">Cerrar sesión</button>
+            </div>
+
+        </div>
+    </main>
+    <script src="js/cuenta.js"></script>
+</body>
+</html>
