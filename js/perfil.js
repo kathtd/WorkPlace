@@ -2,6 +2,12 @@
 // historial de postulaciones y vacantes guardadas.
 
 document.addEventListener('DOMContentLoaded', () => {
+    // El perfil es solo para quien tiene sesión
+    if (!Sesion.activa()) {
+        location.replace('cuenta.html#ingresar');
+        return;
+    }
+
     const esc = Formato.html;
 
     // ---------- Editar perfil ----------
