@@ -3,6 +3,7 @@ package co.workplace.servlet;
 import co.workplace.modelo.Usuario;
 import co.workplace.servicio.Json;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,9 +11,32 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 // Base de los servlets de la API: leen y responden JSON
 abstract class ApiServlet extends HttpServlet {
+
+    // Páginas que pueden llamar a la API desde otro dominio
+    private static final Pattern ORIGEN_PERMITIDO =
+            Pattern.compile("https://kathtd\\.github\\.io|http://(localhost|127\\.0\\.0\\.1)(:\\d+)?");
+
+    @Override
+    protected void service(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String origen = request.getHeader("Origin");
+        if (origen != null && ORIGEN_PERMITIDO.matcher(origen).matches()) {
+            response.setHeader("Access-Control-Allow-Origin", origen);
+            response.setHeader("Vary", "Origin");
+            response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+            response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+        }
+        // El navegador pregunta con OPTIONS antes de enviar el POST
+        if ("OPTIONS".equals(request.getMethod())) {
+            response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+            return;
+        }
+        super.service(request, response);
+    }
 
     protected Map<String, String> leerCuerpo(HttpServletRequest request) throws IOException {
         request.setCharacterEncoding("UTF-8");

@@ -1,0 +1,89 @@
+<!--
+title: Mi cuenta | WorkPlace
+description: Crea tu cuenta en WorkPlace o inicia sesión para postularte a vacantes.
+scripts: js/cuenta.js
+-->
+<main class="cuenta" id="contenido">
+    <div class="container">
+
+        <section class="cuenta__tarjeta" id="vista-ingresar" aria-labelledby="titulo-ingresar">
+            <div class="cuenta__intro">
+                <span class="cuenta__icono"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i></span>
+                <div>
+                    <h1 class="cuenta__titulo" id="titulo-ingresar">Inicia sesión</h1>
+                    <p class="cuenta__texto">Entra con tu correo y tu contraseña.</p>
+                </div>
+            </div>
+            <div class="cuenta__alerta" id="ingresar-alerta" role="alert" hidden>
+                <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                <p id="ingresar-mensaje"></p>
+            </div>
+            <form class="cuenta__form" id="form-ingresar" novalidate>
+                <div class="field">
+                    <label class="field__label" for="i-correo">Correo electrónico</label>
+                    <input class="input" type="email" id="i-correo" autocomplete="email" required placeholder="nombre@correo.com">
+                </div>
+                <div class="field">
+                    <label class="field__label" for="i-clave">Contraseña</label>
+                    <input class="input" type="password" id="i-clave" autocomplete="current-password" required>
+                </div>
+                <button type="submit" class="btn btn--primary">Entrar</button>
+                <p class="cuenta__pie">¿Aún no tienes cuenta? <a href="#registro">Crea una aquí</a></p>
+            </form>
+        </section>
+
+        <section class="cuenta__tarjeta" id="vista-registro" aria-labelledby="titulo-registro" hidden>
+            <div class="cuenta__intro">
+                <span class="cuenta__icono"><i class="fa-solid fa-user-plus" aria-hidden="true"></i></span>
+                <div>
+                    <h1 class="cuenta__titulo" id="titulo-registro">Crea tu cuenta</h1>
+                    <p class="cuenta__texto">Regístrate para postularte a vacantes y seguir tus procesos.</p>
+                </div>
+            </div>
+            <div class="cuenta__alerta" id="registro-alerta" role="alert" hidden>
+                <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+                <p id="registro-mensaje"></p>
+            </div>
+            <form class="cuenta__form" id="form-registro" novalidate>
+                <div class="field">
+                    <label class="field__label" for="r-documento">Documento de identidad</label>
+                    <input class="input" type="text" id="r-documento" inputmode="numeric" maxlength="13" autocomplete="off" required placeholder="Ej. 1088123456">
+                    <p class="cuenta__error" id="e-documento" hidden></p>
+                </div>
+                <div class="cuenta__fila">
+                    <div class="field">
+                        <label class="field__label" for="r-nombres">Nombres</label>
+                        <input class="input" type="text" id="r-nombres" maxlength="60" autocomplete="given-name" required placeholder="Ej. María Fernanda">
+                        <p class="cuenta__error" id="e-nombres" hidden></p>
+                    </div>
+                    <div class="field">
+                        <label class="field__label" for="r-apellidos">Apellidos</label>
+                        <input class="input" type="text" id="r-apellidos" maxlength="60" autocomplete="family-name" required placeholder="Ej. González Ríos">
+                        <p class="cuenta__error" id="e-apellidos" hidden></p>
+                    </div>
+                </div>
+                <div class="cuenta__fila">
+                    <div class="field">
+                        <label class="field__label" for="r-correo">Correo electrónico</label>
+                        <input class="input" type="email" id="r-correo" maxlength="100" autocomplete="email" required placeholder="nombre@correo.com">
+                        <p class="cuenta__error" id="e-correo" hidden></p>
+                    </div>
+                    <div class="field">
+                        <label class="field__label" for="r-telefono">Teléfono de contacto</label>
+                        <input class="input" type="tel" id="r-telefono" maxlength="16" autocomplete="tel" required placeholder="Ej. 301 930 8927">
+                        <p class="cuenta__error" id="e-telefono" hidden></p>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="field__label" for="r-clave">Contraseña</label>
+                    <input class="input" type="password" id="r-clave" autocomplete="new-password" required aria-describedby="r-clave-ayuda">
+                    <p class="field__hint" id="r-clave-ayuda">Mínimo 8 caracteres, con una letra y un número.</p>
+                    <p class="cuenta__error" id="e-clave" hidden></p>
+                </div>
+                <button type="submit" class="btn btn--primary">Crear cuenta</button>
+                <p class="cuenta__pie">¿Ya tienes cuenta? <a href="#ingresar">Inicia sesión</a></p>
+            </form>
+        </section>
+
+    </div>
+</main>

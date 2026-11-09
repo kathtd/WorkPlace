@@ -25,7 +25,7 @@ const PAGES_DIR = path.join(__dirname, 'pages');
 const PARTIALS_DIR = path.join(__dirname, 'partials');
 
 // Scripts que cargan todas las páginas, en este orden
-const COMMON_SCRIPTS = ['js/store.js', 'js/main.js'];
+const COMMON_SCRIPTS = ['js/store.js', 'js/sesion.js', 'js/main.js'];
 
 const NAV = [
     ['inicio', 'Inicio', 'index.html'],

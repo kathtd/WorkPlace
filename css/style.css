@@ -3518,3 +3518,104 @@ a.tree__link:hover {
     flex-wrap: wrap;
   }
 }
+
+/* ---------- Cuenta: invitado, formularios y perfil ---------- */
+.header__guest {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.mobile-menu__guest {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.mobile-menu__guest .btn {
+  flex: 1;
+}
+@media (max-width: 960px) {
+  .header__guest {
+    display: none;
+  }
+}
+
+.cuenta {
+  padding: 48px 0 72px;
+}
+.cuenta__tarjeta {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 32px;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(47, 63, 180, 0.08);
+}
+.cuenta__intro {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.cuenta__icono {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--dark-color), var(--accent-color));
+  color: #fff;
+  font-size: 1.4rem;
+}
+.cuenta__titulo {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+.cuenta__texto {
+  color: var(--text-muted, #5f6368);
+  font-size: 0.95rem;
+}
+.cuenta__alerta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 14px 16px;
+  border: 1px solid #f5c2c2;
+  border-radius: 12px;
+  background: #fdeeee;
+  color: #8a1c1c;
+  font-size: 0.9rem;
+}
+.cuenta__form {
+  display: grid;
+  gap: 18px;
+}
+.cuenta__fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.cuenta__error {
+  margin-top: 6px;
+  color: #b3261e;
+  font-size: 0.85rem;
+}
+.cuenta__pie {
+  text-align: center;
+  font-size: 0.9rem;
+}
+.cuenta__pie a {
+  color: var(--dark-color);
+  font-weight: 600;
+  text-decoration: underline;
+}
+@media (max-width: 600px) {
+  .cuenta__tarjeta {
+    padding: 24px 18px;
+  }
+  .cuenta__fila {
+    grid-template-columns: 1fr;
+  }
+}

@@ -78,7 +78,11 @@
                 <button type="button" class="icon-button" id="infoButton" aria-label="Acerca de WorkPlace" aria-haspopup="dialog" aria-controls="infoModalOverlay">
                     <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
                 </button>
-                <div class="dropdown-wrapper">
+                <div class="header__guest" id="guestActions">
+                    <a href="../views/cuenta.html#ingresar" class="btn btn--outline-primary">Iniciar sesión</a>
+                    <a href="../views/cuenta.html#registro" class="btn btn--primary">Crear cuenta</a>
+                </div>
+                <div class="dropdown-wrapper" id="profileWrapper" hidden>
                     <button type="button" class="profile-trigger" id="profileButton" aria-label="Menú de perfil" aria-haspopup="true" aria-expanded="false" aria-controls="profileDropdown">
                         <span class="avatar" data-profile="initials">MG</span>
                         <span class="profile-trigger__text">
@@ -114,13 +118,17 @@
                 <a class="header__link" href="../views/paraempresas.html">Para Empresas</a>
                 <a class="header__link" href="../views/contacto.html">Contacto</a>
             </div>
-            <a href="../views/perfil.html" class="mobile-menu__profile">
+            <a href="../views/perfil.html" class="mobile-menu__profile" id="mobileProfile" hidden>
                 <span class="avatar" data-profile="initials">MG</span>
                 <span class="profile-trigger__text">
                     <span class="profile-trigger__name" data-profile="nombre">María González</span>
                     <span class="profile-trigger__role" data-profile="rol">Candidato</span>
                 </span>
             </a>
+            <div class="mobile-menu__guest" id="mobileGuest">
+                <a href="../views/cuenta.html#ingresar" class="btn btn--outline-primary">Iniciar sesión</a>
+                <a href="../views/cuenta.html#registro" class="btn btn--primary">Crear cuenta</a>
+            </div>
         </nav>
     </header>
     <main class="page" id="contenido">
@@ -318,6 +326,7 @@
         </div>
     </div>
     <script src="../js/store.js"></script>
+    <script src="../js/sesion.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/informaciontecnica.js"></script>
 </body>

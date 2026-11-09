@@ -61,6 +61,20 @@ const Store = (() => {
             write('perfil', { ...read('perfil', {}), ...cambios });
         },
 
+        // Sesión (token que entrega la API de cuentas)
+        getSesion: () => read('sesion', null),
+        saveSesion(sesion) {
+            write('sesion', sesion);
+        },
+        clearSesion() {
+            try {
+                localStorage.removeItem(PREFIX + 'sesion');
+                localStorage.removeItem(PREFIX + 'perfil');
+            } catch {
+                // sin almacenamiento no hay nada que borrar
+            }
+        },
+
         // Favoritos (ids de vacantes)
         getFavoritos: () => read('favoritos', []),
         isFavorito(id) {

@@ -1,4 +1,4 @@
-const CACHE_NAME = "workplace-v5";
+const CACHE_NAME = "workplace-v6";
 
 // Rutas relativas a la ubicación de sw.js: funcionan igual en GitHub Pages
 // (/WorkPlace/) que en un servidor local (/).
@@ -13,6 +13,8 @@ const FILES = [
   "./vendor/fontawesome/webfonts/fa-brands-400.woff2",
   "./data/vacantes.js",
   "./js/store.js",
+  "./js/sesion.js",
+  "./js/cuenta.js",
   "./js/main.js",
   "./js/vacantes.js",
   "./js/inicio.js",
@@ -28,6 +30,7 @@ const FILES = [
   "./views/paraempresas.html",
   "./views/contacto.html",
   "./views/perfil.html",
+  "./views/cuenta.html",
   "./views/centrodeayuda.html",
   "./views/informaciontecnica.html",
   "./views/legal.html",

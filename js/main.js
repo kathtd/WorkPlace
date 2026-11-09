@@ -107,6 +107,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const activityEmpty = document.getElementById('activityEmpty');
     const activityBadge = document.getElementById('activityBadge');
 
+    // Con sesión se muestra el menú del perfil; sin sesión, los botones de ingreso
+    const conSesion = Sesion.activa();
+    document.getElementById('profileWrapper')?.toggleAttribute('hidden', !conSesion);
+    document.getElementById('mobileProfile')?.toggleAttribute('hidden', !conSesion);
+    document.getElementById('guestActions')?.toggleAttribute('hidden', conSesion);
+    document.getElementById('mobileGuest')?.toggleAttribute('hidden', conSesion);
+    document.getElementById('cerrarSesionBtn')?.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const destino = e.currentTarget.href;
+        await Sesion.cerrar();
+        window.location.href = destino;
+    });
+
     refreshProfile();
     document.querySelectorAll('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
 
