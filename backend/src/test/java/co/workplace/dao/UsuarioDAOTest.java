@@ -2,6 +2,7 @@ package co.workplace.dao;
 
 import co.workplace.db.Conexion;
 import co.workplace.modelo.Usuario;
+import co.workplace.servicio.Clave;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -10,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import java.sql.Connection;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
@@ -52,6 +54,22 @@ class UsuarioDAOTest {
         assertTrue(dao.existeDocumento(DOC_1));
         assertTrue(dao.existeCorreo(CORREO_1));
         assertTrue(dao.listar().stream().anyMatch(x -> x.getDocumento().equals(DOC_1)));
+    }
+
+    @Test
+    @DisplayName("Guarda el hash de la contraseña y permite encontrar al usuario por correo")
+    void guardaClave() throws Exception {
+        dao.registrar(new Usuario(DOC_1, "Prueba", "JUnit", CORREO_1, "3001112233"), Clave.hashear("Clave1234"));
+
+        Usuario u = dao.buscarPorCorreo(CORREO_1);
+        assertTrue(Clave.verificar("Clave1234", u.getClaveHash()));
+        assertEquals(u.getId(), dao.buscarPorId(u.getId()).getId());
+    }
+
+    @Test
+    @DisplayName("Un correo que no existe devuelve null")
+    void correoInexistente() throws Exception {
+        assertNull(dao.buscarPorCorreo("nadie@workplace.test"));
     }
 
     @Test
