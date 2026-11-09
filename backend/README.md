@@ -98,3 +98,22 @@ El teléfono puede repetirse a propósito, porque varias personas pueden compart
 | 7 | Teléfono inválido | `12345` | "Escribe un celular de 10 dígitos…" |
 | 8 | Inyección SQL | Nombre `' OR '1'='1` | Se rechaza por la validación; además todas las consultas usan PreparedStatement |
 | 9 | MySQL apagado | Detener el servicio MySQL80 y registrar | Mensaje "No pudimos conectarnos con la base de datos…" sin mostrar errores técnicos |
+
+## API de autenticación (JSON)
+
+Base: `http://localhost:8080/workplace/api`. Si la base ya existía, ejecutar antes `sql/api_autenticacion.sql` con root.
+
+| Método | Ruta | Qué hace | Respuestas |
+|---|---|---|---|
+| POST | `/registro` | Crea un usuario con contraseña | 201, 400, 409 |
+| POST | `/login` | Valida correo y contraseña y entrega un token | 200, 400, 401 |
+| GET | `/perfil` | Datos del usuario (cabecera `Authorization: Bearer <token>`) | 200, 401 |
+| POST | `/logout` | Cierra la sesión | 200 |
+
+La contraseña se guarda con PBKDF2 (sal propia y 120 000 iteraciones). El token dura 30 minutos y vive en memoria.
+
+Ejemplo:
+
+```
+curl -X POST http://localhost:8080/workplace/api/login -H "Content-Type: application/json" -d "{\"correo\":\"maria.perez@correo.com\",\"clave\":\"Segura2026\"}"
+```

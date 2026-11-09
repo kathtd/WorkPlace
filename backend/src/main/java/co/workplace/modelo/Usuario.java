@@ -11,6 +11,7 @@ public class Usuario {
     private String correo;
     private String telefono;
     private LocalDateTime fechaRegistro;
+    private String claveHash;
 
     public Usuario() {
     }
@@ -77,6 +78,14 @@ public class Usuario {
 
     public void setFechaRegistro(LocalDateTime fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
+    }
+
+    public String getClaveHash() {
+        return claveHash;
+    }
+
+    public void setClaveHash(String claveHash) {
+        this.claveHash = claveHash;
     }
 
     public String getNombreCompleto() {

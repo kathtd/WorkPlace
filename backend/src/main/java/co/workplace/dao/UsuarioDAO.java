@@ -16,7 +16,11 @@ public class UsuarioDAO {
     private static final String EXISTE_DOCUMENTO = "SELECT 1 FROM usuarios WHERE documento = ?";
     private static final String EXISTE_CORREO = "SELECT 1 FROM usuarios WHERE correo = ?";
     private static final String INSERTAR =
-            "INSERT INTO usuarios (documento, nombres, apellidos, correo, telefono) VALUES (?, ?, ?, ?, ?)";
+            "INSERT INTO usuarios (documento, nombres, apellidos, correo, telefono, clave_hash) VALUES (?, ?, ?, ?, ?, ?)";
+    private static final String BUSCAR_POR_CORREO =
+            "SELECT id, documento, nombres, apellidos, correo, telefono, clave_hash FROM usuarios WHERE correo = ?";
+    private static final String BUSCAR_POR_ID =
+            "SELECT id, documento, nombres, apellidos, correo, telefono, clave_hash FROM usuarios WHERE id = ?";
     private static final String LISTAR =
             "SELECT id, documento, nombres, apellidos, correo, telefono, fecha_registro FROM usuarios ORDER BY fecha_registro DESC, id DESC";
     private static final String ELIMINAR_POR_DOCUMENTO = "DELETE FROM usuarios WHERE documento = ?";
@@ -30,6 +34,10 @@ public class UsuarioDAO {
     }
 
     public void registrar(Usuario usuario) throws SQLException, DatoDuplicadoException {
+        registrar(usuario, null);
+    }
+
+    public void registrar(Usuario usuario, String claveHash) throws SQLException, DatoDuplicadoException {
         if (existeDocumento(usuario.getDocumento())) {
             throw new DatoDuplicadoException("documento", "Ya existe un usuario registrado con ese documento de identidad.");
         }
@@ -44,6 +52,7 @@ public class UsuarioDAO {
             ps.setString(3, usuario.getApellidos());
             ps.setString(4, usuario.getCorreo());
             ps.setString(5, usuario.getTelefono());
+            ps.setString(6, claveHash);
             ps.executeUpdate();
             try (ResultSet keys = ps.getGeneratedKeys()) {
                 if (keys.next()) {
@@ -58,6 +67,14 @@ public class UsuarioDAO {
                     esCorreo ? "Ya existe un usuario registrado con ese correo electrónico."
                              : "Ya existe un usuario registrado con ese documento de identidad.");
         }
+    }
+
+    public Usuario buscarPorCorreo(String correo) throws SQLException {
+        return buscar(BUSCAR_POR_CORREO, correo);
+    }
+
+    public Usuario buscarPorId(int id) throws SQLException {
+        return buscar(BUSCAR_POR_ID, String.valueOf(id));
     }
 
     public List<Usuario> listar() throws SQLException {
@@ -85,6 +102,27 @@ public class UsuarioDAO {
              PreparedStatement ps = con.prepareStatement(ELIMINAR_POR_DOCUMENTO)) {
             ps.setString(1, documento);
             return ps.executeUpdate() > 0;
+        }
+    }
+
+    private Usuario buscar(String sql, String valor) throws SQLException {
+        try (Connection con = Conexion.obtener();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, valor);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (!rs.next()) {
+                    return null;
+                }
+                Usuario u = new Usuario(
+                        rs.getString("documento"),
+                        rs.getString("nombres"),
+                        rs.getString("apellidos"),
+                        rs.getString("correo"),
+                        rs.getString("telefono"));
+                u.setId(rs.getInt("id"));
+                u.setClaveHash(rs.getString("clave_hash"));
+                return u;
+            }
         }
     }
 

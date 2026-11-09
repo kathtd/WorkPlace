@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     apellidos       VARCHAR(60)   NOT NULL,
     correo          VARCHAR(100)  NOT NULL COMMENT 'Se guarda en minúsculas',
     telefono        VARCHAR(10)   NOT NULL COMMENT 'Celular (3XXXXXXXXX) o fijo (60XXXXXXXX)',
+    clave_hash      VARCHAR(120)  NULL COMMENT 'PBKDF2: iteraciones$sal$hash',
     fecha_registro  TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
     CONSTRAINT uq_usuarios_documento UNIQUE (documento),
